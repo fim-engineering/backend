@@ -10,13 +10,13 @@
 ## Documentation
 
 ### Sign Up
-** Header ** : Content-Type (application/json), Accept (application/json)
-** Body ** :
+- ** Header ** : Content-Type (application/json), Accept (application/json)
+- ** Body ** :
 {
 	"email":"email",
 	"password":"password"
 }
-** Return ** :
+- ** Return ** :
 {
   {
     "token": {
@@ -35,7 +35,7 @@
         "email": "EMAIL",
         "created_at": "DATETIME",
         "updated_at": "DATETIME",
-        "deleted_at": 
+        "deleted_at":
     }
 }
 }
