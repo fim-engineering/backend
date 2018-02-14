@@ -27,7 +27,7 @@ class AuthController extends Controller
     public function signup(Request $request)
     {
       $user = User::all();
-      dd($request);
+      dd($request->email);
       $this->validate($request, [
         'email'=> 'required|unique:users',
         'password'=>'required',
