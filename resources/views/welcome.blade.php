@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel Halo Halo Bandung
+                    Laravel Halo Halo Bandung Ibu Kota
                 </div>
 
                 <div class="links">
