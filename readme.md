@@ -17,6 +17,7 @@
 	"password":"password"
 }
 - ** Return ** :
+```
 {
   {
     "token": {
@@ -37,5 +38,6 @@
         "updated_at": "DATETIME",
         "deleted_at":
     }
+  }
 }
-}
+```
