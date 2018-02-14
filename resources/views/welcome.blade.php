@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Laravel Halo Halo Bandung
                 </div>
 
                 <div class="links">

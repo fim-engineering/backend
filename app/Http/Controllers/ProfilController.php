@@ -18,6 +18,6 @@ class ProfilController extends Controller
 
     public function index()
     {
-      dd("MASUK TANPA AUTHss ");
+      dd("MASUK TANPA AUTHssss ");
     }
 }
