@@ -1,7 +1,6 @@
 <?php
 
-$url = parse_url(getenv("postgres://znzfyaeiqqhlwd:0b3f59dd3aee9851343dbbd092bb473a189f677184bd4c31010d5cfe2c3fd502@ec2-54-235-64-195.comp
-ute-1.amazonaws.com:5432/d9afh947eei08o"));
+$url = parse_url(getenv("DATABASE_URL"));
 
 $host = $url["host"];
 $username = $url["user"];
@@ -21,7 +20,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'heroku'),
 
     /*
     |--------------------------------------------------------------------------
@@ -64,11 +63,11 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => $host,
+            'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
-            'database' => $database,
-            'username' => $username,
-            'password' => $password,
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
@@ -84,6 +83,16 @@ return [
             'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',
+        ],
+        'heroku' => [
+            'driver'   => 'pgsql',
+            'host'     => parse_url(getenv("DATABASE_URL"))["host"],
+            'database' => substr(parse_url(getenv("DATABASE_URL"))["path"], 1),
+            'username' => parse_url(getenv("DATABASE_URL"))["user"],
+            'password' => parse_url(getenv("DATABASE_URL"))["pass"],
+            'charset'  => 'utf8',
+            'prefix'   => '',
+            'schema'   => 'public',
         ],
 
     ],
