@@ -23,17 +23,7 @@
 ```
 - ** Return ** :
 ```
-{
-  {
-    "token": {
-        "headers": {},
-        "original": {
-            "access_token": "TOKEN",
-            "token_type": "bearer",
-            "expires_in": 3600
-        },
-        "exception": null
-    },
+{  
     "user": {
         "id": ID USER,
         "name": "NULL NAME",
@@ -49,7 +39,7 @@
 
 ### Log In
 ```
-/api/signup | POST
+/api/login | POST
 ```
 - Header : Content-Type (application/json), Accept (application/json)
 - Body :
