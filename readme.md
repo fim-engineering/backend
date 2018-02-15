@@ -10,12 +10,17 @@
 ## Documentation
 
 ### Sign Up
-- ** Header ** : Content-Type (application/json), Accept (application/json)
-- ** Body ** :
+```
+/api/signup | POST
+```
+- Header : Content-Type (application/json), Accept (application/json)
+- Body :
+```
 {
 	"email":"email",
 	"password":"password"
 }
+```
 - ** Return ** :
 ```
 {
@@ -39,5 +44,41 @@
         "deleted_at":
     }
   }
+}
+```
+
+### Log In
+```
+/api/signup | POST
+```
+- Header : Content-Type (application/json), Accept (application/json)
+- Body :
+```
+{
+	"email":"email",
+	"password":"password"
+}
+```
+- ** Return ** :
+```
+{
+    "token": {
+        "headers": {},
+        "original": {
+            "access_token": "TOKEN",
+            "token_type": "bearer",
+            "expires_in": 3600
+        },
+        "exception": null
+    },
+    "user": {
+        "id": ID,
+        "name": NULL NAME,
+        "username": NULL USERNAME,
+        "email": "EMAIL",
+        "created_at": "DATETIME",
+        "updated_at": "DATETIME",
+        "deleted_at": null
+    }
 }
 ```
