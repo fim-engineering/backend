@@ -20,25 +20,15 @@ use Illuminate\Http\Request;
 Route::group(['middleware' => ['api']],function(){
 
   Route::post('/signup', 'AuthController@signup');
+  Route::post('/login', 'AuthController@login')->name('login');
+  Route::post('/logout', 'AuthController@logout');
+  Route::post('/refresh', 'AuthController@refresh');
+  Route::post('/me', 'AuthController@me');
 
-});
+  Route::group(['middleware' =>['jwt.auth']], function(){
 
-Route::group([
+    Route::get('/tes','ProfilController@index');
 
-    'middleware' => 'api',
-    // 'prefix' => 'auth'
-
-], function ($router) {
-
-    Route::post('/login', 'AuthController@login')->name('login');
-    Route::post('/logout', 'AuthController@logout');
-    Route::post('/refresh', 'AuthController@refresh');
-    Route::post('/me', 'AuthController@me');
-
-    Route::group(['middleware' =>['jwt.auth']], function(){
-
-      Route::get('/tes','ProfilController@index');
-
-    });
+  });
 
 });
