@@ -29,6 +29,11 @@ Route::group(['middleware' => ['api']],function(){
 
     Route::get('/tes','ProfilController@index');
 
+    /**
+     * CRUD untuk Data Diri Dasar
+     */
+     
+
   });
 
 });

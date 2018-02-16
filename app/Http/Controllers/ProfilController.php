@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\User;
+
 
 class ProfilController extends Controller
 {
@@ -13,11 +16,27 @@ class ProfilController extends Controller
    */
   public function __construct()
   {
-      $this->middleware('auth:api', ['except' => ['login']]);
+      $this->middleware('auth:api']);
   }
 
     public function index()
     {
+      $user = use App\User;
 
+    }
+
+    public function create()
+    {
+      # code...
+    }
+
+    public function update()
+    {
+      # code...
+    }
+
+    public function delete()
+    {
+      # code...
     }
 }
