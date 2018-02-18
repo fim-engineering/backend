@@ -7,9 +7,11 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## Documentation
+# Documentation
 
-### Sign Up
+### Authorization
+
+#### Sign Up
 ```
 /api/signup | POST
 ```
@@ -21,7 +23,7 @@
 	"password":"password"
 }
 ```
-- ** Return ** :
+- Return :
 ```
 {  
     "user": {
@@ -37,7 +39,7 @@
 }
 ```
 
-### Log In
+#### Log In
 ```
 /api/login | POST
 ```
@@ -49,7 +51,7 @@
 	"password":"password"
 }
 ```
-- ** Return ** :
+- Return :
 ```
 {
     "token": {
@@ -70,5 +72,18 @@
         "updated_at": "DATETIME",
         "deleted_at": null
     }
+}
+```
+
+#### Log Out
+```
+/api/logout | POST
+```
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+- Body : -
+- Return :
+```
+{
+    "Message": 'Successfully logged out',
 }
 ```

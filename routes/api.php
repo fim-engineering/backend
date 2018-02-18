@@ -30,9 +30,12 @@ Route::group(['middleware' => ['api']],function(){
     Route::get('/tes','ProfilController@index');
 
     /**
-     * CRUD untuk Data Diri Dasar
+     * RU untuk Data Diri Dasar Peserta
      */
+     Route::get('/myprofile', 'ProfilController@index')->name('profil.index');
+     Route::put('/myprofile/update', 'ProfilController@update')->name('profil.update');
      
+
 
   });
 
