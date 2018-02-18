@@ -15,7 +15,8 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->increments('id');
-            $table->increments('user_id')->references('id')->on('users');
+            $table->increments('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('full_name',255)->nullable();
             $table->text('address')->nullable();
             $table->string('city')->nullable();
@@ -39,7 +40,7 @@ class CreateProfilesTable extends Migration
             $table->text('disease_history')->nullable();
             $table->string('video_profile')->nullable();
             $table->string('religion',20)->nullable();
-            $table->integer('is_ready',10)->default(0);
+            $table->integer('is_ready',0);
             $table->timestamps();
             $table->datetime('deleted_at')->nullable();
         });
