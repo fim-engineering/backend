@@ -39,7 +39,7 @@ class CreateProfilesTable extends Migration
             $table->text('disease_history')->nullable();
             $table->string('video_profile')->nullable();
             $table->string('religion',20)->nullable();
-            $table->integer('is_ready',10)->nullable();
+            $table->integer('is_ready',10)->default(0);
             $table->timestamps();
             $table->datetime('deleted_at')->nullable();
         });
