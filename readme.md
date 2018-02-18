@@ -32,6 +32,9 @@
 ```
 
 #### Activate
+Aktivasi menggunakan skema memasukkan kode yang digenerate secara acak sebanyak 6 digit yang dikirim via email.
+Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
+
 ```
 /api/activate | POST
 ```
@@ -52,8 +55,27 @@
 		"account": 'account',
 
 	if(invalid)
-		"message": 'Successfully Activated',
+		"message": 'Code or email not Valid, Failed to Activate',
 		"account_status": 0 (invalid / inactive);
+}
+```
+
+#### Resend Email Verification
+```
+/api/resend | POST
+```
+- Header : Content-Type (application/json), Accept (application/json)
+- Body :
+```
+{
+	"email":"e-mail",
+}
+```
+- Return :
+```
+{  
+	'message':'Successfully Processing Resend Verification Email',
+	'code': 200,
 }
 ```
 
@@ -90,7 +112,7 @@
         "updated_at": "DATETIME",
         "deleted_at": null
     }
-		"account_status": (status)
+		"account_status": (1 = activated | 0 = not activated)
 }
 ```
 
@@ -104,5 +126,124 @@
 ```
 {
     "Message": 'Successfully logged out',
+}
+```
+
+#### Change Password
+```
+/api/change-password | POST
+```
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+- Body :
+```
+{
+	"old_password":'string'
+	"new_password":'string'
+	"new1_password":'strint'
+
+}
+```
+- Return :
+```
+//  if new & new1 password didn't match
+{
+	'message':"Your New Password Didn't Match",
+	'code': 304,
+}
+
+// if old password match in database
+{
+	'message' => "Password has been changed",
+	'code' => 200,
+}
+
+// else
+{
+	'message': "Please Try Again",
+	'code':401,
+}
+```
+
+
+### Profile
+
+
+### index profile
+```
+/api/myprofile | GET
+```
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+- Body : -
+- Return :
+
+```
+{
+	{
+    "user_profile": {
+        "id": 4,
+        "user_id": 8,
+        "full_name": "Bagus Dwi Utama",
+        "address": null,
+        "city": null,
+        "phone": null,
+        "gender": null,
+        "photo_profile_link": null,
+        "ktp_link": null,
+        "blood": null,
+        "born_date": null,
+        "born_city": null,
+        "marriage_status": null,
+        "address_format": null,
+        "facebook": null,
+        "instagram": null,
+        "blog": null,
+        "line": null,
+        "disease_history": null,
+        "video_profile": null,
+        "religion": null,
+        "is_ready": 0 notyet/1 ready,
+        "created_at": "datetime",
+        "updated_at": "datetime",
+        "deleted_at": null
+    },
+}
+```
+
+#### Update Profile
+```
+/api/myprofile/update | PUT
+```
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+- Body :
+```
+{
+	"full_name": string,
+	"address": text,
+	"city": string,
+	"phone": string,
+	"gender": string,
+	"photo_profile_link": string,
+	"ktp_link": string,
+	"blood": string,
+	"born_date": datetime,
+	"born_city": string,
+	"marriage_status": integer = 1 (Sudah Menikah), 0 (Belum Menikah),
+	"facebook": string,
+	"instagram": string,
+	"blog": string,
+	"line": string,
+	"disease_history": text (New list by New Line),
+	"video_profile": string,
+	"religion": string,
+	"is_ready": 0 = belum | 1 = sudah,
+}
+```
+
+- Return :
+```
+{
+	'user_profile' : user_profile,
+	'message':'Success ! Profile Updated',
+	'code':200,
 }
 ```

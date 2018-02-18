@@ -24,6 +24,8 @@ Route::group(['middleware' => ['api']],function(){
   Route::post('/logout', 'AuthController@logout');
   Route::post('/refresh', 'AuthController@refresh');
   Route::post('/activate', 'AuthController@activate');
+  Route::post('/resend', 'AuthController@resend');
+  Route::post('/change-password', 'AuthController@change_password');
   Route::post('/me', 'AuthController@me');
 
   Route::group(['middleware' =>['jwt.auth']], function(){

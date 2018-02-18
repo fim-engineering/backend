@@ -23,7 +23,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login','signup','activate']]);
+        $this->middleware('auth:api', ['except' => ['login','signup','activate','resend']]);
     }
 
 
@@ -74,7 +74,8 @@ class AuthController extends Controller
          return response()->json([
            'message' =>'Account Already Activated',
            'account_status'=> $account->active,
-           'account'=>$account
+           'account'=>$account,
+           'code' => 200,
          ]);
        }elseif ($account->active == 0 && $account->unique_code == $request->json('unique_code')) {
          $account->active = 1 ;
@@ -83,6 +84,7 @@ class AuthController extends Controller
            'message' =>'Successfully Activated',
            'account_status'=>$account->active,
            'account'=>$account,
+           'code' => 200,
          ]);
 
        }else {
@@ -91,10 +93,26 @@ class AuthController extends Controller
            'account_status'=> 0,
          ]);
        }
-
-
      }
 
+     /**
+      * Resend Email Verification
+      */
+
+      public function resend(Request $request)
+      {
+        $email=$request-json('email');
+        $dbuseradd = User::where('email', $email)->first();
+        $dbuseradd->unique_code = rand(100000,999999);
+        $dbuseradd->save();
+
+        $mail = Mail::to($request->json('email'))->send(new activateAccount($dbuseradd));
+
+        return response()->json([
+          'message' =>'Successfully Processing Resend Verification Email',
+          'code' => 200,
+        ]);
+      }
 
     /**
      * Get a JWT via given credentials.
@@ -164,5 +182,37 @@ class AuthController extends Controller
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 6000000
         ]);
+    }
+
+    public function change_password(Request $request)
+    {
+      $account = auth()->user();
+
+      $old_password = $request->json('old_password');
+      $new_password = $request->json('new_password');
+      $new1_password = $request->json('new1_password');
+
+      if ($new_password !== $new1_password) {
+        return response()->json([
+            'message' => "Your New Password Didn't Match",
+            'code' => 304,
+        ]);
+      }
+
+      if ($account->bcrypt($request->json('old_password')) && bcrypt($request->json('password'))) {
+        $account->password = bcrypt($request->json('new_password'));
+        $account->save();
+
+        return response()->json([
+            'message' => "Password has been changed",
+            'code' => 200,
+        ]);
+      }else {
+        return response()->json([
+            'message' => "Please Try Again",
+            'code' => 401,
+        ]);
+      }
+
     }
 }
