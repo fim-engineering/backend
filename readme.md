@@ -19,23 +19,41 @@
 - Body :
 ```
 {
-	"email":"email",
+	"name":"full name"
+	"email":"e-mail",
 	"password":"password"
 }
 ```
 - Return :
 ```
 {  
-    "user": {
-        "id": ID USER,
-        "name": "NULL NAME",
-        "username": "NULL USERNAME",
-        "email": "EMAIL",
-        "created_at": "DATETIME",
-        "updated_at": "DATETIME",
-        "deleted_at":
-    }
-  }
+    "message": 'Successfully Create an Account';  
+}
+```
+
+#### Activate
+```
+/api/activate | POST
+```
+- Header : Content-Type (application/json), Accept (application/json)
+- Body :
+```
+{
+	"email":"e-mail",
+	"unique_code":"6 digit random number"
+}
+```
+- Return :
+```
+{  
+	if(already activated or valid code)
+		"message": 'Successfully Activated',
+		"account_status": 1,
+		"account": 'account',
+
+	if(invalid)
+		"message": 'Successfully Activated',
+		"account_status": 0 (invalid / inactive);
 }
 ```
 
@@ -72,6 +90,7 @@
         "updated_at": "DATETIME",
         "deleted_at": null
     }
+		"account_status": (status)
 }
 ```
 

@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\activateAccount;
 use Illuminate\Http\Request;
+use App\models\profile;
 use App\User;
 use JWTAuth;
 
@@ -20,25 +23,77 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login','signup']]);
+        $this->middleware('auth:api', ['except' => ['login','signup','activate']]);
     }
 
 
     public function signup(Request $request)
     {
-      $user = User::all();
 
       $this->validate($request, [
         'email'=> 'required|unique:users',
         'password'=>'required',
       ]);
 
-      return User::create([
-        'email'=> $request->json('email'),
-        'password'=> bcrypt($request->json('password')),
+      $dbuseradd = new user;
+      $dbuseradd->email = $request->json('email');
+      $dbuseradd->password = bcrypt($request->json('password'));
+      $dbuseradd->name = $request->json('name');
+      $dbuseradd->member_or_not = 0;
+      $dbuseradd->unique_code = rand(100000,999999);
+      $dbuseradd->save();
+
+      $profile = new profile;
+      $profile->user_id = $dbuseradd->id;
+      $profile->full_name = $dbuseradd->name;
+      $profile->is_ready = 0;
+      $profile->save();
+
+      $mail = Mail::to($request->json('email'))->send(new activateAccount($dbuseradd));
+
+      return response()->json([
+        'message' =>'Successfully Create an Account'
       ]);
 
     }
+
+    /**
+     * Aktivasi
+     */
+     public function activate(Request $request)
+     {
+       # code...
+       $this->validate($request, [
+         'email'=> 'required',
+         'unique_code'=>'required',
+       ]);
+
+       $account = User::where('email', $request->json('email'))->first();
+
+       if ($account->active == 1) {
+         return response()->json([
+           'message' =>'Account Already Activated',
+           'account_status'=> $account->active,
+           'account'=>$account
+         ]);
+       }elseif ($account->active == 0 && $account->unique_code == $request->json('unique_code')) {
+         $account->active = 1 ;
+         $account->save();
+         return response()->json([
+           'message' =>'Successfully Activated',
+           'account_status'=>$account->active,
+           'account'=>$account,
+         ]);
+
+       }else {
+         return response()->json([
+           'message' =>'Code or email not Valid, Failed to Activate',
+           'account_status'=> 0,
+         ]);
+       }
+
+
+     }
 
 
     /**
@@ -58,6 +113,7 @@ class AuthController extends Controller
         return response()->json([
           'token' => $this->respondWithToken($token),
           'user' =>auth()->user(),
+          'account_status'=>auth()->user()->active,
         ]);
     }
 

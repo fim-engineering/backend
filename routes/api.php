@@ -23,6 +23,7 @@ Route::group(['middleware' => ['api']],function(){
   Route::post('/login', 'AuthController@login');
   Route::post('/logout', 'AuthController@logout');
   Route::post('/refresh', 'AuthController@refresh');
+  Route::post('/activate', 'AuthController@activate');
   Route::post('/me', 'AuthController@me');
 
   Route::group(['middleware' =>['jwt.auth']], function(){
@@ -34,7 +35,7 @@ Route::group(['middleware' => ['api']],function(){
      */
      Route::get('/myprofile', 'ProfilController@index')->name('profil.index');
      Route::put('/myprofile/update', 'ProfilController@update')->name('profil.update');
-     
+
 
 
   });

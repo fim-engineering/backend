@@ -7,6 +7,8 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use JWTAuth;
+
 
 
 class ProfilController extends Controller
@@ -23,8 +25,10 @@ class ProfilController extends Controller
 
     public function index()
     {
-      $user = auth()->user()->id;
-
+      $user = auth()->user()->profiles;
+      return response()->json([
+        'user_profile' =>$user,
+      ]);
     }
 
     public function create()
