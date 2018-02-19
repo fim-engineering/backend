@@ -9,8 +9,7 @@ class HomePageController extends Controller
 {
     public function index()
     {
-      $user = User::all();
-      dd($user);
+      $user = User::all();      
       return view('welcome');
     }
 }

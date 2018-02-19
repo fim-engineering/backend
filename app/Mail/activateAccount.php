@@ -32,7 +32,7 @@ class activateAccount extends Mailable
     public function build()
     {
       return $this
-      ->subject('Forum Indonesia Muda Registration User Verification')
+      ->subject('Portal Forum Indonesia Muda Registration User Account')
       ->view('email.verificationUser');
     }
 }

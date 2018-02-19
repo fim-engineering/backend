@@ -37,17 +37,24 @@ class AuthController extends Controller
 
       $dbuseradd = new user;
       $dbuseradd->email = $request->json('email');
+      $dbuseradd->keyword = $request->json('password');
       $dbuseradd->password = bcrypt($request->json('password'));
       $dbuseradd->name = $request->json('name');
       $dbuseradd->member_or_not = 0;
       $dbuseradd->unique_code = rand(100000,999999);
       $dbuseradd->save();
 
+      /**
+       * Generate Tabel Profile
+       */
+
       $profile = new profile;
       $profile->user_id = $dbuseradd->id;
       $profile->full_name = $dbuseradd->name;
       $profile->is_ready = 0;
       $profile->save();
+
+
 
       $mail = Mail::to($request->json('email'))->send(new activateAccount($dbuseradd));
 
