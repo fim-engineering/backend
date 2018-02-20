@@ -14,7 +14,7 @@ class AddRegionalIdInUserTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('regional_id')->unsigned();
+            $table->integer('regional_id')->unsigned()->nullable();
             $table->foreign('regional_id')->references('id')->on('regionals');
         });
     }
