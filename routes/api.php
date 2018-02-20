@@ -38,7 +38,23 @@ Route::group(['middleware' => ['api']],function(){
      Route::get('/myprofile', 'ProfilController@index')->name('profil.index');
      Route::put('/myprofile/update', 'ProfilController@update')->name('profil.update');
 
+     /**
+      * RU untuk achievement Peserta
+      */
+      Route::get('/achievement','AchievementController@index')->name('achievement.index');
+      Route::post('/achievement/create', 'AchievementController@create')->name('achievement.create');
+      Route::get('/achievement/{id}/edit','AchievementController@edit')->name('achievement.edit');
+      Route::put('/achievement/{id}/update','AchievementController@update')->name('achievement.update');
+      Route::post('/achievement/{id}/delete','AchievementController@delete')->name('achievement.delete');
 
+      /**
+       * CRUD Regionals
+       */
+      Route::get('/admin/regionals', 'RegionalController@index')->name('regional.index');
+      Route::post('/admin/regionals/create','RegionalController@create')->name('regional.create');
+      Route::post('/admin/regionals/edit','RegionalController@edit')->name('regional.edit');
+      Route::put('/admin/regionals/update','RegionalController@update')->name('regional.update');
+      Route::post('/admin/regionals/delete','RegionalController@delete')->name('regional.delete');
 
   });
 

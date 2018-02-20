@@ -247,3 +247,112 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 	'code':200,
 }
 ```
+
+### Regionals for Admin
+
+#### Index List Regionals
+```
+/admin/regionals| GET
+```
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+- Body :
+```
+-
+```
+- Return :
+```
+{  
+	'regionals' : $regional,
+	'code' :  200,
+}
+```
+
+#### Create List Regionals
+```
+/admin/regionals/create| POST
+```
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+- Body :
+```
+{
+	"regional_name": string
+	"logo": string
+	"id_google_calendar": string
+	"address": string
+	"city":string
+	"user_id":integer
+}
+```
+- Return :
+```
+{  
+	"message" :  "Success",
+	"regionals" : regional,
+	"code" :  200,
+}
+```
+
+#### Edit Regionals
+```
+/admin/regionals/edit| POST
+```
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+- Body :
+```
+{
+	"regional_id": integer
+}
+```
+- Return :
+```
+{  	
+	"regionals" : regional,
+	"code" :  200,
+}
+```
+
+
+#### Update Regionals
+```
+/admin/regionals/update| PUT
+```
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+- Body :
+```
+{
+	"regional_id":integer,
+	"regional_name": string,
+	"logo": string,
+	"id_google_calendar": string,
+	"address": string,
+	"city":string,
+	"user_id":integer
+}
+```
+- Return :
+```
+{
+	"message": "updated",
+	"regionals" : regional,
+	"code" :  200,
+}
+```
+
+#### Delete Regionals
+```
+/admin/regionals/delete| POST
+```
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+- Body :
+```
+{
+	"regional_id":integer,
+}
+```
+- Return :
+```
+{
+	"message": "deleted",
+	"code" :  200,
+}
+```

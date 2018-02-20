@@ -89,9 +89,9 @@ class ProfilController extends Controller
       $user->born_city = $request->json('born_city');
       $geo_born = $this->geocode($request->json('born_city'), "", "");
 
-      $user->born_lat = $geo['lat'];
-      $user->born_lng = $geo['lng'];
-      
+      $user->born_lat = $geo_born['lat'];
+      $user->born_lng = $geo_born['lng'];
+
       $user->marriage_status = $request->json('marriage_status');
       $user->facebook = $request->json('facebook');
       $user->instagram = $request->json('instagram');
