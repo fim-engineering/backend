@@ -71,35 +71,95 @@ class ProfilController extends Controller
     public function update(Request $request)
     {
       $user = auth()->user()->profiles;
-      $user->full_name = $request->json('full_name');
-      $user->address = $request->json('address');
-      $user->city = $request->json('city');
 
-      $geo = $this->geocode($request->json('city'), $request->json('address'), "");
-      $user->lat = $geo['lat'];
-      $user->lng = $geo['lng'];
-      $user->address_format= $geo['address_format'];
+      if ($request->json('full_name') !== NULL) {
+        $user->full_name = $request->json('full_name');
+      }
 
-      $user->phone = $request->json('phone');
-      $user->gender = $request->json('gender');
-      $user->photo_profile_link = $request->json('photo_profile_link');
-      $user->ktp_link = $request->json('ktp_link');
-      $user->blood = $request->json('blood');
-      $user->born_date = $request->json('born_date');
-      $user->born_city = $request->json('born_city');
-      $geo_born = $this->geocode($request->json('born_city'), "", "");
+      if ($request->json('address') !== NULL) {
+        $user->address = $request->json('address');
+      }
 
-      $user->born_lat = $geo_born['lat'];
-      $user->born_lng = $geo_born['lng'];
+      if ($request->json('city') !== NULL) {
+        $user->city = $request->json('city');
+      }
 
-      $user->marriage_status = $request->json('marriage_status');
-      $user->facebook = $request->json('facebook');
-      $user->instagram = $request->json('instagram');
-      $user->blog = $request->json('blog');
-      $user->line = $request->json('line');
-      $user->disease_history = $request->json('disease_history');
-      $user->video_profile = $request->json('video_profile');
-      $user->religion = $request->json('religion');
+      if ($request->json('city') !== NULL && $request->json('address') !== NULL) {
+        $geo = $this->geocode($request->json('city'), $request->json('address'), "");
+        if ($geo) {
+          $user->lat = $geo['lat'];
+          $user->lng = $geo['lng'];
+          $user->address_format= $geo['address_format'];
+        }
+      }
+
+      if ($request->json('phone') !== NULL) {
+        $user->phone = $request->json('phone');
+      }
+
+      if ($request->json('gender') !== NULL) {
+        $user->gender = $request->json('gender');
+      }
+
+      if ($request->json('photo_profile_link') !== NULL) {
+        $user->photo_profile_link = $request->json('photo_profile_link');
+      }
+
+      if ($request->json('ktp_link') !== NULL) {
+        $user->ktp_link = $request->json('ktp_link');
+      }
+
+      if ($request->json('blood')) {
+        $user->blood = $request->json('blood');
+      }
+
+      if ($request->json('born_date') !== null) {
+        $user->born_date = $request->json('born_date');
+      }
+
+      if ($request->json('born_city')) {
+        $user->born_city = $request->json('born_city');
+      }
+
+      if ($request->json('born_city') !== NULL && $request->json('born_address') !== NULL) {
+
+        $geo_born = $this->geocode($request->json('born_city'), "", "");
+        $user->born_lat = $geo_born['lat'];
+        $user->born_lng = $geo_born['lng'];
+      }
+
+      if ($request->json('marriage_status') !==null) {
+        $user->marriage_status = $request->json('marriage_status');
+      }
+
+      if ($request->json('facebook')) {
+        $user->facebook = $request->json('facebook');
+      }
+
+      if ($request->json('instagram')) {
+        $user->instagram = $request->json('instagram');
+      }
+
+      if ($request->json('blog')) {
+        $user->blog = $request->json('blog');
+      }
+
+      if ($request->json('line')) {
+        $user->line = $request->json('line');
+      }
+
+      if ($request->json('disease_history') !==null) {
+        $user->disease_history = $request->json('disease_history');
+      }
+
+      if ($request->json('video_profile') !== null) {
+        $user->video_profile = $request->json('video_profile');
+      }
+
+      if ($request->json('religion') !== null) {
+        $user->religion = $request->json('religion');
+      }
+
       $user->is_ready = $request->json('is_ready');
       $user->update();
 
