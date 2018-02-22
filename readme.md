@@ -183,6 +183,9 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
         "id": 4,
         "user_id": 8,
         "full_name": "Bagus Dwi Utama",
+				"institution": "null",
+				"majors":"null",
+				"generation":"null",
         "address": null,
         "city": null,
         "phone": null,
@@ -218,6 +221,9 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 ```
 {
 	"full_name": string,
+	"institution": "string",
+	"majors":"string",
+	"generation":"string",
 	"address": text,
 	"city": string,
 	"phone": string,

@@ -76,6 +76,18 @@ class ProfilController extends Controller
         $user->full_name = $request->json('full_name');
       }
 
+      if ($request->json('institution') !== NULL) {
+        $user->institution = $request->json('institution');
+      }
+
+      if ($request->json('generation') !== NULL) {
+        $user->generation = $request->json('generation');
+      }
+
+      if ($request->json('majors') !== NULL) {
+        $user->majors = $request->json('majors');
+      }
+
       if ($request->json('address') !== NULL) {
         $user->address = $request->json('address');
       }
