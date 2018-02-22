@@ -7,6 +7,7 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Jcf\Geocode\Geocode;
+use App\models\institution;
 use App\User;
 use JWTAuth;
 
@@ -78,6 +79,17 @@ class ProfilController extends Controller
 
       if ($request->json('institution') !== NULL) {
         $user->institution = $request->json('institution');
+
+        $institution = institution::where('institution_name','like', '%'.$request->json('institution').'%')->first();
+        if ($institution !== null) {
+          $id_kampus = $institution->id;
+          $user->institution_id = $id_kampus;
+        }else {
+          $institutionadd = new institution;
+          $institutionadd->institution_name = $request->json('institution');
+          $institutionadd->save();
+          $user->institution_id = $institutionadd->id;
+        }
       }
 
       if ($request->json('generation') !== NULL) {

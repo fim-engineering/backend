@@ -258,7 +258,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 #### Index List Regionals
 ```
-/admin/regionals| GET
+/api/admin/regionals| GET
 ```
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 - Body :
@@ -275,7 +275,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 #### Create List Regionals
 ```
-/admin/regionals/create| POST
+/api/admin/regionals/create| POST
 ```
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 - Body :
@@ -300,7 +300,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 #### Edit Regionals
 ```
-/admin/regionals/edit| POST
+/api/admin/regionals/edit| POST
 ```
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 - Body :
@@ -320,7 +320,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 #### Update Regionals
 ```
-/admin/regionals/update| PUT
+/api/admin/regionals/update| PUT
 ```
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 - Body :
@@ -346,7 +346,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 #### Delete Regionals
 ```
-/admin/regionals/delete| POST
+/api/admin/regionals/delete| POST
 ```
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 - Body :
@@ -360,5 +360,17 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 {
 	"message": "deleted",
 	"code" :  200,
+}
+```
+
+#### Institution List
+```
+/api/institution-list | GET
+```
+- Header : Content-Type (application/json), Accept (application/json))
+- Return :
+```
+{
+	"list kampus" (distincted);
 }
 ```

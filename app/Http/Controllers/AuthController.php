@@ -10,6 +10,7 @@ use App\Mail\activateAccount;
 use Illuminate\Http\Request;
 use App\models\profile;
 use App\User;
+use App\models\institution;
 use JWTAuth;
 
 class AuthController extends Controller
@@ -23,7 +24,15 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login','signup','activate','resend']]);
+        $this->middleware('auth:api', ['except' => ['login','signup','activate','resend','institution']]);
+    }
+
+    public function institution()
+    {
+      $institution = institution::orderBy('institution_name','asc')->distinct()->pluck('institution_name');
+      return response()->json([
+        'institutions' =>$institution
+      ]);
     }
 
 

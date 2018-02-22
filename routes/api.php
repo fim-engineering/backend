@@ -28,6 +28,16 @@ Route::group(['middleware' => ['api']],function(){
   Route::post('/change-password', 'AuthController@change_password');
   Route::post('/me', 'AuthController@me');
 
+  /**
+   * API list Institusi
+   */
+
+   Route::get('/institution-list', 'AuthController@institution');
+
+   /**
+    * masuk wilayah auth
+    */
+
   Route::group(['middleware' =>['jwt.auth']], function(){
 
     Route::get('/tes','ProfilController@index');
@@ -48,13 +58,15 @@ Route::group(['middleware' => ['api']],function(){
       Route::post('/achievement/{id}/delete','AchievementController@delete')->name('achievement.delete');
 
       /**
-       * CRUD Regionals
+       * CRUD Regionals (DONE)
        */
       Route::get('/admin/regionals', 'RegionalController@index')->name('regional.index');
       Route::post('/admin/regionals/create','RegionalController@create')->name('regional.create');
       Route::post('/admin/regionals/edit','RegionalController@edit')->name('regional.edit');
       Route::put('/admin/regionals/update','RegionalController@update')->name('regional.update');
       Route::post('/admin/regionals/delete','RegionalController@delete')->name('regional.delete');
+
+
 
   });
 
