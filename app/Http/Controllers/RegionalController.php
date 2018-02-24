@@ -47,7 +47,7 @@ class RegionalController extends Controller
 
     public function index()
     {
-      $regional= regional::sortBy('regional_name')->get();
+      $regional= regional::OrderBy('regional_name','asc')->get();
 
       return response()->json([
         'regionals' =>$regional,

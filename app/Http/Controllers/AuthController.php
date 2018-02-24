@@ -6,12 +6,15 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
+use Bogardo\Mailgun\Mail\Message;
 use App\Mail\activateAccount;
 use Illuminate\Http\Request;
+use App\models\institution;
 use App\models\profile;
 use App\User;
-use App\models\institution;
 use JWTAuth;
+use Mailgun;
+
 
 class AuthController extends Controller
 {
@@ -63,9 +66,15 @@ class AuthController extends Controller
       $profile->is_ready = 0;
       $profile->save();
 
+      $email_data = array('dbuseradd' =>$dbuseradd , );
 
+      $theemail = $request->json('email');
 
-      $mail = Mail::to($request->json('email'))->send(new activateAccount($dbuseradd));
+      Mailgun::send('email.useregister', $email_data, function ($message) use ($theemail) {
+          $message->to($theemail)->subject('Selamat datang Pemuda/i Indoneisa di Portal Forum Indonesia Muda');
+      });
+
+      // $mail = Mail::to($request->json('email'))->send(new activateAccount($dbuseradd));
 
       return response()->json([
         'message' =>'Successfully Create an Account'

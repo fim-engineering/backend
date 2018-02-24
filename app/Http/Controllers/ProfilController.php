@@ -184,7 +184,10 @@ class ProfilController extends Controller
         $user->religion = $request->json('religion');
       }
 
-      $user->is_ready = $request->json('is_ready');
+      if ($request->json('is_ready') !== null) {        
+        $user->is_ready = $request->json('is_ready');
+      }
+
       $user->update();
 
       return response()->json([

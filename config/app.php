@@ -161,6 +161,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Jcf\Geocode\GeocodeServiceProvider::class,
+        Bogardo\Mailgun\MailgunServiceProvider::class,
 
         /**
          * API
@@ -221,6 +222,7 @@ return [
          */
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+        'Mailgun' => Bogardo\Mailgun\Facades\Mailgun::class,
     ],
 
 ];
