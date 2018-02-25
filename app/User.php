@@ -62,4 +62,11 @@ class User extends Authenticatable implements JWTSubject
      {
        return $this->hasOne('App\models\profile', 'user_id');
      }
+
+     public function achievements()
+     {
+       return $this->hasMany('App\models\achievement');
+     }
+
+
 }

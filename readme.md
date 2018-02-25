@@ -374,3 +374,110 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 	"list kampus" (distincted);
 }
 ```
+
+
+
+### Achievement for participant
+
+#### Index List Achievement (One to Many)
+```
+/api/achievement| GET
+```
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+- Body :
+```
+-
+```
+- Return :
+```
+{  
+	"achievement" : $achievement,
+	"code":  200,
+}
+```
+
+#### Create List of Achievement
+```
+/api/achievement/create| POST
+```
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+- Body :
+```
+{
+		"achievement"		: "string",
+		"date_from"			: "format Y-m-d",
+		"date_end"			: "format Y-m-d",
+		"position_name"	: "string",
+		"phone_leader"	: "string",
+		"email_leader"	:	"string",
+		"description"		:	"text",
+		"is_ready"			:	"integer"
+}
+```
+- Return :
+```
+{  
+		'user_achievements' = $user_achievements,
+		'message'='Success ! Achievements Added',
+		'code'= 200,
+}
+```
+
+#### Edit One Achievement
+```
+/achievement/'+id_achievement+'/edit| GET
+```
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+- Return :
+```
+{  	
+	'user_achievements' =>$id,
+	'code'=> 200,
+}
+```
+
+
+#### Update Regionals
+```
+/api/achievement/{id}/update| PUT
+```
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+- Body :
+```
+{
+	"achievement"		: "string",
+	"date_from"			: "format Y-m-d",
+	"date_end"			: "format Y-m-d",
+	"position_name"	: "string",
+	"phone_leader"	: "string",
+	"email_leader"	:	"string",
+	"description"		:	"text",
+	"is_ready"			:	"integer"
+}
+```
+- Return :
+```
+{
+	'Updated' :Updated,
+	'code': 200,
+}
+```
+
+#### Delete Regionals
+```
+/api/achievement/'+id_achievement+'/delete| POST
+```
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+- Body :
+```
+{
+	-
+}
+```
+- Return :
+```
+{
+	"message": 'Achievement Deleted',
+	"code":  200,
+}
+```
