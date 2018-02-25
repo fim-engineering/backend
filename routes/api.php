@@ -17,6 +17,8 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
+Route::get('/deletebagus', 'AuthController@deletebagus');
+
 Route::group(['middleware' => ['api']],function(){
 
   Route::post('/signup', 'AuthController@signup');

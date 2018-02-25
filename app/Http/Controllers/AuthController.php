@@ -27,7 +27,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login','signup','activate','resend','institution']]);
+        $this->middleware('auth:api', ['except' => ['login','signup','activate','resend','institution','deletebagus']]);
     }
 
     public function institution()
@@ -66,11 +66,11 @@ class AuthController extends Controller
       $profile->is_ready = 0;
       $profile->save();
 
-      $email_data = array('dbuseradd' =>$dbuseradd , );
+      $email_data = array('user' =>$dbuseradd , );
 
       $theemail = $request->json('email');
 
-      Mailgun::send('email.useregister', $email_data, function ($message) use ($theemail) {
+      Mailgun::send('email.verificationUser', $email_data, function ($message) use ($theemail) {
           $message->to($theemail)->subject('Selamat datang Pemuda/i Indoneisa di Portal Forum Indonesia Muda');
       });
 
@@ -239,5 +239,14 @@ class AuthController extends Controller
         ]);
       }
 
+    }
+
+    public function deletebagus()
+    {
+      $user = user::where('email','dwiutamabagus@gmail.com')->first();
+      $user->profiles()->delete();
+      $user->delete();
+
+      dd("berhasil");
     }
 }

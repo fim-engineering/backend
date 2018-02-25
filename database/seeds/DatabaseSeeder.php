@@ -12,6 +12,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(DbKampus::class);
-        $this->call(DbRegional::class);
+        // $this->call(DbRegional::class);
     }
 }
