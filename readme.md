@@ -6,27 +6,34 @@
 
 
 
-1. [Saya mendaftar untuk menjadi kader FIM Nextgen di Regional pilih dari dropdown list nama-nama regional](/#Index-List-for-Select-Form)
-2. DATA DIRI : Data diri sesuai KTP + riwayat penyakit dan alergi + golongan darah + nama institusi/angkatan/jurusan + kontak yang bisa dihubungin + sosmed + scan KTP + Pas foto (atau foto dengan latar 1 warna)
+1. [Saya mendaftar untuk menjadi kader FIM Nextgen di Regional pilih dari dropdown list nama-nama regional](#index-list-for-select-form--get)
+2. [DATA DIRI : Data diri sesuai KTP + riwayat penyakit dan alergi + golongan darah + nama institusi/angkatan/jurusan + kontak yang bisa dihubungin + sosmed + scan KTP + Pas foto (atau foto dengan latar 1 warna)](#update-profile)
 3. Aktivitas dan Kepribadian
 
-- 3 Aktivitas terbaik (sesuai format form FIM yg lalu)
-- MBTI
-- Kelebihan diri
-- Kekurangan diri
-- Self Assessment dalam organisasi (performance paling baik pada saat di) : kepengurusan/kepanitiaan/keduanya sama baiknya
+- [3 Aktivitas terbaik (sesuai format form FIM yg lalu)](#achievement_best-for-participant)
+- [MBTI](#update-personality) | column "mbti" | untuk pilihannya ["/api/select/mbtis"](#index-list-for-select-form--get)
+- [Kelebihan diri](#update-personality) | column "strength"
+- [Kekurangan diri](#update-personality) | column "weakness"
+- [Self Assessment dalam organisasi (performance paling baik pada saat di) : kepengurusan/kepanitiaan/keduanya sama baiknya](#update-personality) | [Link API Select "best_performance"](#index-list-for-select-form--get)
+- 5 Pilar FIM assesment (cintakasih, integritas, dll) | [column "pilar"](#update-personality)
+
+
 
 1. Tentang aku dan FIM
 
-- sumber informasi tentang FIM
+- sumber informasi tentang FIM | [Select Form "Fim-Reference"](#index-list-for-select-form--get)
 - motivasi/ceritakan kenapa ingin ikut FIM
 - skill/ sumberdaya apa yang bisa dikontribusikan ke FIM
 - bakat apa yang bisa ditampilkan pada saat api ekspresi pelatihan FIM?
 
+
+
 1. Informasi tambahan
 
-- Sebutkan 3 tokoh idola Anda yang cocok menjadi pemimpin Indonesia masa depan
+- Sebutkan 3 tokoh idola Anda yang cocok menjadi pemimpin Indonesia masa depan | [tabel pada personality "role_model"](#update-personality)
 - Sebutkan 3 masalah anak muda yang paling krusial untuk diatasi saat ini di Indonesia
+
+
 
 ### Select Table Database
 
