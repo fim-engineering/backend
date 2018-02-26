@@ -6,7 +6,7 @@
 
 
 
-1. [Saya mendaftar untuk menjadi kader FIM Nextgen di Regional pilih dari dropdown list nama-nama regional](#Index-List-for-Select-Form)
+1. [Saya mendaftar untuk menjadi kader FIM Nextgen di Regional pilih dari dropdown list nama-nama regional](/#Index-List-for-Select-Form)
 2. DATA DIRI : Data diri sesuai KTP + riwayat penyakit dan alergi + golongan darah + nama institusi/angkatan/jurusan + kontak yang bisa dihubungin + sosmed + scan KTP + Pas foto (atau foto dengan latar 1 warna)
 3. Aktivitas dan Kepribadian
 
