@@ -1,36 +1,69 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
 
-# Documentation
+
+
+# Documentation <img src="https://laravel.com/assets/img/components/logo-laravel.svg">
+
+
+
+1. [Saya mendaftar untuk menjadi kader FIM Nextgen di Regional pilih dari dropdown list nama-nama regional](#Index-List-for-Select-Form)
+2. DATA DIRI : Data diri sesuai KTP + riwayat penyakit dan alergi + golongan darah + nama institusi/angkatan/jurusan + kontak yang bisa dihubungin + sosmed + scan KTP + Pas foto (atau foto dengan latar 1 warna)
+3. Aktivitas dan Kepribadian
+
+- 3 Aktivitas terbaik (sesuai format form FIM yg lalu)
+- MBTI
+- Kelebihan diri
+- Kekurangan diri
+- Self Assessment dalam organisasi (performance paling baik pada saat di) : kepengurusan/kepanitiaan/keduanya sama baiknya
+
+1. Tentang aku dan FIM
+
+- sumber informasi tentang FIM
+- motivasi/ceritakan kenapa ingin ikut FIM
+- skill/ sumberdaya apa yang bisa dikontribusikan ke FIM
+- bakat apa yang bisa ditampilkan pada saat api ekspresi pelatihan FIM?
+
+1. Informasi tambahan
+
+- Sebutkan 3 tokoh idola Anda yang cocok menjadi pemimpin Indonesia masa depan
+- Sebutkan 3 masalah anak muda yang paling krusial untuk diatasi saat ini di Indonesia
 
 ### Select Table Database
-##### Index List Regionals | GET
+
+------
+
+
+
+##### Index-List-for-Select-Form | GET
+
 ```
 /api/admin/regionals
 /api/select/mbtis
 /api/select/fim-references
 /api/select/best-performances
 /api/select/positions
+/api/institution-list
 ```
-- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 
 
 
 ### Authorization
 
+------
+
+
+
 #### Sign Up
+
 ```
 /api/signup | POST
 ```
+
 - Header : Content-Type (application/json), Accept (application/json)
 - Body :
+
 ```
 {
 	"name":"full name"
@@ -38,7 +71,9 @@
 	"password":"password"
 }
 ```
+
 - Return :
+
 ```
 {  
     "message": 'Successfully Create an Account';  
@@ -46,21 +81,26 @@
 ```
 
 #### Activate
+
 Aktivasi menggunakan skema memasukkan kode yang digenerate secara acak sebanyak 6 digit yang dikirim via email.
 Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 /api/activate | POST
 ```
+
 - Header : Content-Type (application/json), Accept (application/json)
 - Body :
+
 ```
 {
 	"email":"e-mail",
 	"unique_code":"6 digit random number"
 }
 ```
+
 - Return :
+
 ```
 {  
 	if(already activated or valid code)
@@ -75,17 +115,22 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 ```
 
 #### Resend Email Verification
+
 ```
 /api/resend | POST
 ```
+
 - Header : Content-Type (application/json), Accept (application/json)
 - Body :
+
 ```
 {
 	"email":"e-mail",
 }
 ```
+
 - Return :
+
 ```
 {  
 	'message':'Successfully Processing Resend Verification Email',
@@ -94,18 +139,23 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 ```
 
 #### Log In
+
 ```
 /api/login | POST
 ```
+
 - Header : Content-Type (application/json), Accept (application/json)
 - Body :
+
 ```
 {
 	"email":"email",
 	"password":"password"
 }
 ```
+
 - Return :
+
 ```
 {
     "token": {
@@ -131,12 +181,15 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 ```
 
 #### Log Out
+
 ```
 /api/logout | POST
 ```
+
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 - Body : -
 - Return :
+
 ```
 {
     "Message": 'Successfully logged out',
@@ -144,11 +197,14 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 ```
 
 #### Change Password
+
 ```
 /api/change-password | POST
 ```
+
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 - Body :
+
 ```
 {
 	"old_password":'string'
@@ -157,7 +213,9 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 }
 ```
+
 - Return :
+
 ```
 //  if new & new1 password didn't match
 {
@@ -179,13 +237,19 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 ```
 
 
-### Profile
 
+
+
+## Profile
+
+------
 
 ### index profile
+
 ```
 /api/myprofile | GET
 ```
+
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 - Body : -
 - Return :
@@ -226,12 +290,17 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 }
 ```
 
+
+
 #### Update Profile
+
 ```
 /api/myprofile/update | PUT
 ```
+
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 - Body :
+
 ```
 {
 	"full_name": string,
@@ -261,6 +330,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 ```
 
 - Return :
+
 ```
 {
 	'user_profile' : user_profile,
@@ -269,18 +339,29 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 }
 ```
 
+
+
+
+
 ### Regionals for Admin
 
+------
+
 #### Index List Regionals
+
 ```
 /api/admin/regionals| GET
 ```
+
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 - Body :
+
 ```
 -
 ```
+
 - Return :
+
 ```
 {  
 	'regionals' : $regional,
@@ -288,12 +369,17 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 }
 ```
 
+
+
 #### Create List Regionals
+
 ```
 /api/admin/regionals/create| POST
 ```
+
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 - Body :
+
 ```
 {
 	"regional_name": string
@@ -304,7 +390,9 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 	"user_id":integer
 }
 ```
+
 - Return :
+
 ```
 {  
 	"message" :  "Success",
@@ -313,32 +401,49 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 }
 ```
 
+
+
 #### Edit Regionals
+
 ```
 /api/admin/regionals/edit| POST
 ```
+
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 - Body :
+
 ```
 {
 	"regional_id": integer
 }
+
+
 ```
+
 - Return :
+
 ```
 {  	
 	"regionals" : regional,
 	"code" :  200,
 }
+
+
 ```
+
 
 
 #### Update Regionals
+
 ```
 /api/admin/regionals/update| PUT
+
+
 ```
+
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 - Body :
+
 ```
 {
 	"regional_id":integer,
@@ -349,74 +454,121 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 	"city":string,
 	"user_id":integer
 }
+
+
 ```
+
 - Return :
+
 ```
 {
 	"message": "updated",
 	"regionals" : regional,
 	"code" :  200,
 }
+
+
 ```
 
+
+
 #### Delete Regionals
+
 ```
 /api/admin/regionals/delete| POST
+
+
 ```
+
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 - Body :
+
 ```
 {
 	"regional_id":integer,
 }
+
+
 ```
+
 - Return :
+
 ```
 {
 	"message": "deleted",
 	"code" :  200,
 }
+
+
 ```
 
+
+
 #### Institution List
+
 ```
 /api/institution-list | GET
+
 ```
+
 - Header : Content-Type (application/json), Accept (application/json))
 - Return :
+
 ```
 {
 	"list kampus" (distincted);
 }
+
+
 ```
 
 
 
-### Achievement for participant
+### Achievement for participant (DRAFTED)
+
+------
 
 #### Index List Achievement (One to Many)
+
 ```
 /api/achievement| GET
+
+
 ```
+
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 - Body :
+
 ```
 -
+
+
 ```
+
 - Return :
+
 ```
 {  
 	"achievement" : $achievement,
 	"code":  200,
 }
+
+
 ```
 
+
+
 #### Create List of Achievement
+
 ```
 /api/achievement/create| POST
+
+
 ```
+
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 - Body :
+
 ```
 {
 		"achievement": "string",
@@ -428,36 +580,57 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 		"description" :	"text",
 		"is_ready" :	"integer"
 }
+
+
 ```
+
 - Return :
+
 ```
 {  
 		'user_achievements' = $user_achievements,
 		'message'='Success ! Achievements Added',
 		'code'= 200,
 }
+
+
 ```
 
+
+
 #### Edit One Achievement
+
 ```
 /achievement/'+id_achievement+'/edit| GET
+
+
 ```
+
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 - Return :
+
 ```
 {  	
 	'user_achievements' =>$id,
 	'code'=> 200,
 }
+
+
 ```
+
 
 
 #### Update Achievement
+
 ```
 /api/achievement/{id}/update| PUT
+
+
 ```
+
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 - Body :
+
 ```
 {
 	"achievement": "string",
@@ -469,59 +642,100 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 	"description":	"text",
 	"is_ready":	"integer"
 }
+
+
 ```
+
 - Return :
+
 ```
 {
 	'Updated' :Updated,
 	'code': 200,
 }
+
+
 ```
 
+
+
 #### Delete Achievement
+
 ```
 /api/achievement/'+id_achievement+'/delete| POST
+
+
 ```
+
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 - Body :
+
 ```
 {
 	-
 }
+
+
 ```
+
 - Return :
+
 ```
 {
 	"message": 'Achievement Deleted',
 	"code":  200,
 }
+
+
 ```
+
+
 
 ### Achievement_best for participant
 
+------
+
 #### Index List Achievement_best (One to One)
+
 ```
 /api/achievementbest| GET
+
+
 ```
+
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 - Body :
+
 ```
 -
+
+
 ```
+
 - Return :
+
 ```
 {  
 	"achievement" : $achievement or "Null data try to update data",
 	"code":  200,
 }
+
+
 ```
 
+
+
 #### Update Achievement_best(NEW)
+
 ```
 /api/achievementbest/update| POST
+
+
 ```
+
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 - Body :
+
 ```
 {
 		"is_ready" :	"integer",
@@ -551,14 +765,20 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 		"email_leader_3" :	"string",
 		"description_3" :	"text",
 }
+
+
 ```
+
 - Return :
+
 ```
 {  
 		'achievement_best' = $achievement_best,
 		'message'='Success ! Achievements Updated',
 		'code'= 200,
 }
+
+
 ```
 
 
@@ -567,29 +787,49 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ### Personality for participant
 
+------
+
 #### Index Personality (One to One)
+
 ```
 /api/personality| GET
+
+
 ```
+
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 - Body :
+
 ```
 -
+
+
 ```
+
 - Return :
+
 ```
 {  
 	"personality" : $personality,
 	"code":  200,
 }
+
+
 ```
 
+
+
 #### Update Personality
+
 ```
 /api/personality/update| PUT
+
+
 ```
+
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
 - Body :
+
 ```
 {
 	"mbti" : string,
@@ -609,12 +849,8 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 	"keteladanan" : integer,
 	"is_ready" : integer,
 }
+
+
 ```
+
 - Return :
-```
-{  
-		'personality' = $personality,
-		'message'='Success ! Profile Updated',
-		'code'= 200,
-}
-```
