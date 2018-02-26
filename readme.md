@@ -20,6 +20,7 @@
 ```
 {
 	"name":"full name"
+	"regional_id":"regional_id"
 	"email":"e-mail",
 	"password":"password"
 }
@@ -404,14 +405,14 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 - Body :
 ```
 {
-		"achievement"		: "string",
-		"date_from"			: "format Y-m-d",
-		"date_end"			: "format Y-m-d",
-		"position_name"	: "string",
-		"phone_leader"	: "string",
-		"email_leader"	:	"string",
-		"description"		:	"text",
-		"is_ready"			:	"integer"
+		"achievement": "string",
+		"date_from" : "format Y-m-d",
+		"date_end" : "format Y-m-d",
+		"position_name" : "string",
+		"phone_leader" : "string",
+		"email_leader" :	"string",
+		"description" :	"text",
+		"is_ready" :	"integer"
 }
 ```
 - Return :
@@ -445,14 +446,14 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 - Body :
 ```
 {
-	"achievement"		: "string",
-	"date_from"			: "format Y-m-d",
-	"date_end"			: "format Y-m-d",
-	"position_name"	: "string",
-	"phone_leader"	: "string",
-	"email_leader"	:	"string",
-	"description"		:	"text",
-	"is_ready"			:	"integer"
+	"achievement": "string",
+	"date_from": "format Y-m-d",
+	"date_end": "format Y-m-d",
+	"position_name": "string",
+	"phone_leader": "string",
+	"email_leader":	"string",
+	"description":	"text",
+	"is_ready":	"integer"
 }
 ```
 - Return :
@@ -479,5 +480,61 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 {
 	"message": 'Achievement Deleted',
 	"code":  200,
+}
+```
+
+
+
+### Personality for participant
+
+#### Index Personality (One to One)
+```
+/api/personality| GET
+```
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+- Body :
+```
+-
+```
+- Return :
+```
+{  
+	"personality" : $personality,
+	"code":  200,
+}
+```
+
+#### Update Personality
+```
+/api/personality/update| PUT
+```
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+- Body :
+```
+{
+	"mbti" : string,
+	"mbti_type" : mbti_id | list ada di API mbti,
+	"best_performance" : string,
+	"best_performance_id" : best_performance_id | list ada di API best_performance,
+	"strength" : text,
+	"weakness" : text,
+	"role_model" : text,
+	"problem_solver" : text,
+	"cintakasih" : integer,
+	"integritas" : integer,
+	"kebersahajaan" : integer,
+	"totalitas" : integer,
+	"solidaritas" : integer,
+	"keadilan" : integer,
+	"keteladanan" : integer,
+	"is_ready" : integer,
+}
+```
+- Return :
+```
+{  
+		'personality' = $personality,
+		'message'='Success ! Profile Updated',
+		'code'= 200,
 }
 ```

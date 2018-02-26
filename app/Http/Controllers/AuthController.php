@@ -52,6 +52,11 @@ class AuthController extends Controller
       $dbuseradd->keyword = $request->json('password');
       $dbuseradd->password = bcrypt($request->json('password'));
       $dbuseradd->name = $request->json('name');
+
+      if ($request->json('regional_id') !== null) {
+        $dbuseradd->regional_id = $request->json('regional_id');
+      }
+
       $dbuseradd->member_or_not = 0;
       $dbuseradd->unique_code = rand(100000,999999);
       $dbuseradd->save();

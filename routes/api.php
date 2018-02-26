@@ -68,6 +68,12 @@ Route::group(['middleware' => ['api']],function(){
       Route::put('/admin/regionals/update','RegionalController@update')->name('regional.update');
       Route::post('/admin/regionals/delete','RegionalController@delete')->name('regional.delete');
 
+      /**
+       * RD Personality
+       */
+      Route::get('/personality', 'PersonalityController@index')->name('personality.index');
+      Route::put('/personality/update', 'PersonalityController@update')->name('personality.update');
+
 
 
   });

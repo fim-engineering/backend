@@ -68,5 +68,10 @@ class User extends Authenticatable implements JWTSubject
        return $this->hasMany('App\models\achievement');
      }
 
+     public function personality()
+     {
+       return $this->hasOne('App\models\personality', 'user_id');
+     }
+
 
 }

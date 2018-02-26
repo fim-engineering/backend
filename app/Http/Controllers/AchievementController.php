@@ -25,7 +25,7 @@ class AchievementController extends Controller
 
     public function index()
     {
-      $achievement = auth()->user()->achievements();
+      $achievement = auth()->user()->achievements;
 
       return response()->json([
         'achievement' =>$achievement,
