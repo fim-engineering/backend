@@ -437,7 +437,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 ```
 
 
-#### Update Regionals
+#### Update Achievement
 ```
 /api/achievement/{id}/update| PUT
 ```
@@ -463,7 +463,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 }
 ```
 
-#### Delete Regionals
+#### Delete Achievement
 ```
 /api/achievement/'+id_achievement+'/delete| POST
 ```
