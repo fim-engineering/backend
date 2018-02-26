@@ -20,7 +20,6 @@
 ```
 {
 	"name":"full name"
-	"regional_id":"regional_id"
 	"email":"e-mail",
 	"password":"password"
 }
@@ -222,6 +221,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 ```
 {
 	"full_name": string,
+	"regional_id":"regional_id"
 	"institution": "string",
 	"majors":"string",
 	"generation":"string",

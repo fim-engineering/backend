@@ -77,6 +77,10 @@ class ProfilController extends Controller
         $user->full_name = $request->json('full_name');
       }
 
+      if ($request->json('regional_id') !== null) {
+        $user->regional_id = $request->json('regional_id');
+      }
+
       if ($request->json('institution') !== NULL) {
         $user->institution = $request->json('institution');
 
@@ -95,6 +99,7 @@ class ProfilController extends Controller
       if ($request->json('generation') !== NULL) {
         $user->generation = $request->json('generation');
       }
+
 
       if ($request->json('majors') !== NULL) {
         $user->majors = $request->json('majors');
@@ -184,7 +189,7 @@ class ProfilController extends Controller
         $user->religion = $request->json('religion');
       }
 
-      if ($request->json('is_ready') !== null) {        
+      if ($request->json('is_ready') !== null) {
         $user->is_ready = $request->json('is_ready');
       }
 
