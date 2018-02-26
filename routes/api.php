@@ -59,6 +59,11 @@ Route::group(['middleware' => ['api']],function(){
       Route::put('/achievement/{id}/update','AchievementController@update')->name('achievement.update');
       Route::post('/achievement/{id}/delete','AchievementController@delete')->name('achievement.delete');
 
+      // Quick Achievement
+
+      Route::get('/achievementbest', 'AchievementBestController@index')->name('achievement.best.index');
+      Route::post('/achievementbest/update','AchievementBestController@update')->name('achievement.best.update');
+
       /**
        * CRUD Regionals (DONE)
        */

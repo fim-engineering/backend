@@ -73,5 +73,10 @@ class User extends Authenticatable implements JWTSubject
        return $this->hasOne('App\models\personality', 'user_id');
      }
 
+     public function achievement_bests()
+     {
+       return $this->hasOne('App\models\achievement_best', 'user_id');
+     }
+
 
 }

@@ -25,18 +25,25 @@ class PersonalityController extends Controller
   public function index()
   {
     $personality = auth()->user()->personality;
+    if ($personality->count() !== 0) {
+      $personality = auth()->user()->personality;
+      $code = 200;
+    }else {
+      $personality = "Null Data, Try to Update First";
+      $code = 401;
+    }
 
     return response()->json([
       'personality' =>$personality,
-      'code'=> 200,
+      'code'=> $code,
     ]);
   }
 
   public function update(Request $request)
   {
-     $id = $personality = auth()->user()->personality->id;
+     $id = auth()->user()->personality->id;
 
-     if ($person !== null ) {
+     if ($id !== null ) {
        $person = personality::find($id);
      }else {
        $person = new personality;

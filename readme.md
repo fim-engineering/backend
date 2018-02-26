@@ -497,6 +497,72 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 }
 ```
 
+### Achievement_best for participant
+
+#### Index List Achievement_best (One to One)
+```
+/api/achievementbest| GET
+```
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+- Body :
+```
+-
+```
+- Return :
+```
+{  
+	"achievement" : $achievement or "Null data try to update data",
+	"code":  200,
+}
+```
+
+#### Update Achievement_best(NEW)
+```
+/api/achievementbest/update| POST
+```
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+- Body :
+```
+{
+		"is_ready" :	"integer",
+
+		"achievement": "string",
+		"date_from" : "format Y-m-d",
+		"date_end" : "format Y-m-d",
+		"position_name" : "string",
+		"phone_leader" : "string",
+		"email_leader" :	"string",
+		"description" :	"text",
+
+
+		"achievement_2": "string",
+		"date_from_2" : "format Y-m-d",
+		"date_end_2" : "format Y-m-d",
+		"position_name_2" : "string",
+		"phone_leader_2" : "string",
+		"email_leader_2" :	"string",
+		"description_2" :	"text",
+
+		"achievement_3": "string",
+		"date_from_3" : "format Y-m-d",
+		"date_end_3" : "format Y-m-d",
+		"position_name_3" : "string",
+		"phone_leader_3" : "string",
+		"email_leader_3" :	"string",
+		"description_3" :	"text",
+}
+```
+- Return :
+```
+{  
+		'achievement_best' = $achievement_best,
+		'message'='Success ! Achievements Updated',
+		'code'= 200,
+}
+```
+
+
+
 
 
 ### Personality for participant
