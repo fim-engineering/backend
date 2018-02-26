@@ -69,6 +69,14 @@ Route::group(['middleware' => ['api']],function(){
       Route::post('/admin/regionals/delete','RegionalController@delete')->name('regional.delete');
 
       /**
+       * Basic Table
+       */
+      Route::get('/select/mbtis', 'TableSeederController@mbti')->name('list.mbti');
+      Route::get('/select/fim-references', 'TableSeederController@fim_references')->name('list.fimreferences');
+      Route::get('/select/best-performances', 'TableSeederController@best_performance')->name('list.best_performance');
+      Route::get('/select/positions','TableSeederController@positions')->name('list.positions');
+
+      /**
        * RD Personality
        */
       Route::get('/personality', 'PersonalityController@index')->name('personality.index');

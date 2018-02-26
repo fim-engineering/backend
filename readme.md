@@ -9,6 +9,20 @@
 
 # Documentation
 
+### Select Table Database
+##### Index List Regionals | GET
+```
+/api/admin/regionals
+/api/select/mbtis
+/api/select/fim-references
+/api/select/best-performances
+/api/select/positions
+```
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+
+
+
+
 ### Authorization
 
 #### Sign Up
