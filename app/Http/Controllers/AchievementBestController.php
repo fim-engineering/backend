@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\models\achievement_best;
 use App\User;
 use JWTAuth;
+use Carbon\Carbon;
+use App\models\position;
 
 
 class AchievementBestController extends Controller
@@ -34,10 +36,10 @@ class AchievementBestController extends Controller
 
   public function update(Request $request)
   {
-     $id = auth()->user()->achievement_bests->id;
+     $id = auth()->user()->achievement_bests;
 
      if ($id !== null ) {
-       $a = achievement_best::find($id);
+       $a = achievement_best::find($id->id);
      }else {
        $a = new achievement_best;
      }
@@ -53,7 +55,7 @@ class AchievementBestController extends Controller
       }
 
       if ($request->json('date_from')) {
-        $a->date_form   = $request->json('date_from');
+        $a->date_from   = $request->json('date_from');
       }
 
       if ($request->json('date_end') && $request->json('date_from')) {
@@ -68,15 +70,16 @@ class AchievementBestController extends Controller
         $a->position    = $request->json('position_name');
 
         $pos = position::where('position_name', $request->json('position_name'))->first();
-        if ($pos) {
+        if ($pos !== NULL) {
           $a->position_id = $pos->id;
-        }else {
-          $p = new position;
-          $p->position_name = $request->json('position_name');
-          $p->save();
-
-          $a->position_id   = $p->id;
         }
+        // else {
+        //   $p = new position;
+        //   $p->position_name = $request->json('position_name');
+        //   $p->save();
+        //
+        //   $a->position_id   = $p->id;
+        // }
       }
 
       if ($request->json('phone_leader')) {
@@ -100,7 +103,7 @@ class AchievementBestController extends Controller
        }
 
        if ($request->json('date_from_2')) {
-         $a->date_form_2   = $request->json('date_from_2');
+         $a->date_from_2   = $request->json('date_from_2');
        }
 
        if ($request->json('date_end_2') && $request->json('date_from_2')) {
@@ -114,16 +117,17 @@ class AchievementBestController extends Controller
        if ($request->json('position_name_2')){
          $a->position_2    = $request->json('position_name_2');
 
-         $pos_2 = position::where('position_name_2', $request->json('position_name_2'))->first();
-         if ($pos) {
+         $pos_2 = position::where('position_name', $request->json('position_name_2'))->first();
+         if ($pos_2 !== NULL) {
            $a->position_id_2 = $pos_2->id;
-         }else {
-           $q = new position;
-           $q->position_name = $request->json('position_name_2');
-           $q->save();
-
-           $a->position_id_2   = $q->id;
          }
+         // else {
+         //   $q = new position;
+         //   $q->position_name = $request->json('position_name_2');
+         //   $q->save();
+         //
+         //   $a->position_id_2   = $q->id;
+         // }
        }
 
        if ($request->json('phone_leader_2')) {
@@ -147,7 +151,7 @@ class AchievementBestController extends Controller
         }
 
         if ($request->json('date_from_3')) {
-          $a->date_form_3   = $request->json('date_from_3');
+          $a->date_from_3   = $request->json('date_from_3');
         }
 
         if ($request->json('date_end_3') && $request->json('date_from_3')) {
@@ -161,16 +165,17 @@ class AchievementBestController extends Controller
         if ($request->json('position_name_3')){
           $a->position_3    = $request->json('position_name_3');
 
-          $pos_3 = position::where('position_name_3', $request->json('position_name_3'))->first();
-          if ($pos) {
+          $pos_3 = position::where('position_name', $request->json('position_name_3'))->first();
+          if ($pos_3 !== NULL) {
             $a->position_id_3 = $pos_3->id;
-          }else {
-            $q = new position;
-            $q->position_name = $request->json('position_name_3');
-            $q->save();
-
-            $a->position_id_3   = $q->id;
           }
+          // else {
+          //   $q = new position;
+          //   $q->position_name = $request->json('position_name_3');
+          //   $q->save();
+          //
+          //   $a->position_id_3   = $q->id;
+          // }
         }
 
         if ($request->json('phone_leader_3')) {
@@ -184,8 +189,6 @@ class AchievementBestController extends Controller
         if ($request->json('description')) {
           $a->description_3 = $request->json('description');
         }
-
-
 
      $a->save();
 

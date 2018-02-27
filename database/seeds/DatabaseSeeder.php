@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(DbBestPerformance::class);
         // $this->call(DbFiminforeference::class);
         // $this->call(DbMBTI::class);
-        // $this->call(DbPositions::class);
+        $this->call(DbPositions::class);
 
     }
 }

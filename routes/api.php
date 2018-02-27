@@ -87,6 +87,13 @@ Route::group(['middleware' => ['api']],function(){
       Route::get('/personality', 'PersonalityController@index')->name('personality.index');
       Route::put('/personality/update', 'PersonalityController@update')->name('personality.update');
 
+      /**
+       * Route ForDeveloper
+       */
+
+      Route::get('/truncate/position', 'SudoController@position_truncate')->name('truncate.position');
+      Route::get('/truncate/regional', 'SudoController@regional_truncate')->name('truncate.regional');
+
 
 
   });

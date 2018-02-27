@@ -12,11 +12,11 @@ class DbPositions extends Seeder
     public function run()
     {
       DB::table('positions')->insert(array(
-        array('position_name' => 'Anggota'),
-        array('position_name' => 'Ketua'),
         array('position_name' => 'Pendiri'),
-        array('position_name' => 'Superdiv'),
-        array('position_name' => 'Supervisi'),
+        array('position_name' => 'Ketua'),
+        array('position_name' => 'Ketua Divisi/BPH lainnya'),
+        array('position_name' => 'Anggota Divisi'),
+        array('position_name' => 'Peserta'),
       ));
     }
 }
