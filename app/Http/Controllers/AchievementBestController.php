@@ -21,7 +21,7 @@ class AchievementBestController extends Controller
   {
     $achievement_best = auth()->user()->achievement_bests;
     if ($achievement_best !== NULL) {
-      $achievement_best = auth()->user()->achieachievement_bests;
+      $achievement_best = auth()->user()->achievement_bests;
       $code = 200;
     }else {
       $achievement_best = "Null Data, Try to Update First";
