@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\models\personality;
 use Illuminate\Support\Facades\Auth;
+use App\models\mbti;
 use App\User;
 use JWTAuth;
 
@@ -25,7 +26,7 @@ class PersonalityController extends Controller
   public function index()
   {
     $personality = auth()->user()->personality;
-    if ($personality->count() !== 0) {
+    if ($personality !== null) {
       $personality = auth()->user()->personality;
       $code = 200;
     }else {
@@ -41,10 +42,10 @@ class PersonalityController extends Controller
 
   public function update(Request $request)
   {
-     $id = auth()->user()->personality->id;
+     $personality = auth()->user()->personality;
 
-     if ($id !== null ) {
-       $person = personality::find($id);
+     if ($personality !== null ) {
+       $person = personality::find($personality->id);
      }else {
        $person = new personality;
      }
@@ -54,15 +55,19 @@ class PersonalityController extends Controller
      if($request->json('mbti')) {
        $person->mbti = $request->json('mbti');
 
-       $mbti = mbti::where('mbti_type', $request->json('mbti_type'))->first();
-       $person->mbti_type= $mbti->id;
+       $mbti = mbti::where('mbti_type', $request->json('mbti'))->first();
+       if ($mbti !== null) {
+         $person->mbti_id= $mbti->id;
+       }
      }
 
      if($request->json('best_performance')) {
        $person->best_performance = $request->json('best_performance');
 
        $best = best_performance::where('type', $request->json('best_performance'))->first();
-       $person->best_performance_id = $best->id;
+       if ($best !== null) {
+         $person->best_performance_id = $best->id;
+       }
      }
 
      if($request->json('strength')) {

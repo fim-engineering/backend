@@ -18,7 +18,7 @@ class AchievementBestController extends Controller
   public function index()
   {
     $achievement_best = auth()->user()->achievement_bests;
-    if ($achievement_best->count() !== 0) {
+    if ($achievement_best !== NULL) {
       $achievement_best = auth()->user()->achieachievement_bests;
       $code = 200;
     }else {
