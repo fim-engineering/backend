@@ -19,10 +19,10 @@
 
 1. Tentang aku dan FIM
 
-- [sumber informasi tentang FIM](#update-achievement_bestnew-1) | [Select Form "Fim-Reference"](#index-list-for-select-form--get)
-- [motivasi/ceritakan kenapa ingin ikut FIM](#update-achievement_bestnew-1)
-- [skill/ sumberdaya apa yang bisa dikontribusikan ke FIM](#update-achievement_bestnew-1)
-- [bakat apa yang bisa ditampilkan pada saat api ekspresi pelatihan FIM?](#update-achievement_bestnew-1)
+- [sumber informasi tentang FIM](#update-me-and-fim) | [Select Form "Fim-Reference"](#index-list-for-select-form--get)
+- [motivasi/ceritakan kenapa ingin ikut FIM](#update-me-and-fim)
+- [skill/ sumberdaya apa yang bisa dikontribusikan ke FIM](#update-me-and-fim)
+- [bakat apa yang bisa ditampilkan pada saat api ekspresi pelatihan FIM?](#update-me-and-fim)
 
 1. Informasi tambahan
 
