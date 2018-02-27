@@ -14,7 +14,7 @@ class ChangeDateFormTofrom2 extends Migration
     public function up()
     {
         Schema::table('achievement_bests', function (Blueprint $table) {
-          $table->renameColumn('date_from_3', 'date_from_2');
+          $table->renameColumn('date_form_2', 'date_from_2');
           $table->renameColumn('date_form_3', 'date_from_3');
 
         });
