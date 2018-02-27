@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\models\mbti;
 use App\User;
 use JWTAuth;
+use App\models\best_performance;
 
 
 class PersonalityController extends Controller
