@@ -17,8 +17,6 @@
 - [Self Assessment dalam organisasi (performance paling baik pada saat di) : kepengurusan/kepanitiaan/keduanya sama baiknya](#update-personality) | [Link API Select "best_performance"](#index-list-for-select-form--get)
 - 5 Pilar FIM assesment (cintakasih, integritas, dll) | [column "pilar"](#update-personality)
 
-
-
 1. Tentang aku dan FIM
 
 - sumber informasi tentang FIM | [Select Form "Fim-Reference"](#index-list-for-select-form--get)
@@ -26,14 +24,10 @@
 - skill/ sumberdaya apa yang bisa dikontribusikan ke FIM
 - bakat apa yang bisa ditampilkan pada saat api ekspresi pelatihan FIM?
 
-
-
 1. Informasi tambahan
 
 - Sebutkan 3 tokoh idola Anda yang cocok menjadi pemimpin Indonesia masa depan | [tabel pada personality "role_model"](#update-personality)
 - Sebutkan 3 masalah anak muda yang paling krusial untuk diatasi saat ini di Indonesia
-
-
 
 ### Select Table Database
 
@@ -53,8 +47,6 @@
 ```
 
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
-
-
 
 ### Authorization
 
@@ -425,6 +417,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 }
 
 
+
 ```
 
 - Return :
@@ -436,6 +429,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 }
 
 
+
 ```
 
 
@@ -444,6 +438,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 /api/admin/regionals/update| PUT
+
 
 
 ```
@@ -463,6 +458,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 }
 
 
+
 ```
 
 - Return :
@@ -475,6 +471,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 }
 
 
+
 ```
 
 
@@ -483,6 +480,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 /api/admin/regionals/delete| POST
+
 
 
 ```
@@ -496,6 +494,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 }
 
 
+
 ```
 
 - Return :
@@ -507,6 +506,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 }
 
 
+
 ```
 
 
@@ -515,6 +515,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 /api/institution-list | GET
+
 
 ```
 
@@ -525,6 +526,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 {
 	"list kampus" (distincted);
 }
+
 
 
 ```
@@ -539,6 +541,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 /api/achievement| GET
+
 
 
 ```
@@ -561,6 +564,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 }
 
 
+
 ```
 
 
@@ -569,6 +573,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 /api/achievement/create| POST
+
 
 
 ```
@@ -589,6 +594,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 }
 
 
+
 ```
 
 - Return :
@@ -601,6 +607,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 }
 
 
+
 ```
 
 
@@ -609,6 +616,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 /achievement/'+id_achievement+'/edit| GET
+
 
 
 ```
@@ -623,6 +631,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 }
 
 
+
 ```
 
 
@@ -631,6 +640,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 /api/achievement/{id}/update| PUT
+
 
 
 ```
@@ -651,6 +661,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 }
 
 
+
 ```
 
 - Return :
@@ -662,6 +673,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 }
 
 
+
 ```
 
 
@@ -670,6 +682,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 /api/achievement/'+id_achievement+'/delete| POST
+
 
 
 ```
@@ -683,6 +696,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 }
 
 
+
 ```
 
 - Return :
@@ -692,6 +706,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 	"message": 'Achievement Deleted',
 	"code":  200,
 }
+
 
 
 ```
@@ -708,6 +723,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 /api/achievementbest| GET
 
 
+
 ```
 
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
@@ -715,6 +731,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 -
+
 
 
 ```
@@ -728,6 +745,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 }
 
 
+
 ```
 
 
@@ -736,6 +754,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 /api/achievementbest/update| POST
+
 
 
 ```
@@ -774,6 +793,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 }
 
 
+
 ```
 
 - Return :
@@ -784,6 +804,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 		'message'='Success ! Achievements Updated',
 		'code'= 200,
 }
+
 
 
 ```
@@ -802,6 +823,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 /api/personality| GET
 
 
+
 ```
 
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
@@ -809,6 +831,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 -
+
 
 
 ```
@@ -822,6 +845,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 }
 
 
+
 ```
 
 
@@ -830,6 +854,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 /api/personality/update| PUT
+
 
 
 ```
@@ -858,6 +883,90 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 }
 
 
+
 ```
 
 - Return :
+
+
+
+
+
+### Me And FIM for participant
+
+------
+
+#### Index me and fim (One to One)
+
+```
+/api/meforfim | GET
+
+
+
+```
+
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+- Body :
+
+```
+-
+
+
+
+```
+
+- Return :
+
+```
+{  
+	fim_reference	: "string" | List ada di API (section atas)
+	why_join_fim	: "Text"
+	skill_for_fim 	: "Text"
+	performance_apiekspresi:
+	is_ready		: "integer"
+}
+
+
+
+```
+
+
+
+#### Update Achievement_best(NEW)
+
+```
+/api/achievementbest/update| POST
+
+
+
+
+```
+
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+- Body :
+
+```
+{
+	"fim_reference"	: "string" | List ada di API (section atas),
+	"why_join_fim"	: "Text",
+	"skill_for_fim" : "Text",
+	"performance_apiekspresi": "Text",
+	"is_ready"		: "0"
+}
+
+
+
+```
+
+- Return :
+
+```
+{  
+		'meandfim' : $meandfim,
+        'message' :'Success ! The me-and-fim data Updated',
+        'code'=> 200,
+}
+
+
+
+```

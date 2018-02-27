@@ -88,6 +88,13 @@ Route::group(['middleware' => ['api']],function(){
       Route::put('/personality/update', 'PersonalityController@update')->name('personality.update');
 
       /**
+       * RD Me and For Fim
+       */
+      Route::get('/meforfim', 'MeAndFimController@index')->name('forfim.index');
+      Route::post('/meforfim/update','MeAndFimController@update')->name('forfim.update');
+
+
+      /**
        * Route ForDeveloper
        */
 

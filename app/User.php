@@ -78,5 +78,10 @@ class User extends Authenticatable implements JWTSubject
        return $this->hasOne('App\models\achievement_best', 'user_id');
      }
 
+     public function me_and_fim()
+     {
+       return $this->hasOne('App\models\me_and_fim', 'user_id');
+     }
+
 
 }
