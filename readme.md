@@ -935,7 +935,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 #### Update me and fim
 
 ```
-/api/meforfim/updat| POST
+/api/meforfim/update| PUT
 
 
 

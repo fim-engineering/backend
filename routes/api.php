@@ -91,7 +91,7 @@ Route::group(['middleware' => ['api']],function(){
        * RD Me and For Fim
        */
       Route::get('/meforfim', 'MeAndFimController@index')->name('forfim.index');
-      Route::post('/meforfim/update','MeAndFimController@update')->name('forfim.update');
+      Route::put('/meforfim/update','MeAndFimController@update')->name('forfim.update');
 
 
       /**

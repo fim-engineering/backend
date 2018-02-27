@@ -40,9 +40,9 @@ class MeAndFimController extends Controller
       $meandfim = auth()->user()->me_and_fim;
 
       if ($meandfim !== null ) {
-        $meandfim = personality::find($meandfim->id);
+        $meandfim = me_and_fim::find($meandfim->id);
       }else {
-        $meandfim = new personality;
+        $meandfim = new me_and_fim;
       }
 
       $meandfim->user_id  = auth()->user()->id;
@@ -61,7 +61,7 @@ class MeAndFimController extends Controller
       if ( $request->json('skill_for_fim')) {
         $meandfim->skill_for_fim  = $request->json('skill_for_fim');
       }
-      
+
       if ( $request->json('performance_apiekspresi')) {
         $meandfim->performance_apiekspresi  = $request->json('performance_apiekspresi');
       }
