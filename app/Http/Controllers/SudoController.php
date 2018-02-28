@@ -7,6 +7,7 @@ use App\models\position;
 use App\models\regional;
 use Illuminate\Support\Facades\DB;
 use App\User;
+use App\models\institution;
 
 
 class SudoController extends Controller
@@ -19,6 +20,15 @@ class SudoController extends Controller
       }
       dd($delete);
 
+    }
+
+    public function institution_truncate()
+    {
+      $delete = institution::all();
+      foreach ($delete as $key => $value) {
+        $value->delete();
+      }
+      dd($delete);
     }
 
     public function regional_truncate()

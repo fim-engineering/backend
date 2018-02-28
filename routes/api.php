@@ -101,6 +101,7 @@ Route::group(['middleware' => ['api']],function(){
       Route::get('/truncate/position', 'SudoController@position_truncate')->name('truncate.position');
       Route::get('/truncate/regional', 'SudoController@regional_truncate')->name('truncate.regional');
       Route::get('/truncate/abcdefghi', 'SudoController@empty_database')->name('truncate.user');
+      Route::get('/truncate/institution', 'SudoController@institution_truncate')->name('truncate.institution');
 
 
       /**
