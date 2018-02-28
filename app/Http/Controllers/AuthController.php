@@ -76,7 +76,7 @@ class AuthController extends Controller
       $theemail = $request->json('email');
 
       Mailgun::send('email.verificationUser', $email_data, function ($message) use ($theemail) {
-          $message->to($theemail)->subject('Selamat datang Pemuda/i Indoneisa di Portal Forum Indonesia Muda');
+          $message->to($theemail)->subject('Selamat datang Pemuda/i Indonesia di Portal Forum Indonesia Muda');
       });
 
       // $mail = Mail::to($request->json('email'))->send(new activateAccount($dbuseradd));
