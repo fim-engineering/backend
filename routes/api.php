@@ -101,6 +101,12 @@ Route::group(['middleware' => ['api']],function(){
       Route::get('/truncate/position', 'SudoController@position_truncate')->name('truncate.position');
       Route::get('/truncate/regional', 'SudoController@regional_truncate')->name('truncate.regional');
 
+      /**
+       * Final Submit
+       */
+      Route::get('/final-submit/status', 'EagleEyeController@status');
+      Route::post('/final-submit/confirm','EagleEyeController@confirm');
+      Route::post('/final-submit/confirm/revert','EagleEyeController@revert_confirm');
 
 
   });
