@@ -870,8 +870,6 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 	"best_performance_id" : best_performance_id | list ada di API best_performance,
 	"strength" : text,
 	"weakness" : text,
-	"role_model" : text,
-	"problem_solver" : text,
 	"cintakasih" : integer,
 	"integritas" : integer,
 	"kebersahajaan" : integer,
@@ -880,6 +878,16 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 	"keadilan" : integer,
 	"keteladanan" : integer,
 	"is_ready" : integer,
+
+	"role_model" : text,
+	"role_model_2" : text,
+	"role_model_3" : text,
+
+
+	"problem_solver" : text,
+	"problem_solver_2" : text,
+	"problem_solver_3" : text,
+
 }
 
 

@@ -77,12 +77,6 @@ class PersonalityController extends Controller
      if($request->json('weakness')) {
        $person->weakness = $request->json('weakness');
      }
-     if($request->json('role_model')) {
-       $person->role_model = $request->json('role_model');
-     }
-     if($request->json('problem_solver')) {
-       $person->problem_solver = $request->json('problem_solver');
-     }
      if($request->json('cintakasih')) {
        $person->cintakasih = $request->json('cintakasih');
      }
@@ -107,6 +101,25 @@ class PersonalityController extends Controller
      if($request->json('is_ready')) {
        $person->is_ready  = $request->json('is_ready');
      }
+     if($request->json('role_model')) {
+       $person->role_model = $request->json('role_model');
+     }
+     if($request->json('role_model_2')) {
+       $person->role_model_2 = $request->json('role_model_2');
+     }
+     if($request->json('role_model_3')) {
+       $person->role_model_3 = $request->json('role_model_3');
+     }
+     if($request->json('problem_solver')) {
+       $person->problem_solver = $request->json('problem_solver');
+     }
+     if($request->json('problem_solver_2')) {
+       $person->problem_solver_2 = $request->json('problem_solver_2');
+     }
+     if($request->json('problem_solver_3')) {
+       $person->problem_solver_3 = $request->json('problem_solver_3');
+     }
+
 
      $person->save();
 
