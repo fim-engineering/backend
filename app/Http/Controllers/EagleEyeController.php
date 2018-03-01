@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use Tymon\JWTAuth\Exceptions\JWTException;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
+use Bogardo\Mailgun\Mail\Message;
 use App\models\achievement_best;
 use Illuminate\Http\Request;
 use App\models\personality;
 use App\models\me_and_fim;
 use App\models\profile;
 use App\User;
+use Mailgun;
 use JWTAuth;
 
 
@@ -77,8 +80,18 @@ class EagleEyeController extends Controller
         $meandfim     = 1;
       }
 
+
       $user->final_submit = 1;
       $user->update();
+
+      $email_data = array('user' =>$user , );
+
+      $theemail = $user->email;
+
+      Mailgun::send('email.final-submission-user', $email_data, function ($message) use ($theemail) {
+          $message->to($theemail)->subject('Terima Kasih Telah Mendaftarkan diri menjadi kader Next Gen FIM 20');
+      });
+
 
       return response()->json([
         'message'=>'Data Updated',
