@@ -45,18 +45,12 @@
 1. Informasi tambahan
 
 - Sebutkan 3 tokoh idola Anda yang cocok menjadi pemimpin Indonesia masa depan | [tabel pada personality "role_model"](#update-personality)
-
 - Sebutkan 3 masalah anak muda yang paling krusial untuk diatasi saat ini di Indonesia | [tabel pada personality "problem_solver"](#update-personality)
-
-
 
   **CEK STATUS**
 
-
 - Mengecek Status Apakah semua sudah terisi atau belum
 - Konfirmasi bahwa semua sudah final
-
-
 
 ### Select Table Database
 
@@ -448,6 +442,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 
 
+
 ```
 
 - Return :
@@ -461,6 +456,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 
 
+
 ```
 
 
@@ -469,6 +465,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 /api/admin/regionals/update| PUT
+
 
 
 
@@ -492,6 +489,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 
 
+
 ```
 
 - Return :
@@ -506,6 +504,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 
 
+
 ```
 
 
@@ -514,6 +513,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 /api/admin/regionals/delete| POST
+
 
 
 
@@ -531,6 +531,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 
 
+
 ```
 
 - Return :
@@ -540,6 +541,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 	"message": "deleted",
 	"code" :  200,
 }
+
 
 
 
@@ -555,6 +557,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 
 
+
 ```
 
 - Header : Content-Type (application/json), Accept (application/json))
@@ -564,6 +567,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 {
 	"list kampus" (distincted);
 }
+
 
 
 
@@ -584,6 +588,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 
 
+
 ```
 
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
@@ -591,6 +596,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 -
+
 
 
 
@@ -607,6 +613,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 
 
+
 ```
 
 
@@ -615,6 +622,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 /api/achievement/create| POST
+
 
 
 
@@ -639,6 +647,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 
 
+
 ```
 
 - Return :
@@ -653,6 +662,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 
 
+
 ```
 
 
@@ -661,6 +671,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 /achievement/'+id_achievement+'/edit| GET
+
 
 
 
@@ -679,6 +690,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 
 
+
 ```
 
 
@@ -687,6 +699,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 /api/achievement/{id}/update| PUT
+
 
 
 
@@ -711,6 +724,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 
 
+
 ```
 
 - Return :
@@ -724,6 +738,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 
 
+
 ```
 
 
@@ -732,6 +747,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 /api/achievement/'+id_achievement+'/delete| POST
+
 
 
 
@@ -749,6 +765,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 
 
+
 ```
 
 - Return :
@@ -758,6 +775,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 	"message": 'Achievement Deleted',
 	"code":  200,
 }
+
 
 
 
@@ -778,6 +796,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 
 
+
 ```
 
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
@@ -785,6 +804,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 -
+
 
 
 
@@ -802,6 +822,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 
 
+
 ```
 
 
@@ -810,6 +831,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 /api/achievementbest/update| POST
+
 
 
 
@@ -852,6 +874,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 
 
+
 ```
 
 - Return :
@@ -862,6 +885,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 		'message'='Success ! Achievements Updated',
 		'code'= 200,
 }
+
 
 
 
@@ -884,6 +908,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 
 
+
 ```
 
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
@@ -891,6 +916,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 -
+
 
 
 
@@ -908,6 +934,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 
 
+
 ```
 
 
@@ -916,6 +943,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 /api/personality/update| PUT
+
 
 
 
@@ -956,11 +984,10 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 
 
+
 ```
 
 - Return :
-
-
 
 ### Me And FIM for participant
 
@@ -974,6 +1001,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 
 
+
 ```
 
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
@@ -981,6 +1009,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 -
+
 
 
 
@@ -1001,6 +1030,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 
 
+
 ```
 
 
@@ -1009,6 +1039,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 /api/meforfim/update| PUT
+
 ```
 
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
@@ -1022,6 +1053,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 	"performance_apiekspresi": "Text",
 	"is_ready"		: "0"
 }
+
 ```
 
 - Return :
@@ -1032,6 +1064,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
         'message' :'Success ! The me-and-fim data Updated',
         'code'=> 200,
 }
+
 ```
 
 
@@ -1044,6 +1077,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 /api/final-submit/status| GET
+
 ```
 
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
@@ -1053,6 +1087,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 {
 	-
 }
+
 ```
 
 - Return :
@@ -1065,6 +1100,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
     "status_meandfim": "xxx (Artinya belum pernah diisi sama sekali)",
     "final": 0 (Belum Final) | 1 (Super Final),
 }
+
 ```
 
 
@@ -1073,6 +1109,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 /api/final-submit/confirm| POST
+
 ```
 
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
@@ -1082,6 +1119,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 {
 	-
 }
+
 
 ```
 
@@ -1092,6 +1130,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 	"message": "Data Updated",
     "code": 200,
 }
+
 ```
 
 
@@ -1100,6 +1139,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 /api/final-submit/confirm/revert | POST
+
 ```
 
 - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
@@ -1110,6 +1150,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 	-
 }
 
+
 ```
 
 - Return :
@@ -1119,4 +1160,29 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 	"message": "Data Reverted",
     "code": 200,
 }
+```
+
+
+
+#### Cek Masing Masing Bagian yang belum Keisi
+
+```
+/api/check-status/profile | GET
+/api/check-status/achievement | GET
+/api/check-status/personality | GET
+/api/check-status/meandfim | GET
+
+```
+
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+- Return :
+
+```
+{
+	Jumlah Null :
+	Pesan detail yang belum terisi
+	Status True (Jika sudah penuh data) atau False (Jika data belum penuh)
+}
+
+
 ```
