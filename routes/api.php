@@ -111,6 +111,16 @@ Route::group(['middleware' => ['api']],function(){
       Route::post('/final-submit/confirm','EagleEyeController@confirm');
       Route::post('/final-submit/confirm/revert','EagleEyeController@revert_confirm');
 
+      /**
+       * Check Status
+       */
+      Route::get('/check-status/profile', 'EagleEyeController@check_profile');
+      Route::get('/check-status/achievement', 'EagleEyeController@check_achievement');
+      Route::get('/check-status/personality', 'EagleEyeController@check_personality');
+      Route::get('/check-status/meandfim', 'EagleEyeController@check_meandfim');
+
+
+
 
   });
 
