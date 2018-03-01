@@ -90,7 +90,7 @@ class EagleEyeController extends Controller
       $theemail = $user->email;
 
       Mailgun::send('email.final-submission-user', $email_data, function ($message) use ($theemail) {
-          $message->to($theemail)->subject('Terima Kasih Telah Mendaftarkan diri menjadi kader Next Gen FIM 20');
+          $message->to($theemail)->subject('Terima Kasih, Pendaftaranmu Telah Lengkap');
       });
 
 
