@@ -138,7 +138,7 @@ class AchievementBestController extends Controller
          $a->email_leader_2 = $request->json('email_leader_2');
        }
 
-       if ($request->json('description')) {
+       if ($request->json('description_2')) {
          $a->description_2 = $request->json('description_2');
        }
 
@@ -186,7 +186,7 @@ class AchievementBestController extends Controller
           $a->email_leader_3 = $request->json('email_leader_3');
         }
 
-        if ($request->json('description')) {
+        if ($request->json('description_2')) {
           $a->description_3 = $request->json('description_3');
         }
 
