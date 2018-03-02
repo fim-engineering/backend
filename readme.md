@@ -1186,3 +1186,32 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 
 ```
+
+
+
+#### Lupa Password
+
+```
+/api/forgot-password | POST
+
+```
+
+- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+- Body :
+
+```
+{
+	email : "email"
+}
+
+
+```
+
+- Return :
+
+  ```
+  'status' :"E-mail Sent",
+  'code' : 200
+  ```
+
+  ​

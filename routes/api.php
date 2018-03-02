@@ -118,6 +118,8 @@ Route::group(['middleware' => ['api']],function(){
       Route::get('/check-status/achievement', 'EagleEyeController@check_achievement');
       Route::get('/check-status/personality', 'EagleEyeController@check_personality');
       Route::get('/check-status/meandfim', 'EagleEyeController@check_meandfim');
+      Route::post('/forgot-password', 'EagleEyeController@forgotpassword');
+
 
 
 

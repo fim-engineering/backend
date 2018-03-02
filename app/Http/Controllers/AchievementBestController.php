@@ -194,7 +194,7 @@ class AchievementBestController extends Controller
 
      return response()->json([
        'personality' =>$a,
-       'message'=>'Success ! The Personality Updated',
+       'message'=>'Success ! The Achievement Updated',
        'code'=> 200,
      ]);
 
