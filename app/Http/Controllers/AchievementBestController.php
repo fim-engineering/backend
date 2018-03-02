@@ -139,7 +139,7 @@ class AchievementBestController extends Controller
        }
 
        if ($request->json('description')) {
-         $a->description_2 = $request->json('description');
+         $a->description_2 = $request->json('description_2');
        }
 
        /**
@@ -187,7 +187,7 @@ class AchievementBestController extends Controller
         }
 
         if ($request->json('description')) {
-          $a->description_3 = $request->json('description');
+          $a->description_3 = $request->json('description_3');
         }
 
      $a->save();
