@@ -328,7 +328,7 @@ class EagleEyeController extends Controller
           'Nama Pencapaian Pertama' => $achievement->achievement,
           'Tanggal Awal Pencapaian Pertama' => $achievement->date_from,
           'Tanggal Akhir Pencapaian Pertama' => $achievement->date_end,
-          'Jenis Posisi Pencapaian Pertama' => $achievement->position,
+          'Jenis Posisi Pencapaian Pertama' => $achievement->position_name,
           'Email Atasan Pencapaian Pertama' => $achievement->email_leader,
           'Nomor Telepon Atasan Pencapaian Pertama' => $achievement->phone_leader,
           'Deskripsi Pencapaian Pertama' => $achievement->description,
@@ -340,7 +340,7 @@ class EagleEyeController extends Controller
            'Nama Pencapaian Ke-2' => $achievement->achievement_2,
            'Tanggal Awal Pencapaian Ke-2' => $achievement->date_from_2,
            'Tanggal Akhir Pencapaian Ke-2' => $achievement->date_end_2,
-           'Jenis Posisi Pencapaian Ke-2' => $achievement->position_2,
+           'Jenis Posisi Pencapaian Ke-2' => $achievement->position_name_2,
            'Email Atasan Pencapaian Ke-2' => $achievement->email_leader_2,
            'Nomor Telepon Atasan Pencapaian Ke-2' => $achievement->phone_leader_2,
            'Deskripsi Pencapaian Ke-2' => $achievement->description_2,
@@ -350,13 +350,13 @@ class EagleEyeController extends Controller
             */
 
 
-            'Nama Pencapaian Ke-3' => $achievement->achievement_2,
-            'Tanggal Awal Pencapaian Ke-3' => $achievement->date_from_2,
-            'Tanggal Akhir Pencapaian Ke-3' => $achievement->date_end_2,
-            'Jenis Posisi Pencapaian Ke-3' => $achievement->position_2,
-            'Email Atasan Pencapaian Ke-3' => $achievement->email_leader_2,
-            'Nomor Telepon Atasan Pencapaian Ke-3' => $achievement->phone_leader_2,
-            'Deskripsi Pencapaian Ke-3' => $achievement->description_2,
+            'Nama Pencapaian Ke-3' => $achievement->achievement_3,
+            'Tanggal Awal Pencapaian Ke-3' => $achievement->date_from_3,
+            'Tanggal Akhir Pencapaian Ke-3' => $achievement->date_end_3,
+            'Jenis Posisi Pencapaian Ke-3' => $achievement->position_name_3,
+            'Email Atasan Pencapaian Ke-3' => $achievement->email_leader_3,
+            'Nomor Telepon Atasan Pencapaian Ke-3' => $achievement->phone_leader_3,
+            'Deskripsi Pencapaian Ke-3' => $achievement->description_3,
 
         );
 

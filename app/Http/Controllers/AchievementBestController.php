@@ -67,7 +67,7 @@ class AchievementBestController extends Controller
       }
 
       if ($request->json('position_name')){
-        $a->position    = $request->json('position_name');
+        $a->position_name    = $request->json('position_name');
 
         $pos = position::where('position_name', $request->json('position_name'))->first();
         if ($pos !== NULL) {
@@ -115,7 +115,7 @@ class AchievementBestController extends Controller
        }
 
        if ($request->json('position_name_2')){
-         $a->position_2    = $request->json('position_name_2');
+         $a->position_name_2    = $request->json('position_name_2');
 
          $pos_2 = position::where('position_name', $request->json('position_name_2'))->first();
          if ($pos_2 !== NULL) {
@@ -163,7 +163,7 @@ class AchievementBestController extends Controller
         }
 
         if ($request->json('position_name_3')){
-          $a->position_3    = $request->json('position_name_3');
+          $a->position_name_3    = $request->json('position_name_3');
 
           $pos_3 = position::where('position_name', $request->json('position_name_3'))->first();
           if ($pos_3 !== NULL) {
