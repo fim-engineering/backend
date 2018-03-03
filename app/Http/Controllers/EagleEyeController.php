@@ -635,12 +635,48 @@ class EagleEyeController extends Controller
 
     public function data_user()
     {
-      $user = User::all();
+      $users = User::all();
       $profile = profile::all();
+
+
+
+      foreach ($users as $key => $user) {
+        $pers = $user->personality;
+        if ($pers == NULL) {
+          $personality= new personality;
+          $personality->user_id = $user->id;
+          $personality->save();
+        }
+
+        $usr = $user->profiles;
+        if ($usr == NULL) {
+          $profile = new profile;
+          $profile->user_id = $user->id;
+          $profile->is_ready = 0;
+          $profile->save();
+        }
+
+        $ach = $user->achievement_bests;
+        if ($ach == NULL) {
+          $achievement = new achievement_best;
+          $achievement->user_id = $user->id;
+          $achievement->save();
+        }
+
+        $meand = $user->me_and_fim;
+        if ($meand == NULL) {
+          $meandfim = new me_and_fim;
+          $meandfim->user_id = $user->id;
+          $meandfim->save();
+        }
+
+
+
+      }
 
       return response()->json([
         // 'user' => $user,
-        'profile'=>$profile,
+        'profile'=>$users,
         'code' => 200
       ]);
     }

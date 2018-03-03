@@ -11,7 +11,12 @@ use Bogardo\Mailgun\Mail\Message;
 use App\Mail\activateAccount;
 use Illuminate\Http\Request;
 use App\models\institution;
+
+use App\models\achievement_best;
 use App\models\profile;
+use App\models\personality;
+use App\models\me_and_fim;
+
 use App\User;
 use JWTAuth;
 use Mailgun;
@@ -71,6 +76,18 @@ class AuthController extends Controller
       $profile->full_name = $dbuseradd->name;
       $profile->is_ready = 0;
       $profile->save();
+
+      $achievement = new achievement_best;
+      $achievement->user_id = $dbuseradd->id;
+      $achievement->save();
+
+      $personality= new personality;
+      $personality->user_id = $dbuseradd->id;
+      $personality->save();
+
+      $meandfim = new me_and_fim;
+      $meandfim->user_id = $dbuseradd->id;
+      $meandfim->save();
 
       $email_data = array('user' =>$dbuseradd , );
 

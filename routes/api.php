@@ -139,10 +139,6 @@ Route::group(['middleware' => ['api']],function(){
       Route::get('/get-data/all-user','EagleEyeController@data_user');
 
 
-
-
-
-
   });
 
 });
