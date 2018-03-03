@@ -621,13 +621,13 @@ class EagleEyeController extends Controller
        $regionals = regional::orderBy('regional_name','asc')->get();
 
        foreach ($regionals as $key => $regional) {
-         $count_registered[$regional->regional_name] = User::where('regional_id', $regional->id)->count();
-         $count_submited[$regional->regional_name] = User::where('regional_id', $regional->id)->where('final_submit', 1)->count();
+         $count_registered[$regional->regional_name] = Prodile::where('city', $regional->regional_name)->count();
+         // $count_submited[$regional->regional_name] = Profile::where('city', $regional->regional_name)->where('final_submit', 1)->count();
        }
 
        return response()->json([
          'registered' => $count_registered,
-         'submited' => $count_submited,
+         // 'submited' => $count_submited,
          'code' => 200
        ]);
 
