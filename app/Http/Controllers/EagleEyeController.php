@@ -511,19 +511,5 @@ class EagleEyeController extends Controller
     }
 
 
-    public function forgotpassword(Request $request)
-    {
-      $user = User::where('email', $request->json('email'))->first();
-      $email_data = array('user' =>$user , );
-      $theemail = $user->email;
-
-      Mailgun::send('email.verificationUser', $email_data, function ($message) use ($theemail) {
-          $message->to($theemail)->subject('Selamat datang Pemuda/i Indonesia di Portal Forum Indonesia Muda');
-      });
-
-      return response()->json([
-        'status' =>"E-mail Sent",
-        'code' =>200
-      ]);
-    }
+  
 }

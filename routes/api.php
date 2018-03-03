@@ -29,6 +29,8 @@ Route::group(['middleware' => ['api']],function(){
   Route::post('/resend', 'AuthController@resend');
   Route::post('/change-password', 'AuthController@change_password');
   Route::post('/me', 'AuthController@me');
+  Route::post('/forgot-password', 'AuthController@forgotpassword');
+
 
   /**
    * API list Institusi
@@ -118,7 +120,6 @@ Route::group(['middleware' => ['api']],function(){
       Route::get('/check-status/achievement', 'EagleEyeController@check_achievement');
       Route::get('/check-status/personality', 'EagleEyeController@check_personality');
       Route::get('/check-status/meandfim', 'EagleEyeController@check_meandfim');
-      Route::post('/forgot-password', 'EagleEyeController@forgotpassword');
 
 
 

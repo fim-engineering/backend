@@ -1196,7 +1196,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
 ```
 
-- Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+- Header : Content-Type (application/json), Accept (application/json)
 - Body :
 
 ```

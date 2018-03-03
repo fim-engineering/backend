@@ -27,7 +27,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login','signup','activate','resend','institution','deletebagus']]);
+        $this->middleware('auth:api', ['except' => ['login','signup','activate','forgotpassword','resend','institution','deletebagus']]);
     }
 
     public function institution()
@@ -86,6 +86,26 @@ class AuthController extends Controller
       ]);
 
     }
+
+    /**
+     * Forgot Password
+     */
+
+     public function forgotpassword(Request $request)
+     {
+       $user = User::where('email', $request->json('email'))->first();
+       $email_data = array('user' =>$user , );
+       $theemail = $user->email;
+
+       Mailgun::send('email.verificationUser', $email_data, function ($message) use ($theemail) {
+           $message->to($theemail)->subject('Selamat datang Pemuda/i Indonesia di Portal Forum Indonesia Muda');
+       });
+
+       return response()->json([
+         'status' =>"E-mail Sent",
+         'code' =>200
+       ]);
+     }
 
     /**
      * Aktivasi
