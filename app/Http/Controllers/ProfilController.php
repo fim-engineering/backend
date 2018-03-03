@@ -80,6 +80,7 @@ class ProfilController extends Controller
       if ($request->json('regional_id') !== null) {
         $aut = auth()->user();
         $aut->regional_id = $request->json('regional_id');
+        $aut->save();
       }
 
       if ($request->json('institution') !== NULL) {
