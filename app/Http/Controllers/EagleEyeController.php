@@ -7,6 +7,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 use Bogardo\Mailgun\Mail\Message;
+use Illuminate\Support\Facades\DB;
 use App\models\achievement_best;
 use Illuminate\Http\Request;
 use App\models\personality;
@@ -622,12 +623,21 @@ class EagleEyeController extends Controller
 
        foreach ($regionals as $key => $regional) {
          $count_registered[$regional->regional_name] = Profile::where('city', $regional->regional_name)->count();
-         // $count_submited[$regional->regional_name] = Profile::where('city', $regional->regional_name)->where('final_submit', 1)->count();
+         // $count_submited[$regional->regional_name] =
+         // Profile::where('city', $regional->regional_name)
+         // ->where('final_submit', 1)->count();
+
+         $count_submited[$regional->regional_name] =
+         DB::table('users')
+            ->join('profiles', 'users.id', '=', 'profiles.user_id')
+            ->where([['profiles.city', $regional->regional_name],['users.final_submit', 1]])->count();
        }
+
+       
 
        return response()->json([
          'registered' => $count_registered,
-         // 'submited' => $count_submited,
+         'submited' => $count_submited,
          'code' => 200
        ]);
 

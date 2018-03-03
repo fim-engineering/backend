@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\models\position;
 use App\models\regional;
+use App\models\profile;
 use Illuminate\Support\Facades\DB;
 use App\User;
 use App\models\institution;
@@ -65,5 +66,20 @@ class SudoController extends Controller
       }
 
       dd($delete);
+    }
+
+    public function ciamis_pangandaran()
+    {
+      $regional= regional::where('regional_name', 'Ciamis *')->first();
+      $regional->regional_name = "Pangandaran *";
+      $regional->save();
+
+      $profiles = profile::where('city', 'Ciamis *')->get();
+      foreach ($profiles as $key => $profile) {
+        $profile->city = "Pangandaran *";
+        $profile->save();
+      }
+
+      dd("Berhasil Ubah ke pangandaran");
     }
 }
