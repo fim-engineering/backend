@@ -1171,6 +1171,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 /api/check-status/achievement | GET
 /api/check-status/personality | GET
 /api/check-status/meandfim | GET
+/api/check-status/all | GET
 
 ```
 
