@@ -28,12 +28,9 @@ class ProfilController extends Controller
   public function geocode($city, $address, $province)
   {
 
-    $response = Geocode::make()->address($address.",".$city.",". $province);
+    $response = Geocode::make()->address($address.",".$city);
     if ($response == false) {
-      $response = Geocode::make()->address($address.",".$city);
-      if ($response == false) {
-        $response = Geocode::make()->address($city);
-      }
+      $response = Geocode::make()->address($address);    
     }
 
     if ($response)
