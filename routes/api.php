@@ -38,6 +38,8 @@ Route::group(['middleware' => ['api']],function(){
    // Jumlah Seluruh Pendaftar
    // Jumlah submit per hari
    Route::get('/statistic/count-user','EagleEyeController@count_all_user');
+   Route::get('/statistic/day-by-day','EagleEyeController@day_by_day');
+
 
    // Jumlah Pendaftar Masing Regional
    // Jumlah pendaftar per regional yang sudah submit

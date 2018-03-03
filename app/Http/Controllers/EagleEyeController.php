@@ -23,7 +23,7 @@ class EagleEyeController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['count_all_user',]]);
+        $this->middleware('auth:api', ['except' => ['count_all_user','day_by_day']]);
     }
 
     public function status()
@@ -577,6 +577,42 @@ class EagleEyeController extends Controller
         'submited'  => $submit,
         'code' => 200
       ]);
+    }
+
+    public function day_by_day()
+    {
+      $start_day1 = Carbon::create(2018, 2, 27, 0, 0, 0, 'Asia/Jakarta');
+      $start_day = $start_day1->setTime(0, 0, 0);
+
+      $start_day = date_format($start_day, 'Y-m-d');
+      $start_day = strtotime($start_day);
+
+      $end_day1 = Carbon::now();
+
+      $end_day = $end_day1->setTime(23, 59, 59);
+      $end_day = date_format($end_day, 'Y-m-d');
+      $end_day = strtotime("+1 day", strtotime($end_day));
+
+
+      $hari   = array();
+
+
+      for ($i=$start_day; $i < $end_day ; $i+= (60*60*24)) {
+          $hari[]=date("Y-m-d",$i);
+        }
+
+        foreach ($hari as $key => $date) {
+          $count_registered[$date] = User::whereDate('created_at', $date)->count();
+          $count_submited[$date] = User::whereDate('created_at', $date)->where('final_submit', 1)->count();
+
+        }
+
+        return response()->json([
+          'registered' => $count_registered,
+          'submited' => $count_submited,
+          'code' => 200
+        ]);
+
     }
 
 
