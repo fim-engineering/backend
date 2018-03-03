@@ -13,6 +13,7 @@ use App\models\personality;
 use App\models\me_and_fim;
 use App\models\profile;
 use App\User;
+use Carbon\Carbon;
 use Mailgun;
 use JWTAuth;
 
@@ -20,6 +21,11 @@ use JWTAuth;
 
 class EagleEyeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api', ['except' => ['count_all_user',]]);
+    }
+
     public function status()
     {
       $user = auth()->user();
@@ -539,7 +545,7 @@ class EagleEyeController extends Controller
             }
           }
 
-          
+
 
           if (count($notif) == 0) {
             $status = true;
@@ -555,13 +561,22 @@ class EagleEyeController extends Controller
             'notif' =>$notif,
             'status' =>$status,
           ]);
-
-
       }
 
+    }
 
 
+    // Jumlah Seluruh Pendaftar
+    public function count_all_user()
+    {
+      $pendaftar =User::all()->count();
+      $submit = User::where('final_submit', 1)->count();
 
+      return response()->json([
+        'registered' => $pendaftar,
+        'submited'  => $submit,
+        'code' => 200
+      ]);
     }
 
 

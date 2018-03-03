@@ -1215,4 +1215,21 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
   'code' : 200
   ```
 
+
+
+  #### Statistik User dan Submit
+
+  ```
+  /api/statistic/count-user | GET
+
+  ```
+
+  - Header : Content-Type (application/json), Accept (application/json)
+
+  - Return :
+
+    ```
+    'registered' : jumlah pendaftar,
+    'submited' : jumlah submit,
+    ```
   ​

@@ -31,6 +31,17 @@ Route::group(['middleware' => ['api']],function(){
   Route::post('/me', 'AuthController@me');
   Route::post('/forgot-password', 'AuthController@forgotpassword');
 
+  /**
+   * Count Statistik
+   */
+
+   // Jumlah Seluruh Pendaftar
+   // Jumlah submit per hari
+   Route::get('/statistic/count-user','EagleEyeController@count_all_user');
+
+   // Jumlah Pendaftar Masing Regional
+   // Jumlah pendaftar per regional yang sudah submit
+
 
   /**
    * API list Institusi
