@@ -136,6 +136,8 @@ Route::group(['middleware' => ['api']],function(){
       Route::get('/check-status/personality', 'EagleEyeController@check_personality');
       Route::get('/check-status/meandfim', 'EagleEyeController@check_meandfim');
       Route::get('/check-status/all','EagleEyeController@all_validation');
+      Route::get('/get-data/all-user','EagleEyeController@data_user');
+
 
 
 

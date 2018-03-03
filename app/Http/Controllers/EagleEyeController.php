@@ -633,6 +633,15 @@ class EagleEyeController extends Controller
 
     }
 
+    public function data_user()
+    {
+      $user = User::all();
+
+      return response()->json([
+        'user' => $user,
+        'code' => 200
+      ]);
+    }
 
 
 
