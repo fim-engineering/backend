@@ -636,9 +636,11 @@ class EagleEyeController extends Controller
     public function data_user()
     {
       $user = User::all();
+      $profile = profile::all();
 
       return response()->json([
-        'user' => $user,
+        // 'user' => $user,
+        'profile'=>$profile,
         'code' => 200
       ]);
     }
