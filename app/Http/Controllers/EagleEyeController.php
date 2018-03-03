@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\models\personality;
 use App\models\me_and_fim;
 use App\models\profile;
+use App\models\regional;
 use App\User;
 use Carbon\Carbon;
 use Mailgun;
@@ -23,7 +24,7 @@ class EagleEyeController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['count_all_user','day_by_day']]);
+        $this->middleware('auth:api', ['except' => ['count_all_user','day_by_day','count_each_regional']]);
     }
 
     public function status()
@@ -612,6 +613,23 @@ class EagleEyeController extends Controller
           'submited' => $count_submited,
           'code' => 200
         ]);
+
+    }
+
+    public function count_each_regional()
+    {
+       $regionals = regional::orderBy('regional_name','asc')->get();
+
+       foreach ($regionals as $key => $regional) {
+         $count_registered[$regional->regional_name] = User::where('regional_id', $regional->id)->count();
+         $count_submited[$regional->regional_name] = User::where('regional_id', $regional->id)->where('final_submit', 1)->count();
+       }
+
+       return response()->json([
+         'registered' => $count_registered,
+         'submited' => $count_submited,
+         'code' => 200
+       ]);
 
     }
 

@@ -1220,8 +1220,9 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
   #### Statistik User dan Submit
 
   ```
-  /api/statistic/count-user | GET (Jumlah Keseluruhan)
-  /api/statistic/day-by-day | GET (Jumlah Per Hari)
+  /api/statistic/count-user     | GET (Jumlah Keseluruhan)
+  /api/statistic/day-by-day     | GET (Jumlah Per Hari)
+  /api/statistic/count-regional | GET (Jumlah Per Regional)
 
   ```
 

@@ -39,6 +39,8 @@ Route::group(['middleware' => ['api']],function(){
    // Jumlah submit per hari
    Route::get('/statistic/count-user','EagleEyeController@count_all_user');
    Route::get('/statistic/day-by-day','EagleEyeController@day_by_day');
+   Route::get('/statistic/count-regional','EagleEyeController@count_each_regional');
+
 
 
    // Jumlah Pendaftar Masing Regional
