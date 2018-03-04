@@ -70,16 +70,20 @@ class SudoController extends Controller
 
     public function ciamis_pangandaran()
     {
-      $regional= regional::where('regional_name', 'Ciamis *')->first();
-      $regional->regional_name = "Pangandaran *";
+      $regional= regional::where('regional_name', 'Pangandaran *')->first();
+      $regional->regional_name = "Ciamis *";
       $regional->save();
 
-      $profiles = profile::where('city', 'Ciamis *')->get();
+      $profiles = profile::where('city', 'Pangandaran *')->get();
       foreach ($profiles as $key => $profile) {
-        $profile->city = "Pangandaran *";
+        $profile->city = "Ciamis *";
         $profile->save();
       }
 
-      dd("Berhasil Ubah ke pangandaran");
+      $add_pang = new regional;
+      $add_pang->regional_name = "Pangandaran *";
+      $add_pang->save();
+
+      dd("Berhasil Ubah ke Ciamis dan Tambah Pangandaran");
     }
 }
