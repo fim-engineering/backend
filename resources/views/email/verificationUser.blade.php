@@ -79,7 +79,7 @@
                               </tr>
                               <tr>
                                 <td>Password: </td>
-                                <td>"{{$user->keyword}}"</td>
+                                <td>"{{base64_decode($user->keyword)}}"</td>
                               </tr>
                             </table>
                       </td>

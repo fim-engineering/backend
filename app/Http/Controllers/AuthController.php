@@ -54,9 +54,9 @@ class AuthController extends Controller
       ]);
 
       $dbuseradd = new user;
-      $dbuseradd->email = $request->json('email');
-      $dbuseradd->keyword = $request->json('password');
-      $dbuseradd->password = bcrypt($request->json('password'));
+      $dbuseradd->email     = $request->json('email');
+      $dbuseradd->keyword   = base64_encode($request->json('password'));
+      $dbuseradd->password  = bcrypt($request->json('password'));
       $dbuseradd->name = $request->json('name');
 
       if ($request->json('regional_id') !== null) {

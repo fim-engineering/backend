@@ -39,7 +39,6 @@ class MemberInfoController extends Controller
          return response()->json([
            'user_data' => $all_submit,
            'code' => 200,
-
          ]);
 
     }
@@ -62,7 +61,6 @@ class MemberInfoController extends Controller
       return response()->json([
         'user_data' => $regional_all,
         'code' => 200,
-
       ]);
     }
 
@@ -85,7 +83,6 @@ class MemberInfoController extends Controller
          return response()->json([
            'user_data' => $regional_all,
            'code' => 200,
-
          ]);
     }
 }

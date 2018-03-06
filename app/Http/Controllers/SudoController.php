@@ -68,22 +68,15 @@ class SudoController extends Controller
       dd($delete);
     }
 
-    public function ciamis_pangandaran()
+    public function encode_keyword()
     {
-      $regional= regional::where('regional_name', 'Pangandaran *')->first();
-      $regional->regional_name = "Ciamis *";
-      $regional->save();
-
-      $profiles = profile::where('city', 'Pangandaran *')->get();
-      foreach ($profiles as $key => $profile) {
-        $profile->city = "Ciamis *";
-        $profile->save();
+      $encode = User::all();
+      foreach ($encode as $key => $user) {
+        $pswd = $user->keyword;
+        $user->keyword= base64_encode($pswd);
+        $user->save();
       }
 
-      $add_pang = new regional;
-      $add_pang->regional_name = "Pangandaran *";
-      $add_pang->save();
-
-      dd("Berhasil Ubah ke Ciamis dan Tambah Pangandaran");
+      dd("Berhasil Ubah base64_encode");
     }
 }
