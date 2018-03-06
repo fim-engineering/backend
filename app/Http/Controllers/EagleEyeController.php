@@ -633,7 +633,7 @@ class EagleEyeController extends Controller
             ->where([['profiles.city', $regional->regional_name],['users.final_submit', 1]])->count();
        }
 
-       
+
 
        return response()->json([
          'registered' => $count_registered,

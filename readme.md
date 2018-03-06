@@ -1235,3 +1235,42 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
     'submited' : jumlah submit,
     ```
   ​
+
+ ## Member information
+ -----------
+
+  #### Data member dan Member per Regional
+
+  ```
+  api/admin/member/all | POST
+  api/admin/member/all-submit | POST
+
+  api/admin/member/by-regional-all | POST
+  api/admin/member/by-regional-submit | POST
+
+  ```
+
+  - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+  - Body :
+
+  Only
+  api/admin/member/by-regional-all | POST NEED BODY
+  api/admin/member/by-regional-submit | POST NEED BODY
+
+  ```
+  {
+  	regional: "string"
+  }
+
+
+  ```
+
+  - Return :
+
+  ```
+  {  
+  	"message": "Data Updated",
+      "code": 200,
+  }
+
+  ```

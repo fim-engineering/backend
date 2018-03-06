@@ -90,6 +90,20 @@ Route::group(['middleware' => ['api']],function(){
       Route::put('/admin/regionals/update','RegionalController@update')->name('regional.update');
       Route::post('/admin/regionals/delete','RegionalController@delete')->name('regional.delete');
 
+
+      /**
+       * Member Controller (All Info For Member FIM)
+       */
+      Route::post('/admin/member/all', 'MemberInfoController@all');
+      Route::post('/admin/member/all-submit', 'MemberInfoController@all_submit');
+      Route::post('/admin/member/by-regional-all', 'MemberInfoController@by_regional_all');
+      Route::post('/admin/member/by-regional-submit', 'MemberInfoController@by_regional_submit');
+
+
+
+      Route::get('/admin/member/score', 'MemberInfoController@by_regional');
+
+
       /**
        * Basic Table
        */
