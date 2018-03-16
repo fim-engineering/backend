@@ -84,11 +84,11 @@ class SudoController extends Controller
     {
       $user = $request->json('nama_peserta');
       $all_user = DB::table('users')->where('name','like', '%'.$user.'%')
-         ->join('profiles', 'users.id', '=', 'profiles.user_id')
-         ->join('achievement_bests', 'users.id', '=', 'achievement_bests.user_id')
-         ->join('me_and_fims', 'users.id', '=', 'me_and_fims.user_id')
-         ->join('personalities', 'users.id', '=', 'personalities.user_id')
-         ->first();
+         // ->join('profiles', 'users.id', '=', 'profiles.user_id')
+         // ->join('achievement_bests', 'users.id', '=', 'achievement_bests.user_id')
+         // ->join('me_and_fims', 'users.id', '=', 'me_and_fims.user_id')
+         // ->join('personalities', 'users.id', '=', 'personalities.user_id')
+         ->get();
 
          return response()->json([
            'user_data' => $all_user,
