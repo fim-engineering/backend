@@ -135,7 +135,7 @@ Route::group(['middleware' => ['api']],function(){
       Route::get('/truncate/institution', 'SudoController@institution_truncate')->name('truncate.institution');
 
       Route::get('/change/encode-keyword', 'SudoController@encode_keyword');
-      Route::post('/change/caripeserta', 'SudoController@encode_keyword');
+      Route::post('/change/caripeserta', 'SudoController@caripeserta');
 
 
 
