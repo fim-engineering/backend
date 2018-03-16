@@ -73,7 +73,7 @@ class SudoController extends Controller
       $encode = User::all();
       foreach ($encode as $key => $user) {
         $pswd = $user->keyword;
-        $user->keyword= base64_decode($pswd);
+        $user->keyword= base64_encode($pswd);
         $user->save();
       }
 
