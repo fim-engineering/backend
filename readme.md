@@ -1269,7 +1269,38 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
   ```
   {  
-  	"message": "Data Updated",
+  	"message": "Data",
+      "code": 200,
+  }
+
+  ```
+
+  #### Find Member
+
+  ```
+  api/change/caripeserta | POST
+
+
+  ```
+
+  - Header : Content-Type (application/json), Accept (application/json), Authorization (Bearer <token>)
+  - Body :
+
+
+
+  ```
+  {
+  	nama_peserta: "string"
+  }
+
+
+  ```
+
+  - Return :
+
+  ```
+  {  
+  	"message": "Data",
       "code": 200,
   }
 
