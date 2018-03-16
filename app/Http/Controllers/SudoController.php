@@ -88,7 +88,7 @@ class SudoController extends Controller
          ->join('achievement_bests', 'users.id', '=', 'achievement_bests.user_id')
          ->join('me_and_fims', 'users.id', '=', 'me_and_fims.user_id')
          ->join('personalities', 'users.id', '=', 'personalities.user_id')
-         ->paginate(20);
+         ->first();
 
          return response()->json([
            'user_data' => $all_user,
