@@ -30,7 +30,7 @@ class ProfilController extends Controller
 
     $response = Geocode::make()->address($address.",".$city);
     if ($response == false) {
-      $response = Geocode::make()->address($address);    
+      $response = Geocode::make()->address($address);
     }
 
     if ($response)
