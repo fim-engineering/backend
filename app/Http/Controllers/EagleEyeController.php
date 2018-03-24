@@ -111,7 +111,7 @@ class EagleEyeController extends Controller
 
     public function revert_confirm(Request $request)
     {
-      $user = User::where('email', "fakhrihidayat27@gmail.com")->first();
+      $user = User::where('email', $request->json('email'))->first();
 
       $profile      = $user->profiles;
       if ($profile     !== null) {
