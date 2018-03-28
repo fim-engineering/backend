@@ -82,12 +82,14 @@ class SudoController extends Controller
 
     public function caripeserta(Request $request)
     {
-      $user = $request->json('nama_peserta');
-      $all_user = DB::table('users')->where('name','like', '%'.$user.'%')
-         // ->join('profiles', 'users.id', '=', 'profiles.user_id')
-         // ->join('achievement_bests', 'users.id', '=', 'achievement_bests.user_id')
-         // ->join('me_and_fims', 'users.id', '=', 'me_and_fims.user_id')
-         // ->join('personalities', 'users.id', '=', 'personalities.user_id')
+      // $user = $request->json('nama_peserta');
+      $email = $request->json('email');
+
+      $all_user = DB::table('users')->where('email','like', '%'.$email.'%')
+         ->join('profiles', 'users.id', '=', 'profiles.user_id')
+         ->join('achievement_bests', 'users.id', '=', 'achievement_bests.user_id')
+         ->join('me_and_fims', 'users.id', '=', 'me_and_fims.user_id')
+         ->join('personalities', 'users.id', '=', 'personalities.user_id')
          ->get();
 
          return response()->json([

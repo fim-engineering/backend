@@ -1290,7 +1290,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
   ```
   {
-  	nama_peserta: "string"
+  	email: "string"
   }
 
 
