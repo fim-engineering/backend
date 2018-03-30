@@ -96,8 +96,12 @@ Route::group(['middleware' => ['api']],function(){
        */
       Route::post('/admin/member/all', 'MemberInfoController@all');
       Route::post('/admin/member/all-submit', 'MemberInfoController@all_submit');
+      Route::post('/admin/member/all-submit-yet', 'MemberInfoController@all_submit_yet');
+
       Route::post('/admin/member/by-regional-all', 'MemberInfoController@by_regional_all');
       Route::post('/admin/member/by-regional-submit', 'MemberInfoController@by_regional_submit');
+      Route::post('/admin/member/by-regional-all-yet', 'MemberInfoController@by_regional_submit_yet');
+
 
 
 

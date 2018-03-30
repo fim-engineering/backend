@@ -43,6 +43,23 @@ class MemberInfoController extends Controller
 
     }
 
+    public function all_submit_yet(Request $request)
+    {
+      $all_submit = DB::table('users')
+         ->join('profiles', 'users.id', '=', 'profiles.user_id')
+         // ->join('achievement_bests', 'users.id', '=', 'achievement_bests.user_id')
+         // ->join('me_and_fims', 'users.id', '=', 'me_and_fims.user_id')
+         // ->join('personalities', 'users.id', '=', 'personalities.user_id')
+         ->where('users.final_submit', 0)->get();
+         // ->paginate(20);
+
+         return response()->json([
+           'user_data' => $all_submit,
+           'code' => 200,
+         ]);
+
+    }
+
     public function by_regional_all(Request $request)
     {
 
@@ -76,6 +93,27 @@ class MemberInfoController extends Controller
         ->join('personalities', 'users.id', '=', 'personalities.user_id')
         ->where([['profiles.city', $request->json('regional')],['users.final_submit', 1]])
         ->paginate(20);
+      }else {
+        $regional_all ="need regional json value";
+      }
+
+         return response()->json([
+           'user_data' => $regional_all,
+           'code' => 200,
+         ]);
+    }
+
+    public function by_regional_submit_yet(Request $request)
+    {
+
+      if ($request->json('regional')) {
+        $regional_all = DB::table('users')
+        ->join('profiles', 'users.id', '=', 'profiles.user_id')
+        // ->join('achievement_bests', 'users.id', '=', 'achievement_bests.user_id')
+        // ->join('me_and_fims', 'users.id', '=', 'me_and_fims.user_id')
+        // ->join('personalities', 'users.id', '=', 'personalities.user_id')
+        ->where([['profiles.city', $request->json('regional')],['users.final_submit', 0]])
+        ->get();
       }else {
         $regional_all ="need regional json value";
       }
