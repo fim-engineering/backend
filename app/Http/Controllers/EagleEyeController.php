@@ -573,7 +573,7 @@ class EagleEyeController extends Controller
           }
 
 
-          if (count($notif) == 0) {
+          if (!isset($notif)) {
             $status = true;
             $notif = "Data Lengkap";
           }else {
