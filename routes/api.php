@@ -19,6 +19,12 @@ use Illuminate\Http\Request;
 
 Route::get('/deletebagus', 'AuthController@deletebagus');
 
+/**
+ * Validasi data peserta yang belum isi regional
+ */
+Route::get('/check-regional-null', 'MemberInfoController@get_person_who_not_fill_regional');
+
+
 Route::group(['middleware' => ['api']],function(){
 
   Route::post('/signup', 'AuthController@signup');
@@ -160,10 +166,6 @@ Route::group(['middleware' => ['api']],function(){
       Route::get('/check-status/all','EagleEyeController@all_validation');
       Route::get('/get-data/all-user','EagleEyeController@data_user');
 
-      /**
-       * Validasi data peserta yang belum isi regional
-       */
-      Route::get('/check-regional-null', 'MemberInfoController@get_person_who_not_fill_regional');
 
   });
 

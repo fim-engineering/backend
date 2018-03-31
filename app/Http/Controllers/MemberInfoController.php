@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 
+use App\User;
+
 use Illuminate\Http\Request;
 
 class MemberInfoController extends Controller
@@ -132,8 +134,14 @@ class MemberInfoController extends Controller
          ->join('achievement_bests', 'users.id', '=', 'achievement_bests.user_id')
          ->join('me_and_fims', 'users.id', '=', 'me_and_fims.user_id')
          ->join('personalities', 'users.id', '=', 'personalities.user_id')
-         ->where([['profiles.city', NULL],['user.final_submit', 1]])->get();
+         ->where([['profiles.city', NULL],['users.final_submit', 1]])->get();
          // ->paginate(20);
+
+         foreach ($all_submit as $key => $value) {
+           $usersd = User::find($value->id);
+           $usersd->final_submit = 0;
+           $usersd->save();
+         }
 
          return response()->json([
            'user_data' => $all_submit,
