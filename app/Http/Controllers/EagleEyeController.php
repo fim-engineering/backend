@@ -99,7 +99,7 @@ class EagleEyeController extends Controller
       $meandfim_status = $this->check_meandfim();
 
       $all_validation = $this->all_validation();
-      // dd($all_validation);
+
 
       if ($all_validation['status']) {
         # code...
@@ -220,6 +220,7 @@ class EagleEyeController extends Controller
 
       if ($point >=17 ) {
         $status = true;
+        $notif = "Data Lengkap";
       }else {
         $status = false;
       }
@@ -303,6 +304,7 @@ class EagleEyeController extends Controller
 
       if ($point >=20 ) {
         $status = true;
+        $notif = "Data Lengkap";
       }else {
         $status = false;
       }
@@ -368,6 +370,7 @@ class EagleEyeController extends Controller
 
       if ($point >=16 ) {
         $status = true;
+        $notif = "Data Lengkap";
       }else {
         $status = false;
       }
@@ -419,6 +422,7 @@ class EagleEyeController extends Controller
 
       if ($point >=4 ) {
         $status = true;
+        $notif = "Data Lengkap";
       }else {
         $status = false;
       }
@@ -571,6 +575,7 @@ class EagleEyeController extends Controller
 
           if (count($notif) == 0) {
             $status = true;
+            $notif = "Data Lengkap";
           }else {
             $status = false;
           }
