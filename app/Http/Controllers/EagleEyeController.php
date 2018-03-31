@@ -193,7 +193,7 @@ class EagleEyeController extends Controller
         'Golongan Darah'  => $profile->blood,
         'Tanggal Lahir'  => $profile->born_date,
         'Tempat Lahir'  => $profile->born_city,
-        'Status Pernikahan'  => $profile->marriage_status,
+        // 'Status Pernikahan'  => $profile->marriage_status,
         'Link Facebook'  => $profile->facebook,
         'Username Instagram'  => $profile->instagram,
         'Riwayat Penyakit'  => $profile->disease_history,
@@ -211,14 +211,14 @@ class EagleEyeController extends Controller
 
       }else {
         $notif[]      = "Data Diri Belum Diisi Sama Sekali";
-        $null = 18;
+        $null = 17;
       }
 
       /**
        * Perhitungan
        */
 
-      if ($point >=17 ) {
+      if ($point >=16 ) {
         $status = true;
         $notif = "Data Lengkap";
       }else {
@@ -472,7 +472,7 @@ class EagleEyeController extends Controller
         'Golongan Darah'  => $profile->blood,
         'Tanggal Lahir'  => $profile->born_date,
         'Tempat Lahir'  => $profile->born_city,
-        'Status Pernikahan'  => $profile->marriage_status,
+        // 'Status Pernikahan'  => $profile->marriage_status,
         'Link Facebook'  => $profile->facebook,
         'Username Instagram'  => $profile->instagram,
         'Riwayat Penyakit'  => $profile->disease_history,
