@@ -74,36 +74,58 @@ class EagleEyeController extends Controller
 
       $profile      = $user->profiles;
       if ($profile     !== null) {
-        $profile      = 1;
+        $profile->is_ready   = 1;
+        $profile->save();
       }
       $achievement  = $user->achievement_bests;
       if ($achievement !== null) {
-        $achievement  = 1;
+        $achievement->is_ready  = 1;
+        $achievement->save();
       }
       $personality  = $user->personality;
       if ($personality !== null) {
-        $personality  = 1;
+        $personality->is_ready  = 1;
+        $personality->save();
       }
       $meandfim     = $user->me_and_fim;
       if ($meandfim    !== null) {
-        $meandfim     = 1;
+        $meandfim->is_ready     = 1;
+        $meandfim->save();
+      }
+
+      $profile_status = $this->check_profile();
+      $achievement_status = $this->check_achievement();
+      $personality_status = $this->check_personality();
+      $meandfim_status = $this->check_meandfim();
+
+      $all_validation = $this->all_validation();
+      // dd($all_validation);
+
+      if ($all_validation['status']) {
+        # code...
+        $user->final_submit = 1;
+
+        $email_data = array('user' =>$user , );
+        $theemail = $user->email;
+
+        Mailgun::send('email.final-submission-user', $email_data, function ($message) use ($theemail) {
+            $message->to($theemail)->subject('Terima Kasih, Pendaftaranmu Telah Lengkap');
+        });
+
+        $user->update();
+        $data_null = NULL;
+        $message = "Data Berhasil disimpan";
+
+      }else {
+        $data_null = $all_validation['notif'];
+        $message = "Data Gagal disimpan";
+
       }
 
 
-      $user->final_submit = 1;
-      $user->update();
-
-      $email_data = array('user' =>$user , );
-
-      $theemail = $user->email;
-
-      Mailgun::send('email.final-submission-user', $email_data, function ($message) use ($theemail) {
-          $message->to($theemail)->subject('Terima Kasih, Pendaftaranmu Telah Lengkap');
-      });
-
-
       return response()->json([
-        'message'=>'Data Updated',
+        'datanull'=>$data_null,
+        'message'=>$message,
         'code'=> 200,
       ]);
     }
@@ -351,12 +373,11 @@ class EagleEyeController extends Controller
       }
 
       return response()->json([
-        'data'=>$meandfim,
+        'data'=>$personality,
         'null' =>$null,
         'notif' =>$notif,
         'status' =>$status,
       ]);
-
 
     }
 
@@ -548,21 +569,25 @@ class EagleEyeController extends Controller
           }
 
 
-
           if (count($notif) == 0) {
             $status = true;
           }else {
             $status = false;
           }
 
-
-
-          return response()->json([
-            'data' => $data,
+          $array = array(
             'null' =>$null,
             'notif' =>$notif,
             'status' =>$status,
-          ]);
+          );
+
+          return $array;
+          // return response()->json([
+          //   // 'data' => $data,
+          //   'null' =>$null,
+          //   'notif' =>$notif,
+          //   'status' =>$status,
+          // ]);
       }
 
     }

@@ -1249,7 +1249,7 @@ Jika kode yang dimasukan benar maka tabel 'active' akan berubah menjadi 1
 
   api/admin/member/by-regional-all | POST
   api/admin/member/by-regional-submit | POST
-  api/admin/member/by-regional-submit-yet | POST
+  api/admin/member/by-regional-all-yet | POST
 
 
   ```

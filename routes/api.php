@@ -160,6 +160,10 @@ Route::group(['middleware' => ['api']],function(){
       Route::get('/check-status/all','EagleEyeController@all_validation');
       Route::get('/get-data/all-user','EagleEyeController@data_user');
 
+      /**
+       * Validasi data peserta yang belum isi regional
+       */
+      Route::get('/check-regional-null', 'MemberInfoController@get_person_who_not_fill_regional');
 
   });
 

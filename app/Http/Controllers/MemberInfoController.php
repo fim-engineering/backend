@@ -123,4 +123,21 @@ class MemberInfoController extends Controller
            'code' => 200,
          ]);
     }
+
+    // cari orang yang belum ngisi regional
+    public function get_person_who_not_fill_regional()
+    {
+      $all_submit = DB::table('users')
+         ->join('profiles', 'users.id', '=', 'profiles.user_id')
+         ->join('achievement_bests', 'users.id', '=', 'achievement_bests.user_id')
+         ->join('me_and_fims', 'users.id', '=', 'me_and_fims.user_id')
+         ->join('personalities', 'users.id', '=', 'personalities.user_id')
+         ->where([['profiles.city', NULL],['user.final_submit', 1]])->get();
+         // ->paginate(20);
+
+         return response()->json([
+           'user_data' => $all_submit,
+           'code' => 200,
+         ]);
+    }
 }
