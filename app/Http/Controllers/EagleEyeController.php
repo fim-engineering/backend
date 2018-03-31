@@ -343,7 +343,7 @@ class EagleEyeController extends Controller
           'Masalah Anak Muda Ke-3' => $personality->problem_solver_3,
           'Nilai Kondisi Anak Muda (Cinta Kasih)' => $personality->cintakasih,
           'Nilai Kondisi Anak Muda (Integritas)' => $personality->integritas,
-          'Nilai Kondisi Anak Muda (Kebersahajaan)' => $personality->Kebersahajaan,
+          'Nilai Kondisi Anak Muda (Kebersahajaan)' => $personality->kebersahajaan,
           'Nilai Kondisi Anak Muda (Totalitas)' => $personality->totalitas,
           'Nilai Kondisi Anak Muda (Solidaritas)' => $personality->solidaritas,
           'Nilai Kondisi Anak Muda (Keadilan)' => $personality->keadilan,
@@ -396,10 +396,10 @@ class EagleEyeController extends Controller
       if ($meandfim    !== null) {
 
         $column = array(
-          'Mengetahui FIM dari Mana' => $meandfim->mbti,
-          'Mengapa Kamu Ingin Bergabung FIM' => $meandfim->strength,
-          'Skill / Sumberdaya Apa yang Bisa Dikontribusikan' => $meandfim->weakness,
-          'Bakat yang Akan Ditampilkan di Api Ekspresi' => $meandfim->best_performance,
+          'Mengetahui FIM dari Mana' => $meandfim->fim_reference,
+          'Mengapa Kamu Ingin Bergabung FIM' => $meandfim->why_join_fim,
+          'Skill / Sumberdaya Apa yang Bisa Dikontribusikan' => $meandfim->skill_for_fim,
+          'Bakat yang Akan Ditampilkan di Api Ekspresi' => $meandfim->performance_apiekspresi,
           );
 
           foreach ($column as $key => $value) {
