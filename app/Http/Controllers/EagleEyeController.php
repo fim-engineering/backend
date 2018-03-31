@@ -101,7 +101,7 @@ class EagleEyeController extends Controller
       $all_validation = $this->all_validation();
 
 
-      if ($all_validation['status']) {
+      // if ($all_validation['status']) {
         # code...
         $user->final_submit = 1;
 
@@ -116,11 +116,11 @@ class EagleEyeController extends Controller
         $data_null = NULL;
         $message = "Data Berhasil disimpan";
 
-      }else {
-        $data_null = $all_validation['notif'];
-        $message = "Data Gagal disimpan";
-
-      }
+      // }else {
+      //   $data_null = $all_validation['notif'];
+      //   $message = "Data Gagal disimpan";
+      //
+      // }
 
 
       return response()->json([
