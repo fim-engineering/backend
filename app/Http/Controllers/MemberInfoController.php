@@ -19,7 +19,7 @@ class MemberInfoController extends Controller
          ->join('achievement_bests', 'users.id', '=', 'achievement_bests.user_id')
          ->join('me_and_fims', 'users.id', '=', 'me_and_fims.user_id')
          ->join('personalities', 'users.id', '=', 'personalities.user_id')
-         ->paginate(20);
+         ->get();
 
 
       return response()->json([
@@ -36,7 +36,7 @@ class MemberInfoController extends Controller
          ->join('me_and_fims', 'users.id', '=', 'me_and_fims.user_id')
          ->join('personalities', 'users.id', '=', 'personalities.user_id')
          ->where('users.final_submit', 1)
-         ->paginate(20);
+         ->get();
 
          return response()->json([
            'user_data' => $all_submit,
@@ -72,7 +72,7 @@ class MemberInfoController extends Controller
         ->join('me_and_fims', 'users.id', '=', 'me_and_fims.user_id')
         ->join('personalities', 'users.id', '=', 'personalities.user_id')
         ->where('profiles.city', $request->json('regional'))
-        ->paginate(20);
+        ->get();
       }else {
         $regional_all = "need regional json value";
       }
@@ -94,7 +94,7 @@ class MemberInfoController extends Controller
         ->join('me_and_fims', 'users.id', '=', 'me_and_fims.user_id')
         ->join('personalities', 'users.id', '=', 'personalities.user_id')
         ->where([['profiles.city', $request->json('regional')],['users.final_submit', 1]])
-        ->paginate(20);
+        ->get();
       }else {
         $regional_all ="need regional json value";
       }
