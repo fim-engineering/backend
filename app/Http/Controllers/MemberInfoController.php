@@ -198,8 +198,8 @@ class MemberInfoController extends Controller
          ->join('profiles', 'users.id', '=', 'profiles.user_id')
          ->join('achievement_bests', 'users.id', '=', 'achievement_bests.user_id')
          ->join('me_and_fims', 'users.id', '=', 'me_and_fims.user_id')
-         ->join('personalities', 'users.id', '=', 'personalities.user_id')->get();
-         // ->where([['profiles.city', NULL],['users.final_submit', 1]])->get();
+         ->join('personalities', 'users.id', '=', 'personalities.user_id')
+         ->where([['users.final_submit', 0]])->get();
 
 
          // ->paginate(20);
