@@ -199,7 +199,7 @@ class MemberInfoController extends Controller
          ->join('achievement_bests', 'users.id', '=', 'achievement_bests.user_id')
          ->join('me_and_fims', 'users.id', '=', 'me_and_fims.user_id')
          ->join('personalities', 'users.id', '=', 'personalities.user_id')
-         ->where([['users.final_submit', 0]])->get();
+         ->where([['profiles.city', NULL],['users.final_submit', 1]])->get();
 
 
          // ->paginate(20);
@@ -213,7 +213,7 @@ class MemberInfoController extends Controller
            if ($validation['null'] <4) {
              if ($usersd) {
                # code...
-               $usersd->send_broadcast = 2; // regional
+               $usersd->send_broadcast = 1; // regional
                $usersd->save();
              }
            }
