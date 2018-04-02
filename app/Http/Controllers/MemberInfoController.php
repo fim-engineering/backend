@@ -143,6 +143,17 @@ class MemberInfoController extends Controller
 
     }
 
+    public function list_index_peserta_submit_yet()
+    {
+      $all_submit = DB::table('users')
+         ->join('profiles', 'users.id', '=', 'profiles.user_id')
+         ->where([['users.send_broadcast', 2]])->paginate(20);
+
+
+        $data = array('members' => $all_submit , );
+      return view('list-peserta-regional-null')->with($data);
+    }
+
     // Ajax Record
     public function add_record_broadcast()
     {
