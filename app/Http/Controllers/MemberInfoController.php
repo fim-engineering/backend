@@ -160,8 +160,11 @@ class MemberInfoController extends Controller
            $validation = $this->user_validation($usersd['email']);
 
            if ($validation['null'] <5) {
-             $usersd->send_broadcast = 1; // regional
-             $usersd->save();
+             if ($usersd) {
+               # code...
+               $usersd->send_broadcast = 1; // regional
+               $usersd->save();
+             }
            }
 
          }
