@@ -198,18 +198,19 @@ class MemberInfoController extends Controller
          ->join('profiles', 'users.id', '=', 'profiles.user_id')
          ->join('achievement_bests', 'users.id', '=', 'achievement_bests.user_id')
          ->join('me_and_fims', 'users.id', '=', 'me_and_fims.user_id')
-         ->join('personalities', 'users.id', '=', 'personalities.user_id')
-         ->where([['profiles.city', NULL],['users.final_submit', 1]])->get();
+         ->join('personalities', 'users.id', '=', 'personalities.user_id')->get();
+         // ->where([['profiles.city', NULL],['users.final_submit', 1]])->get();
+
 
          // ->paginate(20);
 
 
          foreach ($all_submit as $key => $value) {
            $usersd = User::where('email', $value->email)->first();
-           
+
            $validation = $this->user_validation($usersd['email']);
 
-           if ($validation['null'] <5) {
+           if ($validation['null'] <4) {
              if ($usersd) {
                # code...
                $usersd->send_broadcast = 1; // regional

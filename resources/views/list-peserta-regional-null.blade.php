@@ -128,6 +128,7 @@
                     <table class="table">
                       <thead>
                         <th>No</th>
+                        <th>Data Kosong</th>
                         <th>Nama</th>
                         <th>Phone</th>
                         <th>Email</th>
@@ -140,8 +141,13 @@
                         $i = 1;
                         @endphp
                         @foreach ($members as $member)
+                          @php
+                            $ceknull = app('App\Http\Controllers\MemberInfoController')->user_validation($member->email);
+                            $juml_null =$ceknull['null'];
+                          @endphp
                           <tr>
                             <td>{{$i++}}</td>
+                            <td>{{$juml_null}}</td>
                             <td>{{$member->name}}</td>
                             <td>{{$member->phone}}</td>
                             <td>{{$member->email}}</td>
