@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\User;
 use App\profile;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Response;
 
 use Illuminate\Http\Request;
 
@@ -134,11 +135,60 @@ class MemberInfoController extends Controller
     {
       $all_submit = DB::table('users')
          ->join('profiles', 'users.id', '=', 'profiles.user_id')
-         ->where([['profiles.city', NULL],['users.final_submit', 1]])->paginate(20);
+         ->where([['users.send_broadcast', 1]])->paginate(20);
+
 
         $data = array('members' => $all_submit , );
       return view('list-peserta-regional-null')->with($data);
 
+    }
+
+    // Ajax Record
+    public function add_record_broadcast()
+    {
+      $nama = $_GET['name'];
+      $email = $_GET['email'];
+      $message= $_GET['message'];
+
+      // $message= urlencode($message);
+
+      $adduser = User::where('email',$email)->first();
+      $adduser->final_submit = 0;
+      $adduser->comt = $nama.' '.Carbon::now()->format('d-m-Y H:i:s');
+      $adduser->save();
+
+      $phone = $adduser->profiles->phone;
+      if ($phone !== NULL) {
+        $phone_subs = substr($phone,0,1);
+
+        if ($phone_subs == "0") {
+          $phone_subs = substr_replace($phone,"62",0,1);
+        }elseif ($phone_subs == "8") {
+          $phone_subs = substr_replace($phone,"62",0,0);
+        }
+        else {
+          $phone_subs = $phone;
+        }
+      }
+
+      $link = "https://api.whatsapp.com/send?phone=$phone_subs&text=$message";
+
+
+      if ($adduser) {
+        # code...
+        return Response::json([
+          'status' => 'Opened',
+          'desc'=> $adduser->comt,
+          'message' => "Berhasil",
+          'link'=>$link
+        ], 200);
+      }else {
+        # code...
+        return Response::json([
+          'status' => 'error',
+          'message' => "gagal",
+        ], 200);
+      }
     }
 
     // cari orang yang belum ngisi regional

@@ -6,13 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-        <title>Laravel</title>
+        <title>FIM API</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
         <!-- Styles -->
         {{-- <style>
             html, body {
@@ -82,46 +82,146 @@
 
             <div class="content">
 
-                <table class="table">
-                  <thead>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Phone</th>
-                    <th>Email</th>
-                    <th>Action</th>
-                    <th>Status</th>
-                    <th>Send By</th>
-                  </thead>
-                  <tbody>
-                    @php
-                      $i = 1;
-                    @endphp
-                    @foreach ($members as $member)
-                      <tr>
-                        <td>{{$i++}}</td>
-                        <td>{{$member->name}}</td>
-                        <td>{{$member->phone}}</td>
-                        <td>{{$member->email}}</td>
-                        <td>
-                          <a href="#" class="btn btn-success" target="_blank">Send Notification</a>
-                        </td>
-                        <td>
-                          @if ($member->final_submit == 1)
-                            <span class="btn btn-info">Closed</span>
-                            @else
-                              <span class="btn btn-danger">Opened</span>
-                          @endif
-                        </td>
-                        <td>
-                          {{$member->comt}}
-                        </td>
-                      </tr>
-                    @endforeach
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group" style="margin-top:80px">
+                      <label for="">Sebelumnya Isi Nama Kamu di sini untuk merekam riwayat</label>
+                      <input type="text" class="form-control" id="nama-pengirim" placeholder="">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Pesan</label>
+                      <textarea name="name" class="form-control" rows="8" id="isi-pesan" cols="40">Hai, Pemuda Indonesia, Kami mendapati form pendaftaran Portal Forum Indonesia Muda kamu belum mengisi regional mana yang ingin kamu pilih untuk kamu berkarya. Kami membuka kesempatan bagi khusus bagi kamu yang menerima pesan ini untuk memperbaikinya. Segera perbaiki dan submit kembali.  </textarea>
 
-                  </tbody>
-                </table>
+                    </div>
+                  </div>
+                </div>
+                {{-- <script type="text/javascript">
+                  $(document).ready(function() {
+                    var =$('#nama-pengirim').val();
+                    if (true) {
 
-                {{ $members->links() }}
+                    }
+                  });
+                </script> --}}
+
+                <script type="text/javascript">
+                  $(document).ready(function() {
+
+                    $('#nama-pengirim').on('keyup', function() {
+                      var nama = $(this).val();
+
+                      if (nama !== "") {
+                        $('.sendnotification').show();
+                      }else {
+                        $('.sendnotification').hide();
+                      }
+                    });
+                  });
+                </script>
+
+                <div class="row">
+                  <div class="col-md-12">
+
+                    <table class="table">
+                      <thead>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                        <th>Status</th>
+                        <th>Send By</th>
+                      </thead>
+                      <tbody>
+                        @php
+                        $i = 1;
+                        @endphp
+                        @foreach ($members as $member)
+                          <tr>
+                            <td>{{$i++}}</td>
+                            <td>{{$member->name}}</td>
+                            <td>{{$member->phone}}</td>
+                            <td>{{$member->email}}</td>
+                            <td>
+                              <a href="#absc" class="btn btn-success sendnotification" style="display:none" >Open User Access</a>
+                              <input type="hidden" class="email" name="" value="{{$member->email}}">
+                            </td>
+
+                            <script type="text/javascript">
+                              $(document).ready(function() {
+                                $('.sendnotification').on('click', function() {
+                                  var name = $('#nama-pengirim').val();
+                                  var email = $(this).parent().find('.email').val();
+                                  var isipesan = $('#isi-pesan').val();
+
+                                  $.ajax({
+                                    url: '/admin/add-record-broadcast',
+                                    type: 'GET',
+                                    context:this,
+                                    dataType: 'json',
+                                    data: {name: name,
+                                            email: email,
+                                            message: isipesan,
+                                    }
+                                  })
+                                  .done(function(data) {
+                                    if (data.message == "Berhasil") {
+                                      $(this).parent().parent().find('.closedtext').text('Opened').addClass('btn-danger').removeClass('btn-info');
+                                      $(this).parent().parent().find('.comt-user').text(data.desc);
+
+                                      $(this).text('Send Notification !').addClass('btn-warning').removeClass('btn-success');
+                                      $(this).attr('href', data.link).attr('target','_blank');
+                                    }
+
+                                  })
+                                  .fail(function() {
+                                    console.log("error");
+                                  })
+                                  .always(function() {
+                                    console.log("complete");
+                                  });
+
+
+
+
+                                });
+                              });
+                            </script>
+
+
+
+                            <td>
+                              @if ($member->final_submit == 1)
+                                <span class="btn btn-info closedtext" >Closed</span>
+                              @else
+                                <span class="btn btn-danger">Opened</span>
+                              @endif
+                            </td>
+                            <td class="comt-user">
+                              {{$member->comt}}
+                            </td>
+                          </tr>
+                        @endforeach
+
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {{ $members->links() }}
+                </div>
+              </div>
+
+              {{-- @auth
+                  <a href="{{ url('/home') }}">Home</a>
+
+                  <a href="{{ route('login') }}">Login</a>
+                  <a href="{{ route('register') }}">Register</a>
+              @endauth --}}
+
+
 
                 {{-- <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>

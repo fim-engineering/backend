@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/list-belum-isi-regional';
 
     /**
      * Create a new controller instance.
