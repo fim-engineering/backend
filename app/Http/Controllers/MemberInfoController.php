@@ -205,7 +205,8 @@ class MemberInfoController extends Controller
 
 
          foreach ($all_submit as $key => $value) {
-           $usersd = User::where('email', $value->email);
+           $usersd = User::where('email', $value->email)->first();
+           dd($usersd);
 
            $validation = $this->user_validation($usersd['email']);
 
