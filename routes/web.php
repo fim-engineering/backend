@@ -17,3 +17,4 @@ Route::get('/', 'HomePageController@index');
  * Validasi data peserta yang belum isi regional
  */
 Route::get('/check-regional-null', 'MemberInfoController@get_person_who_not_fill_regional');
+Route::get('/list-belum-isi-regional', 'MemberInfoController@list_index_peserta');

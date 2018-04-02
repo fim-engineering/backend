@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 
 use App\User;
+use App\profile;
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 
@@ -126,6 +128,19 @@ class MemberInfoController extends Controller
          ]);
     }
 
+
+    // Ada peserta yang belum isi regional
+    public function list_index_peserta()
+    {
+      $all_submit = DB::table('users')
+         ->join('profiles', 'users.id', '=', 'profiles.user_id')
+         ->where([['profiles.city', NULL],['users.final_submit', 1]])->paginate(20);
+
+        $data = array('members' => $all_submit , );
+      return view('list-peserta-regional-null')->with($data);
+
+    }
+
     // cari orang yang belum ngisi regional
     public function get_person_who_not_fill_regional()
     {
@@ -135,13 +150,16 @@ class MemberInfoController extends Controller
          ->join('me_and_fims', 'users.id', '=', 'me_and_fims.user_id')
          ->join('personalities', 'users.id', '=', 'personalities.user_id')
          ->where([['profiles.city', NULL],['users.final_submit', 1]])->get();
+
          // ->paginate(20);
 
          foreach ($all_submit as $key => $value) {
            $usersd = User::find($value->id);
-           $usersd->final_submit = 0;
+           $usersd->send_broadcast = 1; // regional
            $usersd->save();
          }
+
+         dd("success");
 
          return response()->json([
            'user_data' => $all_submit,
