@@ -157,7 +157,7 @@ class MemberInfoController extends Controller
          foreach ($all_submit as $key => $value) {
            $usersd = User::find($value->id);
 
-           $validation = $this->user_validation($usersd->email);
+           $validation = $this->user_validation($usersd['email']);
 
            if ($validation['null'] <5) {
              $usersd->send_broadcast = 1; // regional
@@ -166,7 +166,7 @@ class MemberInfoController extends Controller
 
          }
 
-         dd("success");
+         dd("success-bro");
 
          return response()->json([
            'user_data' => $all_submit,
