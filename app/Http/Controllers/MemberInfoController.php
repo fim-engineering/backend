@@ -212,7 +212,7 @@ class MemberInfoController extends Controller
            if ($validation['null'] <5) {
              if ($usersd) {
                # code...
-               $usersd->send_broadcast = 1; // regional
+               $usersd->send_broadcast = NULL; // regional
                $usersd->save();
              }
            }
