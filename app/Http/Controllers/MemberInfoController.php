@@ -205,14 +205,14 @@ class MemberInfoController extends Controller
 
 
          foreach ($all_submit as $key => $value) {
-           $usersd = User::find($value->id);
+           $usersd = User::where('email', $value->email);
 
            $validation = $this->user_validation($usersd['email']);
 
            if ($validation['null'] <5) {
              if ($usersd) {
                # code...
-               $usersd->send_broadcast = NULL; // regional
+               $usersd->send_broadcast = 1; // regional
                $usersd->save();
              }
            }
