@@ -147,21 +147,24 @@
                             $ceknull = app('App\Http\Controllers\MemberInfoController')->user_validation($member->email);
                             $juml_null =$ceknull['null'];
                           @endphp
-                          <tr>
-                            <td>{{$i++}}</td>
-                            <td>{{$juml_null}}</td>
-                            <td>
-                              <a href="#absc" class="btn btn-success sendnotification" style="display:none" >Open User Access</a>
-                              <input type="hidden" class="email" name="" value="{{$member->email}}">
-                            </td>
-                            <td>
-                              @if ($member->final_submit == 1)
-                                <span class="btn btn-info closedtext" >Closed</span>
-                              @else
-                                <span class="btn btn-danger">Opened</span>
-                              @endif
-                            </td>
-                            <script type="text/javascript">
+
+                          @if ($juml_null <5)
+
+                            <tr>
+                              <td>{{$i++}}</td>
+                              <td>{{$juml_null}}</td>
+                              <td>
+                                <a href="#absc" class="btn btn-success sendnotification" style="display:none" >Open User Access</a>
+                                <input type="hidden" class="email" name="" value="{{$member->email}}">
+                              </td>
+                              <td>
+                                @if ($member->final_submit == 1)
+                                  <span class="btn btn-info closedtext" >Closed</span>
+                                @else
+                                  <span class="btn btn-danger">Opened</span>
+                                @endif
+                              </td>
+                              <script type="text/javascript">
                               $(document).ready(function() {
                                 $('.sendnotification').on('click', function() {
                                   var name = $('#nama-pengirim').val();
@@ -174,8 +177,8 @@
                                     context:this,
                                     dataType: 'json',
                                     data: {name: name,
-                                            email: email,
-                                            message: isipesan,
+                                      email: email,
+                                      message: isipesan,
                                     }
                                   })
                                   .done(function(data) {
@@ -217,6 +220,7 @@
                               {{$member->comt}}
                             </td>
                           </tr>
+                          @endif
                         @endforeach
 
                       </tbody>
