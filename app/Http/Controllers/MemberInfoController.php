@@ -145,9 +145,16 @@ class MemberInfoController extends Controller
 
     public function list_index_peserta_submit_yet()
     {
-      $all_submit = DB::table('users')
-         ->join('profiles', 'users.id', '=', 'profiles.user_id')
-         ->where([['users.send_broadcast', 2]])->paginate(20);
+      // $all_submit = DB::table('users')
+      //    ->join('profiles', 'users.id', '=', 'profiles.user_id')
+      //    ->where([['users.send_broadcast', 2]])->paginate(20);
+
+         $all_submit = DB::table('users')
+            ->join('profiles', 'users.id', '=', 'profiles.user_id')
+            // ->join('achievement_bests', 'users.id', '=', 'achievement_bests.user_id')
+            // ->join('me_and_fims', 'users.id', '=', 'me_and_fims.user_id')
+            // ->join('personalities', 'users.id', '=', 'personalities.user_id')
+            ->where([['profiles.city', NULL],['users.final_submit', 1]])->paginate(20);
 
 
         $data = array('members' => $all_submit , );
