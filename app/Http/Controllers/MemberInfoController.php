@@ -133,9 +133,18 @@ class MemberInfoController extends Controller
     // Ada peserta yang belum isi regional
     public function list_index_peserta()
     {
+      // $all_submit = DB::table('users')
+      //    ->join('profiles', 'users.id', '=', 'profiles.user_id')
+      //    ->whereNull('profiles.city')->get();
+
       $all_submit = DB::table('users')
-         ->join('profiles', 'users.id', '=', 'profiles.user_id')
-         ->whereNull('profiles.city')->get();
+           ->join('profiles', function ($join) {
+               $join->on('users.id', '=', 'profiles.user_id')
+                    ->where([['profiles.city', NULL],['users.final_submit', 1]]);
+           })
+           ->get();
+
+           dd($all_submit);
 
 
         $data = array('members' => $all_submit , );
