@@ -149,7 +149,7 @@
                             $juml_null =$ceknull['null'];
                           @endphp
 
-                          @if ($juml_null <57)
+                          @if ($juml_null <=5)
 
                             <tr>
                               <td>{{$i++}}</td>

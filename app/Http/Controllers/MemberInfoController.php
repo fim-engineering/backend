@@ -135,9 +135,9 @@ class MemberInfoController extends Controller
     {
       $all_submit = DB::table('users')
          ->join('profiles', 'users.id', '=', 'profiles.user_id')
-         ->where([['users.send_broadcast', 1]])->paginate(20);
+         ->whereNull('profiles.city')->paginate(20);
 
-        
+
         $data = array('members' => $all_submit , );
       return view('list-peserta-regional-null')->with($data);
 
