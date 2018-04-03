@@ -264,7 +264,7 @@ class MemberInfoController extends Controller
               'Jurusan'  => $profile->majors,
               'Institusi'  => $profile->institution,
               'Alamat'  => $profile->address,
-              'Kota'  => $profile->city,
+              'Regional'  => $profile->city,
               'Nomor Handphone'  => $profile->phone,
               'Jenis Kelamin'  => $profile->gender,
               'Foto Profil'  => $profile->photo_profile_link,

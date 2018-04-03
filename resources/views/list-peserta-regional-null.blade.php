@@ -129,11 +129,13 @@
                       <thead>
                         <th>No</th>
                         <th>Data Kosong</th>
+                        <th>Action</th>
+                        <th>Status</th>
                         <th>Nama</th>
                         <th>Phone</th>
                         <th>Email</th>
-                        <th>Action</th>
-                        <th>Status</th>
+
+
                         <th>Send By</th>
                       </thead>
                       <tbody>
@@ -148,14 +150,17 @@
                           <tr>
                             <td>{{$i++}}</td>
                             <td>{{$juml_null}}</td>
-                            <td>{{$member->name}}</td>
-                            <td>{{$member->phone}}</td>
-                            <td>{{$member->email}}</td>
                             <td>
                               <a href="#absc" class="btn btn-success sendnotification" style="display:none" >Open User Access</a>
                               <input type="hidden" class="email" name="" value="{{$member->email}}">
                             </td>
-
+                            <td>
+                              @if ($member->final_submit == 1)
+                                <span class="btn btn-info closedtext" >Closed</span>
+                              @else
+                                <span class="btn btn-danger">Opened</span>
+                              @endif
+                            </td>
                             <script type="text/javascript">
                               $(document).ready(function() {
                                 $('.sendnotification').on('click', function() {
@@ -176,10 +181,14 @@
                                   .done(function(data) {
                                     if (data.message == "Berhasil") {
                                       $(this).parent().parent().find('.closedtext').text('Opened').addClass('btn-danger').removeClass('btn-info');
-                                      $(this).parent().parent().find('.comt-user').text(data.desc);
+
 
                                       $(this).text('Send Notification !').addClass('btn-warning').removeClass('btn-success');
                                       $(this).attr('href', data.link).attr('target','_blank');
+
+                                      $('.btn-warning').on('click', function() {
+                                        $(this).parent().parent().find('.comt-user').text(data.desc);
+                                      });
                                     }
 
                                   })
@@ -190,22 +199,20 @@
                                     console.log("complete");
                                   });
 
-
-
-
                                 });
                               });
                             </script>
 
+                            <td>{{$member->name}}</td>
+                            <td>{{$member->phone}}</td>
+                            <td>{{$member->email}}</td>
 
 
-                            <td>
-                              @if ($member->final_submit == 1)
-                                <span class="btn btn-info closedtext" >Closed</span>
-                              @else
-                                <span class="btn btn-danger">Opened</span>
-                              @endif
-                            </td>
+
+
+
+
+
                             <td class="comt-user">
                               {{$member->comt}}
                             </td>
