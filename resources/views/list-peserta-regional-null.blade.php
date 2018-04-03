@@ -149,7 +149,7 @@
                             $juml_null[] =$ceknull['null'];
                           @endphp
 
-                          @if ($juml_null)
+                          @if (count($juml_null))
 
                             <tr>
                               <td>{{$i++}}</td>
