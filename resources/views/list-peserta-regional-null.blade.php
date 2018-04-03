@@ -147,6 +147,7 @@
                             $juml_null = 1000;
                             $ceknull = app('App\Http\Controllers\MemberInfoController')->user_validation($member->email);
                             $juml_null =$ceknull['null'];
+                            dd($juml_null);
                           @endphp
 
                           @if ($juml_null <5)
