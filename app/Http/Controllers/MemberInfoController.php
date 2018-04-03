@@ -164,7 +164,7 @@ class MemberInfoController extends Controller
       // $message= urlencode($message);
 
       $adduser = User::where('email',$email)->first();
-      $adduser->final_submit = 1;
+      $adduser->final_submit = 0;
       $adduser->comt = $nama.' '.Carbon::now()->format('d-m-Y H:i:s');
       $adduser->save();
 
