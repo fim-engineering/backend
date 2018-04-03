@@ -142,9 +142,9 @@ class MemberInfoController extends Controller
                $join->on('users.id', '=', 'profiles.user_id')
                     ->where([['profiles.city', NULL],['users.final_submit', 1]]);
            })
-           ->get();
+           ->paginate(20);
 
-           dd($all_submit);
+
 
 
         $data = array('members' => $all_submit , );
