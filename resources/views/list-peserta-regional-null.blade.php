@@ -146,10 +146,10 @@
                           @php
                             $juml_null = 1000;
                             $ceknull = app('App\Http\Controllers\MemberInfoController')->user_validation($member->email);
-                            $juml_null =$ceknull['null'];
+                            $juml_null[] =$ceknull['null'];
                           @endphp
 
-                          @if ($juml_null <=5)
+                          @if ($juml_null)
 
                             <tr>
                               <td>{{$i++}}</td>
@@ -223,6 +223,10 @@
                           </tr>
                           @endif
                         @endforeach
+
+                        @php
+                          dd($juml_null);
+                        @endphp
 
                       </tbody>
                     </table>

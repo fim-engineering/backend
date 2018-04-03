@@ -135,7 +135,7 @@ class MemberInfoController extends Controller
     {
       $all_submit = DB::table('users')
          ->join('profiles', 'users.id', '=', 'profiles.user_id')
-         ->whereNull('profiles.city')->paginate(20);
+         ->whereNull('profiles.city')->get();
 
 
         $data = array('members' => $all_submit , );
