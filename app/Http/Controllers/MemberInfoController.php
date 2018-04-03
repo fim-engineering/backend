@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 
 use App\User;
-use App\models\profile;
+use App\profile;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Response;
 
@@ -133,34 +133,12 @@ class MemberInfoController extends Controller
     // Ada peserta yang belum isi regional
     public function list_index_peserta()
     {
-      // $all_submit = DB::table('users')
-      //    ->join('profiles', 'users.id', '=', 'profiles.user_id')
-      //    ->where([['users.send_broadcast', 1]])->paginate(20);
+      $all_submit = DB::table('users')
+         ->join('profiles', 'users.id', '=', 'profiles.user_id')
+         ->where([['users.send_broadcast', 1]])->paginate(20);
 
-         // $first = DB::table('users')
-         //       ->where('final_submit', 1);
-         //
-         //       $profiles = DB::table('profiles')
-         //             ->whereNull('city')
-         //             ->union($first)
-         //             ->get();
-        $all_submit = Profile::whereNull('city')->paginate(20);
-        // dd($all_submit);
-
-      // $all_submit =  DB::table('users')
-      //   ->join('profiles', function ($join) {
-      //       $join->on('users.id', '=', 'profiles.user_id')
-      //            ->where([['profiles.city', NULL]]);
-      //   })
-      //   ->paginate(20);
-      //   dd($all_submit);
-
-                     // dd($data);
-
-        $data = array(
-          'members' => $all_submit,
-          'status' => "regional null"
-          , );
+        
+        $data = array('members' => $all_submit , );
       return view('list-peserta-regional-null')->with($data);
 
     }
