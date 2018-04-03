@@ -144,6 +144,7 @@
                         @endphp
                         @foreach ($members as $member)
                           @php
+                            $juml_null = 1000;
                             $ceknull = app('App\Http\Controllers\MemberInfoController')->user_validation($member->email);
                             $juml_null =$ceknull['null'];
                           @endphp
