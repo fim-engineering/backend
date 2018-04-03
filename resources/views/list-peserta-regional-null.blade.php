@@ -219,9 +219,9 @@
                           {{-- @endif --}}
                         @endforeach
 
-                        @php
+                        {{-- @php
                           dd($juml_null);
-                        @endphp
+                        @endphp --}}
 
                       </tbody>
                     </table>
