@@ -139,91 +139,180 @@
                         <th>Send By</th>
                       </thead>
                       <tbody>
-                        @php
-                        $i = 1;
-                        @endphp
-                        @foreach ($members as $member)
+                        @if (!isset($status))
                           @php
-                            $juml_null = 1000;
-                            $ceknull = app('App\Http\Controllers\MemberInfoController')->user_validation($member->email);
-                            $juml_null =$ceknull['null'];
-                            dd($juml_null);
+                          $i = 1;
                           @endphp
+                          @foreach ($members as $member)
+                            @php
+                              $juml_null = 1000;
+                              $ceknull = app('App\Http\Controllers\MemberInfoController')->user_validation($member->email);
+                              $juml_null =$ceknull['null'];
+                            @endphp
 
-                          @if ($juml_null <5)
+                            @if ($juml_null <5)
 
-                            <tr>
-                              <td>{{$i++}}</td>
-                              <td>{{$juml_null}}</td>
-                              <td>
-                                <a href="#absc" class="btn btn-success sendnotification" style="display:none" >Open User Access</a>
-                                <input type="hidden" class="email" name="" value="{{$member->email}}">
-                              </td>
-                              <td>
-                                @if ($member->final_submit == 1)
-                                  <span class="btn btn-info closedtext" >Closed</span>
-                                @else
-                                  <span class="btn btn-danger">Opened</span>
-                                @endif
-                              </td>
-                              <script type="text/javascript">
-                              $(document).ready(function() {
-                                $('.sendnotification').on('click', function() {
-                                  var name = $('#nama-pengirim').val();
-                                  var email = $(this).parent().find('.email').val();
-                                  var isipesan = $('#isi-pesan').val();
+                              <tr>
+                                <td>{{$i++}}</td>
+                                <td>{{$juml_null}}</td>
+                                <td>
+                                  <a href="#absc" class="btn btn-success sendnotification" style="display:none" >Open User Access</a>
+                                  <input type="hidden" class="email" name="" value="{{$member->email}}">
+                                </td>
+                                <td>
+                                  @if ($member->final_submit == 1)
+                                    <span class="btn btn-info closedtext" >Closed</span>
+                                  @else
+                                    <span class="btn btn-danger">Opened</span>
+                                  @endif
+                                </td>
+                                <script type="text/javascript">
+                                $(document).ready(function() {
+                                  $('.sendnotification').on('click', function() {
+                                    var name = $('#nama-pengirim').val();
+                                    var email = $(this).parent().find('.email').val();
+                                    var isipesan = $('#isi-pesan').val();
 
-                                  $.ajax({
-                                    url: '/admin/add-record-broadcast',
-                                    type: 'GET',
-                                    context:this,
-                                    dataType: 'json',
-                                    data: {name: name,
-                                      email: email,
-                                      message: isipesan,
-                                    }
-                                  })
-                                  .done(function(data) {
-                                    if (data.message == "Berhasil") {
-                                      $(this).parent().parent().find('.closedtext').text('Opened').addClass('btn-danger').removeClass('btn-info');
+                                    $.ajax({
+                                      url: '/admin/add-record-broadcast',
+                                      type: 'GET',
+                                      context:this,
+                                      dataType: 'json',
+                                      data: {name: name,
+                                        email: email,
+                                        message: isipesan,
+                                      }
+                                    })
+                                    .done(function(data) {
+                                      if (data.message == "Berhasil") {
+                                        $(this).parent().parent().find('.closedtext').text('Opened').addClass('btn-danger').removeClass('btn-info');
 
 
-                                      $(this).text('Send Notification !').addClass('btn-warning').removeClass('btn-success');
-                                      $(this).attr('href', data.link).attr('target','_blank');
+                                        $(this).text('Send Notification !').addClass('btn-warning').removeClass('btn-success');
+                                        $(this).attr('href', data.link).attr('target','_blank');
 
-                                      $('.btn-warning').on('click', function() {
-                                        $(this).parent().parent().find('.comt-user').text(data.desc);
-                                      });
-                                    }
+                                        $('.btn-warning').on('click', function() {
+                                          $(this).parent().parent().find('.comt-user').text(data.desc);
+                                        });
+                                      }
 
-                                  })
-                                  .fail(function() {
-                                    console.log("error");
-                                  })
-                                  .always(function() {
-                                    console.log("complete");
+                                    })
+                                    .fail(function() {
+                                      console.log("error");
+                                    })
+                                    .always(function() {
+                                      console.log("complete");
+                                    });
+
                                   });
-
                                 });
-                              });
-                            </script>
+                              </script>
 
-                            <td>{{$member->name}}</td>
-                            <td>{{$member->phone}}</td>
-                            <td>{{$member->email}}</td>
-
+                              <td>{{$member->name}}</td>
+                              <td>{{$member->phone}}</td>
+                              <td>{{$member->email}}</td>
 
 
 
 
 
 
-                            <td class="comt-user">
-                              {{$member->comt}}
-                            </td>
-                          </tr>
-                          @endif
-                        @endforeach
+
+                              <td class="comt-user">
+                                {{$member->comt}}
+                              </td>
+                            </tr>
+                            @endif
+                          @endforeach
+
+                          @else
+
+                            @php
+                            $i = 1;
+                            @endphp
+                            @foreach ($members as $member)
+                              @php
+                                $juml_null = 1000;
+                                $ceknull = app('App\Http\Controllers\MemberInfoController')->user_validation($member->user->email);
+                                $juml_null =$ceknull['null'];
+                              @endphp
+
+                              @if ($juml_null <=57)
+
+                                <tr>
+                                  <td>{{$i++}}</td>
+                                  <td>{{$juml_null}}</td>
+                                  <td>
+                                    <a href="#absc" class="btn btn-success sendnotification" style="display:none" >Open User Access</a>
+                                    <input type="hidden" class="email" name="" value="{{$member->user->email}}">
+                                  </td>
+                                  <td>
+                                    @if ($member->user->final_submit == 1)
+                                      <span class="btn btn-info closedtext" >Closed</span>
+                                    @else
+                                      <span class="btn btn-danger">Opened</span>
+                                    @endif
+                                  </td>
+                                  <script type="text/javascript">
+                                  $(document).ready(function() {
+                                    $('.sendnotification').on('click', function() {
+                                      var name = $('#nama-pengirim').val();
+                                      var email = $(this).parent().find('.email').val();
+                                      var isipesan = $('#isi-pesan').val();
+
+                                      $.ajax({
+                                        url: '/admin/add-record-broadcast',
+                                        type: 'GET',
+                                        context:this,
+                                        dataType: 'json',
+                                        data: {name: name,
+                                          email: email,
+                                          message: isipesan,
+                                        }
+                                      })
+                                      .done(function(data) {
+                                        if (data.message == "Berhasil") {
+                                          $(this).parent().parent().find('.closedtext').text('Opened').addClass('btn-danger').removeClass('btn-info');
+
+
+                                          $(this).text('Send Notification !').addClass('btn-warning').removeClass('btn-success');
+                                          $(this).attr('href', data.link).attr('target','_blank');
+
+                                          $('.btn-warning').on('click', function() {
+                                            $(this).parent().parent().find('.comt-user').text(data.desc);
+                                          });
+                                        }
+
+                                      })
+                                      .fail(function() {
+                                        console.log("error");
+                                      })
+                                      .always(function() {
+                                        console.log("complete");
+                                      });
+
+                                    });
+                                  });
+                                </script>
+
+                                <td>{{$member->user->name}}</td>
+                                <td>{{$member->user->phone}}</td>
+                                <td>{{$member->user->email}}</td>
+
+
+
+
+
+
+
+                                <td class="comt-user">
+                                  {{$member->user->comt}}
+                                </td>
+                              </tr>
+                              @endif
+                            @endforeach
+                        @endif
+
 
                       </tbody>
                     </table>

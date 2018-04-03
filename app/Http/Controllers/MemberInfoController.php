@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 
 use App\User;
-use App\profile;
+use App\models\profile;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Response;
 
@@ -144,17 +144,23 @@ class MemberInfoController extends Controller
          //             ->whereNull('city')
          //             ->union($first)
          //             ->get();
+        $all_submit = Profile::whereNull('city')->paginate(20);
+        // dd($all_submit);
 
-      $all_submit =  DB::table('users')
-        ->join('profiles', function ($join) {
-            $join->on('users.id', '=', 'profiles.user_id')
-                 ->where('profiles.city', NULL);
-        })
-        ->paginate(20);
+      // $all_submit =  DB::table('users')
+      //   ->join('profiles', function ($join) {
+      //       $join->on('users.id', '=', 'profiles.user_id')
+      //            ->where([['profiles.city', NULL]]);
+      //   })
+      //   ->paginate(20);
+      //   dd($all_submit);
 
                      // dd($data);
 
-        $data = array('members' => $all_submit , );
+        $data = array(
+          'members' => $all_submit,
+          'status' => "regional null"
+          , );
       return view('list-peserta-regional-null')->with($data);
 
     }
