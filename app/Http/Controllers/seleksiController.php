@@ -49,7 +49,28 @@ class seleksiController extends Controller
         'status' => 'deleted',
         'message' => "berhasil delete",
       ], 200);
+    }
 
+    public function view_peserta()
+    {
+      $email = "karimnaisya18@gmail.com";
 
+      $user = User::where('email', $email)->first();
+
+      $profiles = $user->profiles;
+      $personality = $user->personality;
+      $achievement_bests = $user->achievement_bests;
+      $me_and_fim = $user->me_and_fim;
+
+      $data = array(
+        'user' => $user ,
+        'profile' => $profiles ,
+        'personality' => $personality ,
+        'achievement' => $achievement_bests ,
+        'meandfim' => $me_and_fim ,
+      );
+
+      return response()->json($data);
+      // dd($data);
     }
 }
