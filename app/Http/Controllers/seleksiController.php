@@ -53,7 +53,8 @@ class seleksiController extends Controller
 
     public function view_peserta()
     {
-      $email = "karimnaisya18@gmail.com";
+      $email = $_GET['email'];
+      $email = urldecode($email);
 
       $user = User::where('email', $email)->first();
 
