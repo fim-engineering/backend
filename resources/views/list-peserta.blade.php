@@ -38,7 +38,7 @@
               </tr>
             </thead>
             <tbody>
-              
+
               @foreach ($members as $member)
                 @php
                   $juml_null = 1000;
@@ -50,7 +50,7 @@
                   <td>No</td>
                   <td>View</td>
                   <td>{{$juml_null}}</td>
-                  <<td>{{$member->name}}</td>
+                  <td>{{$member->name}}</td>
                   <td>{{$member->phone}}</td>
                   <td>{{$member->email}}</td>
                   <td>Keputusan</td>
@@ -62,6 +62,9 @@
             </tbody>
           </table>
 
+          <div class="row">
+            {{ $members->links() }}
+          </div>
 
 
         </div>
