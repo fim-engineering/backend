@@ -111,12 +111,15 @@
                     .done(function(data) {
                       console.log(data);
                       $('#name').text(data.user.name);
-                      name
+                      $('#name_2').text(data.user.name);
+
           $('#city').text(data. profile.city);
+          $('#photo_profile_link').attr('src',data.profile.photo_profile_link);
+          $('#ktp_link').attr('src',data.profile.ktp_link);
           $('#institution').text(data. profile.institution);
           $('#majors').text(data. profile .majors);
           $('#phone').text(data. profile .phone);
-          $('#email').text(data. profile .email);
+          $('#email_ya').text(data. profile .email);
           $('#gender').text(data. profile .gender);
           $('#blood').text(data. profile .blood);
           $('#religion').text(data. profile .religion);
@@ -139,17 +142,35 @@
           $('#problem_solver_2').text(data. personality.problem_solver_2);
           $('#problem_solver_3').text(data. personality.problem_solver_3);
           $('#mbti').text(data. personality.mbti);
-          $('#cintakasih').text(data. personality.cintakasih);
-          $('#integritas').text(data. personality.integritas);
-          $('#totalitas').text(data. personality.totalitas);
-          $('#kebersahajaan').text(data. personality.kebersahajaan);
-          $('#solidaritas').text(data. personality.solidaritas);
-          $('#keadilan').text(data. personality.keadilan);
-          $('#keteladanan').text(data. personality.keteladanan);
-          $('#achievement').text(data. achievement.achievement);
+
+
+          function hitung_presentase(nilai) {
+            return hasil_perhitungan = nilai/5*100;
+          }
+
+          $('#cintakasih').css('width', hitung_presentase(data. personality.cintakasih)+'%');
+          $('#integritas').css('width', hitung_presentase(data. personality.integritas)+'%');
+          $('#totalitas').css('width', hitung_presentase(data. personality.totalitas)+'%');
+          $('#kebersahajaan').css('width', hitung_presentase(data. personality.kebersahajaan)+'%');
+          $('#solidaritas').css('width', hitung_presentase(data. personality.solidaritas)+'%');
+          $('#keadilan').css('width', hitung_presentase(data. personality.keadilan)+'%');
+          $('#keteladanan').css('width', hitung_presentase(data. personality.keteladanan)+'%');
+          $('#achievement').css('width', hitung_presentase(data. achievement.achievement)+'%');
+
+
+          $('#cintakasih').text('cintakasih ('+data. personality.cintakasih+')');
+          $('#integritas').text('integritas ('+data. personality.integritas+')');
+          $('#totalitas').text('totalitas ('+data. personality.totalitas+')');
+          $('#kebersahajaan').text('kebersahajaan ('+data. personality.kebersahajaan+')');
+          $('#solidaritas').text('solidaritas ('+data. personality.solidaritas+')');
+          $('#keadilan').text('keadilan ('+data. personality.keadilan+')');
+          $('#keteladanan').text('keteladanan ('+data. personality.keteladanan+')');
+          $('#achievement').text('achievement ('+data. achievement.achievement+')');
+
+
           $('#date_from').text(data. achievement.date_from);
           $('#date_end').text(data. achievement.date_end);
-          $('#duration').text(data. achievement.duration);
+          $('#duration').text('Durasi ='+data. achievement.duration+' Tahun');
           $('#position_name').text(data. achievement.position_name);
           $('#email_leader').text(data. achievement.email_leader);
           $('#description').text(data. achievement.description);
@@ -215,7 +236,7 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-md-4">
-            <img style="width:250px" class="img img-responsive" src="https://opensource.google.com/assets/static/images/home/blog/blog_image_1.jpg" alt="">
+            <img style="width:250px" id="photo_profile_link" class="img img-responsive" src="https://opensource.google.com/assets/static/images/home/blog/blog_image_1.jpg" alt="">
           </div>
           <div class="col-md-8">
             <h2 id="name">Name</h2>
@@ -233,7 +254,7 @@
               </tr>
               <tr>
                 <td class="grey">email</td>
-                <td id="email">dwiutamabagus@gmail.com</td>
+                <td id="email_ya">dwiutamabagus@gmail.com</td>
               </tr>
               <tr>
                 <td class="grey">Gender</td>
@@ -252,28 +273,25 @@
           </div>
         </div>
 
-        <div class="row" style="margin:20px">
-          <div class="col-md-3">
+        <div class="row" style="margin-top:10px">
+          <div class="col-md-6">
+            <img class="img img-responsive" style="width: 376px;" src="https://singowijaya.files.wordpress.com/2014/04/ktp.jpg" alt="">
+          </div>
+          <div class="col-md-6">
             <a href="#" target="_blank" class="btn btn-lg btn-primary">Facebook
               <span id="facebook">(Ada)</span>
+            </a> <br>
+            <a href="#" target="_blank" class="btn btn-lg btn-secondary">Instagram
+              <span id="instagram">(Ada)</span>
+            </a> <br>
+            <a href="#" target="_blank" class="btn btn-lg btn-warning">Blog
+              <span id="blog">(Ada)</span>
+            </a> <br>
+            <a href="#" target="_blank" class="btn btn-lg btn-dark">Video Profil
+              <span id="video_profile">(Ada)</span>
             </a>
-          </div>
-            <div class="col-md-3">
-              <a href="#" target="_blank" class="btn btn-lg btn-secondary">Instagram
-                <span id="instagram">(Ada)</span>
-              </a>
-            </div>
-            <div class="col-md-3">
-              <a href="#" target="_blank" class="btn btn-lg btn-warning">Blog
-                <span id="blog">(Ada)</span>
-              </a>
-            </div>
-            <div class="col-md-3">
-              <a href="#" target="_blank" class="btn btn-lg btn-dark">Video Profil
-                <span id="video_profile">(Ada)</span>
-              </a>
-            </div>
 
+          </div>
         </div>
 
         <div class="row">
@@ -338,7 +356,7 @@
                 <td>
                   <span id="role_model">Anies Baswedan</span> ,
                   <span id="role_model_2">Ridwan Kamil</span> ,
-                  <span id="role_model_3">Sudirman Said</span> ,
+                  <span id="role_model_3">Sudirman Said</span>
                 </td>
               </tr>
 
@@ -535,6 +553,7 @@
 
       </div>
       <div class="modal-footer">
+        <h2 id="name_2">Name</h2>
         <button type="button" id="close" class="btn btn-secondary" data-dismiss="modal">Close</button>
         {{-- <button type="button" id="delete_it" class="btn btn-warning">Delete It !</button> --}}
         {{-- <button type="button" id="want_it" class="btn btn-success">I Want It !</button> --}}
