@@ -85,7 +85,7 @@ class seleksiController extends Controller
       $regional = $request->regional;
 
 
-      return Excel::download(new \App\Exports\invoicesExport($regional), 'invoices.xlsx');
+      return Excel::download(new \App\Exports\invoicesExport($regional), 'Regional-'.$regional.'-FIM-20.xlsx');
 
     }
 }
