@@ -38,6 +38,9 @@
               </tr>
             </thead>
             <tbody>
+              @php
+                $i = 1;
+              @endphp
 
               @foreach ($members as $member)
                 @php
@@ -45,7 +48,7 @@
                   $ceknull = app('App\Http\Controllers\MemberInfoController')->user_validation($member->email);
                   $juml_null =$ceknull['null'];
 
-                  $i = 1;
+
                 @endphp
 
                 <tr>
