@@ -28,4 +28,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/seleksi-berkas', 'SeleksiController@selectregional');
+Route::get('/seleksi-berkas', 'seleksiController@selectregional');
