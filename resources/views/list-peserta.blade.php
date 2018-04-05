@@ -123,10 +123,12 @@
           $('#gender').text(data. profile .gender);
           $('#blood').text(data. profile .blood);
           $('#religion').text(data. profile .religion);
-          $('#facebook').text(data. profile .facebook);
-          $('#instagram').text(data. profile .instagram);
-          $('#blog').text(data. profile .blog);
-          $('#video_profile').text(data. profile .video_profile);
+
+          $('#facebook').val(data. profile .facebook);
+          $('#instagram').val(data. profile .instagram);
+          $('#blog').val(data. profile .blog);
+          $('#video_profile').val(data. profile .video_profile);
+
           $('#address').text(data. profile .address);
           $('#city').text(data. profile .city);
           $('#born_city').text(data. profile .born_city);
@@ -275,10 +277,35 @@
 
         <div class="row" style="margin-top:10px">
           <div class="col-md-6">
-            <img class="img img-responsive" style="width: 376px;" src="https://singowijaya.files.wordpress.com/2014/04/ktp.jpg" alt="">
+            <img id="ktp_link" class="img img-responsive" style="width: 376px;" src="https://singowijaya.files.wordpress.com/2014/04/ktp.jpg" alt="">
           </div>
           <div class="col-md-6">
-            <a href="#" target="_blank" class="btn btn-lg btn-primary">Facebook
+            <div class="form-group">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="">
+                <span id="facebook" class="input-group-addon">Facebook </span>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="">
+                <span id="instagram" class="input-group-addon">Instagram </span>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="">
+                <span id="blog" class="input-group-addon">Blog </span>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="">
+                <span id="video_profile" class="input-group-addon">Video Profil </span>
+              </div>
+            </div>
+
+            {{-- <a href="#" target="_blank" class="btn btn-lg btn-primary">Facebook
               <span id="facebook">(Ada)</span>
             </a> <br>
             <a href="#" target="_blank" class="btn btn-lg btn-secondary">Instagram
@@ -289,7 +316,7 @@
             </a> <br>
             <a href="#" target="_blank" class="btn btn-lg btn-dark">Video Profil
               <span id="video_profile">(Ada)</span>
-            </a>
+            </a> --}}
 
           </div>
         </div>
@@ -401,7 +428,7 @@
                     </div>
                   </div>
                   <div class="progress" style="height: 30px;margin-top:10px">
-                    <div class="progress-bar bg-danger" role="progressbar" id="keteladanan" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">keteladanan
+                    <div class="progress-bar bg-info" role="progressbar" id="keteladanan" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">keteladanan
                     </div>
                   </div>
                 </td>
