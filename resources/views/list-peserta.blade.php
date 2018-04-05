@@ -12,6 +12,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+    <script src="{{asset('js/sweetalert/sweetalert2.js')}}"></script>
+    <link href="{{asset('js/sweetalert/sweetalert2.css')}}" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -79,23 +81,59 @@
               @endforeach
 
               <script type="text/javascript">
+
+
+  $('.tolak').on('click', function() {
+    swal({
+      title: "Are you sure?",
+      text: "But you will still be able to retrieve this file.",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#f44336",
+      confirmButtonText: "Yes, Delete it!",
+      cancelButtonText: "No, cancel please!",
+
+    }).then((result) => {
+  if (result.value) {
+
+      var tr = $(this).parent().parent();
+      var email = tr.find('.email').val();
+      $.ajax({
+        url: '/seleksi-berkas/list-peserta/delete',
+        type: 'GET',
+        context:this,
+        dataType: 'json',
+        data: {email: email}
+      })
+      .done(function(data) {
+        if (data.status == 'deleted') {
+          tr.find('.tolak').addClass('btn-danger').removeClass('btn-warning').text('TERHAPUS !');
+        }
+      });
+
+      }
+    });
+  });
+</script>
+
+              <script type="text/javascript">
                 $(document).ready(function() {
-                  $('.tolak').on('click', function() {
-                    var tr = $(this).parent().parent();
-                    var email = tr.find('.email').val();
-                    $.ajax({
-                      url: '/seleksi-berkas/list-peserta/delete',
-                      type: 'GET',
-                      context:this,
-                      dataType: 'json',
-                      data: {email: email}
-                    })
-                    .done(function(data) {
-                      if (data.status == 'deleted') {
-                        tr.find('.tolak').addClass('btn-danger').removeClass('btn-warning').text('TERHAPUS !');
-                      }
-                    });
-                  });
+                  // $('.tolak').on('click', function() {
+                  //   var tr = $(this).parent().parent();
+                  //   var email = tr.find('.email').val();
+                  //   $.ajax({
+                  //     url: '/seleksi-berkas/list-peserta/delete',
+                  //     type: 'GET',
+                  //     context:this,
+                  //     dataType: 'json',
+                  //     data: {email: email}
+                  //   })
+                  //   .done(function(data) {
+                  //     if (data.status == 'deleted') {
+                  //       tr.find('.tolak').addClass('btn-danger').removeClass('btn-warning').text('TERHAPUS !');
+                  //     }
+                  //   });
+                  // });
 
                   $('.view').on('click',function(event) {
                     var tr = $(this).parent().parent();
