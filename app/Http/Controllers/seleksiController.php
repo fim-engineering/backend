@@ -43,7 +43,7 @@ class seleksiController extends Controller
 
       $member = User::where('email', $email)->first();
 
-      // $member->delete();
+      $member->delete();
 
       return Response::json([
         'status' => 'deleted',
