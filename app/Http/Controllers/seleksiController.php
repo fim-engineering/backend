@@ -28,7 +28,7 @@ class seleksiController extends Controller
         $all_submit = DB::table('users')
              ->join('profiles', function ($join) use ($regional) {
                  $join->on('users.id', '=', 'profiles.user_id')
-                      ->where([['profiles.city', $regional],['users.final_submit', 1]]);
+                      ->where([['profiles.city', $regional],['users.final_submit', 1]])->whereNull('users.deleted_at');
              })
              ->get();
 
