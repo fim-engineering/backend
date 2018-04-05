@@ -10,7 +10,7 @@
 
   </head>
   <body>
-    <form class="" action="index.html" method="post">
+    <form class="" action="/seleksi-berkas/list-peserta" method="post">
       {{ csrf_field() }}
       <div class="container">
         <div class="warper" style="margin-top:100px">
@@ -31,7 +31,7 @@
                 <input type="password" class="form-control form-control-lg form-block" id="" placeholder="Password">
               </div>
 
-              <button type="button" class="btn btn-danger btn-default btn-lg btn-block">
+              <button type="submit" class="btn btn-danger btn-default btn-lg btn-block">
                 Submit
               </button>
             </div>
