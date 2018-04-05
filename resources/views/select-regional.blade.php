@@ -27,9 +27,9 @@
                   @endforeach
                 </select>
               </div>
-              <div class="form-group">
+              {{-- <div class="form-group">
                 <input type="password" class="form-control form-control-lg form-block" id="" placeholder="Password">
-              </div>
+              </div> --}}
 
               <button type="submit" class="btn btn-danger btn-default btn-lg btn-block">
                 Submit

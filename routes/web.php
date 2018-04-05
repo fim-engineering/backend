@@ -30,3 +30,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/seleksi-berkas', 'seleksiController@selectregional');
 Route::any('/seleksi-berkas/list-peserta', 'seleksiController@view_list_member');
+Route::any('/seleksi-berkas/list-peserta/delete', 'seleksiController@delete_member');

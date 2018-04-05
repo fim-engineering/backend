@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
-
-
+use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
 use App\models\regional;
+use App\User;
 
 class seleksiController extends Controller
 {
@@ -30,9 +30,26 @@ class seleksiController extends Controller
                  $join->on('users.id', '=', 'profiles.user_id')
                       ->where([['profiles.city', $regional],['users.final_submit', 1]]);
              })
-             ->paginate(20);
+             ->get();
 
                $data = array('members' => $all_submit,);
              return view('list-peserta')->with($data);
+    }
+
+    public function delete_member()
+    {
+      $email = $_GET['email'];
+      $email = urldecode($email);
+
+      $member = User::where('email', $email)->first();
+
+      // $member->delete();
+
+      return Response::json([
+        'status' => 'deleted',
+        'message' => "berhasil delete",
+      ], 200);
+
+
     }
 }

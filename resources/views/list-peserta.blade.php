@@ -44,17 +44,54 @@
                   $juml_null = 1000;
                   $ceknull = app('App\Http\Controllers\MemberInfoController')->user_validation($member->email);
                   $juml_null =$ceknull['null'];
+
+                  $i = 1;
                 @endphp
 
                 <tr>
-                  <td>No</td>
-                  <td>View</td>
+                  <td>{{$i++}}</td>
+                  <td>
+                    <span class="btn btn-info">View</span>
+                    <input type="hidden" class="email" name="" value="{{$member->email}}">
+                  </td>
                   <td>{{$juml_null}}</td>
                   <td>{{$member->name}}</td>
                   <td>{{$member->phone}}</td>
                   <td>{{$member->email}}</td>
-                  <td>Keputusan</td>
+                  <td>
+                    <span class="btn btn-warning tolak">Tolak / Hapus</span>
+                  </td>
                 </tr>
+
+                <script type="text/javascript">
+                  $(document).ready(function() {
+                    $('.tolak').on('click', function() {
+                      var tr = $(this).parent().parent();
+                      var email = tr.find('.email').val();
+
+
+
+                      $.ajax({
+                        url: '/seleksi-berkas/list-peserta/delete',
+                        type: 'GET',
+                        context:this,
+                        dataType: 'json',
+                        data: {email: email}
+                      })
+                      .done(function(data) {
+
+                        if (data.status == 'deleted') {
+                          tr.find('.tolak').addClass('btn-danger').removeClass('btn-warning').text('TERHAPUS !');
+
+                        }
+                      });
+
+
+
+
+                    });
+                  });
+                </script>
 
               @endforeach
 
