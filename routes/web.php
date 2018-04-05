@@ -27,3 +27,5 @@ Route::get('/admin/add-record-broadcast', 'MemberInfoController@add_record_broad
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/seleksi-berkas', 'SeleksiController@selectregional');
