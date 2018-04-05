@@ -31,10 +31,11 @@
                 <th>No</th>
                 <th>View</th>
                 <th>Jumlah Kosong</th>
+                <th>Keputusan</th>
                 <th>Nama</th>
                 <th>Nomor Hp</th>
                 <th>E-Mail</th>
-                <th>Keputusan</th>
+
               </tr>
             </thead>
             <tbody>
@@ -58,12 +59,13 @@
                     <input type="hidden" class="email" name="" value="{{$member->email}}">
                   </td>
                   <td>{{$juml_null}}</td>
-                  <td>{{$member->name}}</td>
-                  <td>{{$member->phone}}</td>
-                  <td>{{$member->email}}</td>
                   <td>
                     <span class="btn btn-warning tolak">Tolak / Hapus</span>
                   </td>
+                  <td>{{$member->name}}</td>
+                  <td>{{$member->phone}}</td>
+                  <td>{{$member->email}}</td>
+
                 </tr>
 
                 <script type="text/javascript">
