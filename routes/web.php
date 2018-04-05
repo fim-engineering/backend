@@ -33,3 +33,4 @@ Route::any('/seleksi-berkas/list-peserta', 'seleksiController@view_list_member')
 Route::any('/seleksi-berkas/list-peserta/delete', 'seleksiController@delete_member');
 
 Route::any('/get-data-member', 'seleksiController@view_peserta');
+Route::any('/get-data-member/download', 'seleksiController@download_excel');

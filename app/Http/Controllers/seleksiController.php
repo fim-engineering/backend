@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
 use App\models\regional;
 use App\User;
+use Excel;
 
 class seleksiController extends Controller
 {
@@ -32,7 +34,10 @@ class seleksiController extends Controller
              })
              ->get();
 
-               $data = array('members' => $all_submit,);
+               $data = array(
+                 'members' => $all_submit,
+                 'regional' => $regional,
+               );
              return view('list-peserta')->with($data);
     }
 
@@ -73,5 +78,14 @@ class seleksiController extends Controller
 
       return response()->json($data);
       // dd($data);
+    }
+
+    public function download_excel(Request $request)
+    {
+      $regional = $request->regional;
+
+
+      return Excel::download(new \App\Exports\invoicesExport($regional), 'invoices.xlsx');
+
     }
 }

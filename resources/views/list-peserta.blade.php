@@ -32,6 +32,18 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
+          <form class="" action="/get-data-member/download" method="post">
+            {{ csrf_field() }}
+            <input type="hidden" name="regional" value="{{$regional}}">
+            <button type="submit" class="btn btn-success btn-block">
+              Download Excel
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
 
 
           <table class="hover table">
