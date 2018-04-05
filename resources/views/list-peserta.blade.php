@@ -62,9 +62,9 @@
             </tbody>
           </table>
 
-          <div class="row">
+          {{-- <div class="row">
             {{ $members->links() }}
-          </div>
+          </div> --}}
 
 
         </div>
