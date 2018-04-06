@@ -58,8 +58,7 @@ class InvoicesExport implements FromCollection, WithHeadings
       "name",// "Bagus Dwi UTamaSS"
       "username",// null
       "email",// "dwiutamabagus@gmail.com"
-      "password",// "$2y$10$.a/mhHJAMghlgyi8fDDr7uZXDOTboTqwGKYUgIlPsJtpqDJS6MdMO"
-      "remember_token",// null
+    
       "created_at",// "2018-03-03 20:58:57"
       "updated_at",// "2018-03-31 14:55:12"
       "deleted_at",// null
