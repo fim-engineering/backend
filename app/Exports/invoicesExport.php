@@ -55,17 +55,17 @@ class InvoicesExport implements FromCollection, WithHeadings
     {
         return [
       "id",// 17
-      "name",// "Bagus Dwi UTamaSS"
+      "Nama Lengkap",// "Bagus Dwi UTamaSS"
       "username",// null
       "email",// "dwiutamabagus@gmail.com"
-    
       "created_at",// "2018-03-03 20:58:57"
       "updated_at",// "2018-03-31 14:55:12"
       "deleted_at",// null
       "member_or_not",// 0
       "active",// 0
+      "",// 0
       "unique_code",// 927864
-      "keyword",// "R3VuYWthbjEyMyE="
+      // "keyword",// "R3VuYWthbjEyMyE="
       "regional_id",// null
       "final_submit",// 1
       "comt",// "2233 03-04-2018 07:18:08"
