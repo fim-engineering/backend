@@ -168,7 +168,7 @@
           $('#ktp_link').attr('src',data.profile.ktp_link);
           $('#institution').text(data. profile.institution);
           $('#majors').text(data. profile .majors);
-          $('#generation').text(data. profile .majors);
+          $('#generation').text(data. profile .generation);
 
           $('#phone').text(data. profile .phone);
           $('#email_ya').text(data. user .email);
