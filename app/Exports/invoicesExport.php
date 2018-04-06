@@ -105,6 +105,14 @@ class InvoicesExport implements FromCollection, WithHeadings
              'role_model_2',
              'role_model_3',
 
+             'cintakasih',
+             'integritas',
+             'totalitas',
+             'kebersahajaan',
+             'solidaritas',
+             'keadilan',
+             'keteladanan',
+             'achievement',
 
              'problem_solver',
              'problem_solver_2',
@@ -116,6 +124,8 @@ class InvoicesExport implements FromCollection, WithHeadings
 
 
            );
+
+
 
            return $members;
     }
@@ -180,6 +190,15 @@ class InvoicesExport implements FromCollection, WithHeadings
           'role_model',
           'role_model_2',
           'role_model_3',
+
+          'cintakasih',
+          'integritas',
+          'totalitas',
+          'kebersahajaan',
+          'solidaritas',
+          'keadilan',
+          'keteladanan',
+          'achievement',
 
 
           'problem_solver',
