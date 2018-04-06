@@ -168,8 +168,10 @@
           $('#ktp_link').attr('src',data.profile.ktp_link);
           $('#institution').text(data. profile.institution);
           $('#majors').text(data. profile .majors);
+          $('#generation').text(data. profile .majors);
+
           $('#phone').text(data. profile .phone);
-          $('#email_ya').text(data. profile .email);
+          $('#email_ya').text(data. user .email);
           $('#gender').text(data. profile .gender);
           $('#blood').text(data. profile .blood);
           $('#religion').text(data. profile .religion);
@@ -288,7 +290,7 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-md-4">
-            <img style="width:250px" id="photo_profile_link" class="img img-responsive" src="https://opensource.google.com/assets/static/images/home/blog/blog_image_1.jpg" alt="">
+            <img style="width:250px" id="photo_profile_link" class="img img-responsive" src="" alt="">
           </div>
           <div class="col-md-8">
             <h2 id="name">Name</h2>
@@ -297,28 +299,32 @@
                 Bogor
               </span>
             </h5>
-            <h5 id="institution">Institut Pertanian Bogor</h5>
-            <p class="grey" id="majors">Pendidikan Bahasa Arab</p>
+            <h5 id="institution">Kampus</h5>
+            <p class="grey" id="majors">Jurusan
+              (
+              <span id="generation">Angkatan</span>
+              )
+            </p>
             <table class="">
               <tr>
                 <td class="grey">Phone</td>
-                <td id="phone">085749599055</td>
+                <td id="phone"></td>
               </tr>
               <tr>
                 <td class="grey">email</td>
-                <td id="email_ya">dwiutamabagus@gmail.com</td>
+                <td id="email_ya"></td>
               </tr>
               <tr>
                 <td class="grey">Gender</td>
-                <td id="gender">Male</td>
+                <td id="gender"></td>
               </tr>
               <tr>
                 <td class="grey">Gol Darah</td>
-                <td id="blood">O</td>
+                <td id="blood"></td>
               </tr>
               <tr>
                 <td class="grey">Agama</td>
-                <td id="religion">Islam</td>
+                <td id="religion"></td>
               </tr>
 
             </table>
@@ -327,31 +333,31 @@
 
         <div class="row" style="margin-top:10px">
           <div class="col-md-6">
-            <img id="ktp_link" class="img img-responsive" style="width: 376px;" src="https://singowijaya.files.wordpress.com/2014/04/ktp.jpg" alt="">
+            <img id="ktp_link" class="img img-responsive" style="width: 376px;" src="" alt="">
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="">
-                <span id="facebook" class="input-group-addon">Facebook </span>
+                <input id="facebook" type="text" class="form-control" placeholder="">
+                <span  class="input-group-addon">Facebook </span>
               </div>
             </div>
             <div class="form-group">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="">
-                <span id="instagram" class="input-group-addon">Instagram </span>
+                <input id="instagram" type="text" class="form-control" placeholder="">
+                <span  class="input-group-addon">Instagram </span>
               </div>
             </div>
             <div class="form-group">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="">
-                <span id="blog" class="input-group-addon">Blog </span>
+                <input id="blog" type="text" class="form-control" placeholder="">
+                <span  class="input-group-addon">Blog </span>
               </div>
             </div>
             <div class="form-group">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="">
-                <span id="video_profile" class="input-group-addon">Video Profil </span>
+                <input id="video_profile" type="text" class="form-control" placeholder="">
+                <span  class="input-group-addon">Video Profil </span>
               </div>
             </div>
 
@@ -377,26 +383,26 @@
             <table class="table">
               <tr>
                 <td class="grey">Alamat</td>
-                <td id="address">Komplek Cetarip Barat, Jl Cetarip Tengah II No.51 RT 03 RW 09 Bojongloa Kaler, Kopo, Bandung</td>
+                <td id="address"></td>
               </tr>
               <tr>
                 <td class="grey">Kota</td>
-                <td id="city">Bandung</td>
+                <td id="city"></td>
               </tr>
               <tr>
                 <td class="grey">Tanggal Lahir</td>
                 <td>
                   <span id="born_city">
-                    Jombang
+
                   </span>
                   ,
                   <span id="born_date">
-                    16 Agustus 1993 (25 Tahun)</td>
                   </span>
+                </td>
               </tr>
               <tr>
                 <td class="grey">Riwayat Penyakit</td>
-                <td id="disease_history">Maag</td>
+                <td id="disease_history"></td>
               </tr>
             </table>
           </div>
@@ -405,7 +411,7 @@
 
         <div class="row text-center">
           <div class="col-md-12">
-            <h2>Kepribadian</h2>
+            <h2></h2>
           </div>
         </div>
         <div class="row">
@@ -416,24 +422,24 @@
                 <td class="grey">Performa Terbaik</td>
                 <td>(1 Kepengurusan | 2 Kepanitiaan | 3 Keduanya) =====>
                   <span id="best_performance_id">
-                    3
+
                   </span>
                 </td>
               </tr>
               <tr>
                 <td class="grey">Kekuatan</td>
-                <td id="strength">Mudah Bersosialisasi, Menerima Kritik dan Saran, Ber-Inisiatif</td>
+                <td id="strength"></td>
               </tr>
               <tr>
                 <td class="grey">Kelemahan</td>
-                <td id="weakness">Moody, Gugup ketika harus berbicara spontan di depan umum, Mudah nge-down ketika plan dirusak</td>
+                <td id="weakness"></td>
               </tr>
               <tr>
                 <td class="grey">Tokoh Idola</td>
                 <td>
-                  <span id="role_model">Anies Baswedan</span> ,
-                  <span id="role_model_2">Ridwan Kamil</span> ,
-                  <span id="role_model_3">Sudirman Said</span>
+                  <span id="role_model"></span> ,
+                  <span id="role_model_2"></span> ,
+                  <span id="role_model_3"></span>
                 </td>
               </tr>
 
@@ -441,14 +447,14 @@
               <tr>
                 <td class="grey">Problem menurut dia yang harus diselesaikan</td>
                 <td>
-                  <span id="problem_solver">Krisis Identitas</span> ,
-                  <span id="problem_solver_2">Degradasi Moral</span> ,
-                  <span id="problem_solver_3">Apatis</span> ,
+                  <span id="problem_solver"> </span> ,
+                  <span id="problem_solver_2"> </span> ,
+                  <span id="problem_solver_3"></span> ,
                 </td>
               </tr>
               <tr>
                 <td class="grey">MBTI</td>
-                <td id="mbti">ESFJ</td>
+                <td id="mbti"></td>
               </tr>
               <tr>
                 <td class="grey">5 Pilar Karakter</td>
@@ -458,27 +464,27 @@
                     </div>
                   </div>
                   <div class="progress" style="height: 30px;margin-top:10px">
-                    <div class="progress-bar bg-info" role="progressbar" id="integritas" style="width: 50%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">integritas
+                    <div class="progress-bar bg-info" role="progressbar" id="integritas" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">integritas
                     </div>
                   </div>
                   <div class="progress" style="height: 30px;margin-top:10px">
-                    <div class="progress-bar bg-primary" role="progressbar" id="totalitas" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">totalitas
+                    <div class="progress-bar bg-primary" role="progressbar" id="totalitas" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">totalitas
                     </div>
                   </div>
                   <div class="progress" style="height: 30px;margin-top:10px">
-                    <div class="progress-bar bg-warning" role="progressbar" id="kebersahajaan" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">kebersahajaan
+                    <div class="progress-bar bg-warning" role="progressbar" id="kebersahajaan" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">kebersahajaan
                     </div>
                   </div>
                   <div class="progress" style="height: 30px;margin-top:10px">
-                    <div class="progress-bar bg-dark" role="progressbar" id="solidaritas" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">solidaritas
+                    <div class="progress-bar bg-dark" role="progressbar" id="solidaritas" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">solidaritas
                     </div>
                   </div>
                   <div class="progress" style="height: 30px;margin-top:10px">
-                    <div class="progress-bar bg-danger" role="progressbar" id="keadilan" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">keadilan
+                    <div class="progress-bar bg-danger" role="progressbar" id="keadilan" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">keadilan
                     </div>
                   </div>
                   <div class="progress" style="height: 30px;margin-top:10px">
-                    <div class="progress-bar bg-info" role="progressbar" id="keteladanan" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">keteladanan
+                    <div class="progress-bar bg-info" role="progressbar" id="keteladanan" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">keteladanan
                     </div>
                   </div>
                 </td>
@@ -505,14 +511,14 @@
                 <td class="grey">Tanggal</td>
                 <td>
                   <span id="date_from">
-                    24 April 2017
+
                   </span>
                   -
                   <span id="date_end">
-                    25 April 2018 (Durasi : 1 tahun)
+
                   </span>
                   <span id="duration">
-                   (Durasi : 1 tahun)
+
                   </span>
                 </td>
               </tr>
@@ -522,11 +528,11 @@
               </tr>
               <tr>
                 <td class="grey">Email yang punya Organisasi</td>
-                <td id="email_leader">ajengsriiw@gmail.com</td>
+                <td id="email_leader"></td>
               </tr>
               <tr>
                 <td class="grey">Deskripsi</td>
-                <td id="description">Terpilih sebagai sekretaris bidang administrasi pada tahun pertama berorganisasi di BEM Keluarga Mahasiswa Bahasa Arab 2016</td>
+                <td id="description"></td>
               </tr>
               <tr>
                 <td colspan="2"><h4>Pencapaian 2</h4></td>
@@ -540,14 +546,14 @@
                 <td class="grey">Tanggal</td>
                 <td>
                   <span id="date_from_2">
-                    24 April 2017
+
                   </span>
                   -
                   <span id="date_end_2">
-                    25 April 2018 (Durasi : 1 tahun)
+
                   </span>
                   <span id="duration_2">
-                   (Durasi : 1 tahun)
+
                   </span>
                 </td>
               </tr>
@@ -557,11 +563,12 @@
               </tr>
               <tr>
                 <td class="grey">Email yang punya Organisasi</td>
-                <td id="email_leader_2">ajengsriiw@gmail.com</td>
+                <td id="email_leader_2"></td>
               </tr>
               <tr>
                 <td class="grey">Deskripsi</td>
-                <td id="description_2">Terpilih sebagai sekretaris bidang administrasi pada tahun pertama berorganisasi di BEM Keluarga Mahasiswa Bahasa Arab 2016</td>
+                <td id="description_2">
+                  </td>
               </tr>
 
               <tr>
@@ -572,14 +579,14 @@
                 <td class="grey">Tanggal</td>
                 <td>
                   <span id="date_from_3">
-                    24 April 2017
+
                   </span>
                   -
                   <span id="date_end_3">
-                    25 April 2018 (Durasi : 1 tahun)
+
                   </span>
                   <span id="duration_3">
-                   (Durasi : 1 tahun)
+
                   </span>
                 </td>
               </tr>
@@ -589,11 +596,11 @@
               </tr>
               <tr>
                 <td class="grey">Email yang punya Organisasi</td>
-                <td id="email_leader_3">ajengsriiw@gmail.com</td>
+                <td id="email_leader_3"></td>
               </tr>
               <tr>
                 <td class="grey">Deskripsi</td>
-                <td id="description_3">Terpilih sebagai sekretaris bidang administrasi pada tahun pertama berorganisasi di BEM Keluarga Mahasiswa Bahasa Arab 2016</td>
+                <td id="description_3"></td>
               </tr>
             </table>
           </div>
@@ -610,19 +617,19 @@
             <table class="table">
               <tr>
                 <td class="grey">Mengetahui FIM dari </td>
-                <td id="fim_reference">Teman</td>
+                <td id="fim_reference"></td>
               </tr>
               <tr>
                 <td class="grey">Alasan Gabung FIM</td>
-                <td id="why_join_fim">Sebaik-baik manusia adalah yang memberikan manfaat bagi orang lain. Saya ingin menjadi bagian dari FIM supaya keberadaan saya dapat memberikan manfaat bagi masyarakat, serta menginspirasi pemuda Indonesia untuk tidak takut untuk mengambil langkah besar yang akan mengubah Indonesia</td>
+                <td id="why_join_fim"></td>
               </tr>
               <tr>
                 <td class="grey">Kemampuan untuk FIM</td>
-                <td id="skill_for_fim">Desain Grafis, Fotografi, Mengolah data di bagian administrasi maupun kesekretariatan</td>
+                <td id="skill_for_fim"></td>
               </tr>
               <tr>
                 <td class="grey">Sumbangan untuk Api Ekspresi</td>
-                <td id="performance_apiekspresi">Kolaborasi Musik</td>
+                <td id="performance_apiekspresi"></td>
               </tr>
             </table>
           </div>
