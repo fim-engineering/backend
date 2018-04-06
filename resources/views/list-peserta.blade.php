@@ -168,7 +168,7 @@
           $('#ktp_link').attr('src',data.profile.ktp_link);
           $('#institution').text(data. profile.institution);
           $('#majors').text(data. profile .majors);
-          $('#generation').text(data. profile .generation);
+          $('#generation').text(data.profile.generation);
 
           $('#phone').text(data. profile .phone);
           $('#email_ya').text(data. user .email);
@@ -300,11 +300,11 @@
               </span>
             </h5>
             <h5 id="institution">Kampus</h5>
+
             <p class="grey" id="majors">Jurusan
-              (
-              <span id="generation">Angkatan</span>
-              )
             </p>
+            <p class="grey" id="generation">
+
             <table class="">
               <tr>
                 <td class="grey">Phone</td>
